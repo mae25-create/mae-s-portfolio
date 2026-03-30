@@ -14,6 +14,7 @@ import RetailAnalysisPage from "./pages/RetailAnalysisPage.tsx";
 import EnergyMonsterPage from "./pages/EnergyMonsterPage.tsx";
 import GoTAnalysisPage from "./pages/GoTAnalysisPage.tsx";
 import NestEdPage from "./pages/NestEdPage.tsx";
+import IntelApecPage from "./pages/IntelApecPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
               <Route path="/projects/data-analysis/energy-monster" element={<EnergyMonsterPage />} />
               <Route path="/projects/data-analysis/got-analysis" element={<GoTAnalysisPage />} />
               <Route path="/projects/ai-products/nested" element={<NestEdPage />} />
+              <Route path="/projects/data-analysis/intel-apec" element={<IntelApecPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
