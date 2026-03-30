@@ -22,12 +22,11 @@ const DetailedAbout = () => {
   const { t } = useLanguage();
 
   const funFacts = [
-    t("Born and raised in Shanghai, now based in San Francisco", "在上海出生长大，现居旧金山"),
-    t("Speaks Mandarin, English, and basic Japanese", "会说中文、英语和基础日语"),
-    t("Built 5+ AI products in the last year using Claude and GPT", "去年用Claude和GPT构建了5+个AI产品"),
-    t("Avid coffee enthusiast — always exploring new roasters", "咖啡爱好者——总在探索新的烘焙店"),
-    t("Loves hiking in the Bay Area on weekends", "周末喜欢在湾区徒步"),
-    t("Former debate team captain in college", "大学时期的辩论队队长"),
+    t("🐕 Corgi parent to a 3-year-old troublemaker", "🐕 三岁柯基的铲屎官"),
+    t("📲 Runs a Xiaohongshu channel teaching AI tools in Chinese", "📲 运营小红书频道，用中文教AI工具"),
+    t("☕ Coffee snob — currently rotating between Sightglass, Andytown, and home espresso", "☕ 咖啡控——目前轮换Sightglass、Andytown和家用意式"),
+    t("🥾 Weekend warrior hiking Bay Area trails", "🥾 周末湾区徒步爱好者"),
+    t("🍜 Food-first travel planner — museums second, local eats first", "🍜 美食优先的旅行者——博物馆其次，当地美食第一"),
   ];
 
   return (
