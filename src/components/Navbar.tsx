@@ -102,7 +102,7 @@ const Navbar = () => {
             )}
           </div>
 
-          {navLink("#experience", t("Experience", "经历"))}
+          {navLink("#experience", t("Work Experience", "经历"))}
           {navLink("#about", t("About", "关于"))}
           {navLink("#contact", t("Contact", "联系"))}
 
@@ -164,7 +164,7 @@ const Navbar = () => {
             {t("AI Products", "AI 产品")}
           </Link>
           <a href="#experience" onClick={() => setOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground">
-            {t("Experience", "经历")}
+            {t("Work Experience", "经历")}
           </a>
           <a href="#about" onClick={() => setOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground">
             {t("About", "关于")}
