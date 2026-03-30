@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useState, useEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 const allPhotos = [
   "/7f3a3d0b-72ab-45e4-a595-9d2d6a9a78ae.jpg",
@@ -10,8 +10,6 @@ const allPhotos = [
   "/b28dc0af-6c4a-4fd1-83bf-8f3bf8fdeaa1.png",
   "/14b8cd63-c43e-4973-970f-c3f925db71a0.png",
 ];
-
-const PHOTO_GAP_REM = 0.375; // gap-1.5 = 0.375rem
 
 const FilmPerforation = () => (
   <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#1A1A1A" }} />
@@ -31,19 +29,30 @@ const FilmBorder = () => (
 const DetailedAbout = () => {
   const { t } = useLanguage();
   const [activePhoto, setActivePhoto] = useState<number | null>(null);
-  const leftRef = useRef<HTMLDivElement>(null);
+  const leftContentRef = useRef<HTMLDivElement>(null);
   const [leftHeight, setLeftHeight] = useState<number | null>(null);
 
-  // Measure left column height
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const element = leftContentRef.current;
+    if (!element) return;
+
     const measure = () => {
-      if (leftRef.current) {
-        setLeftHeight(leftRef.current.offsetHeight);
-      }
+      setLeftHeight(element.getBoundingClientRect().height);
     };
+
     measure();
+
+    const observer = new ResizeObserver(() => {
+      measure();
+    });
+
+    observer.observe(element);
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, []);
 
   const funFacts = [
@@ -70,74 +79,71 @@ const DetailedAbout = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto">
-          {/* Left: Text + Fun Facts */}
+        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto items-start">
           <motion.div
-            ref={leftRef}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="md:col-span-3 space-y-5"
+            className="md:col-span-3"
           >
-            <p className="text-muted-foreground leading-relaxed">
-              {t(
-                "Growing up in one of China's first provinces to embrace economic reform, I watched international trade and technology reshape everything around me. That early exposure sparked a question I'm still exploring: how do products cross borders and cultures?",
-                "在中国最早拥抱经济改革的省份长大，我亲眼目睹了国际贸易和科技如何重塑周围的一切。那段早期经历引发了一个我至今仍在探索的问题：产品如何跨越国界和文化？"
-              )}
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              {t(
-                "After graduating from Nanjing University, I co-founded Brive Consulting to help Chinese SMEs expand globally while pursuing my Master's at Johns Hopkins SAIS. We worked with 70+ clients on market entry and localization—building partner networks, running cross-border roadshows, pivoting to digital engagement during COVID.",
-                "从南京大学毕业后，我在约翰霍普金斯大学SAIS攻读硕士期间联合创立了Brive Consulting，帮助中国中小企业走向全球。我们与70多家客户合作，涵盖市场进入和本地化——建立合作伙伴网络、举办跨境路演，并在疫情期间转向数字化运营。"
-              )}
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              {t(
-                "But I kept seeing the same gap: I could analyze markets, identify opportunities, and write the strategy decks. I just couldn't build the solutions myself. That realization led me to Shanghai Jinshan Capital, where I operated fund-of-funds and conducted due diligence on AI startups. I built data dashboards, extracted insights from messy datasets, and presented findings to investors making multi-million-dollar decisions. The work taught me to see patterns—but also reinforced what I was missing: the ability to ship.",
-                "但我不断看到同一个差距：我能分析市场、发现机会、撰写战略方案，却无法亲手构建解决方案。这个认知促使我加入上海金山资本，运营母基金并对AI初创企业进行尽职调查。我搭建数据看板，从杂乱的数据集中提取洞察，向做出数百万美元决策的投资人呈现分析结果。这份工作教会我识别模式——但也强化了我所欠缺的：将想法落地的能力。"
-              )}
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              {t(
-                "Today, I build at the intersection of data and product. I believe the best solutions come from understanding both the numbers and the humans behind them.",
-                "如今，我在数据与产品的交叉领域深耕。我相信最好的解决方案来自于同时理解数字和数字背后的人。"
-              )}
-            </p>
+            <div ref={leftContentRef} className="space-y-5">
+              <p className="text-muted-foreground leading-relaxed">
+                {t(
+                  "Growing up in one of China's first provinces to embrace economic reform, I watched international trade and technology reshape everything around me. That early exposure sparked a question I'm still exploring: how do products cross borders and cultures?",
+                  "在中国最早拥抱经济改革的省份长大，我亲眼目睹了国际贸易和科技如何重塑周围的一切。那段早期经历引发了一个我至今仍在探索的问题：产品如何跨越国界和文化？"
+                )}
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                {t(
+                  "After graduating from Nanjing University, I co-founded Brive Consulting to help Chinese SMEs expand globally while pursuing my Master's at Johns Hopkins SAIS. We worked with 70+ clients on market entry and localization—building partner networks, running cross-border roadshows, pivoting to digital engagement during COVID.",
+                  "从南京大学毕业后，我在约翰霍普金斯大学SAIS攻读硕士期间联合创立了Brive Consulting，帮助中国中小企业走向全球。我们与70多家客户合作，涵盖市场进入和本地化——建立合作伙伴网络、举办跨境路演，并在疫情期间转向数字化运营。"
+                )}
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                {t(
+                  "But I kept seeing the same gap: I could analyze markets, identify opportunities, and write the strategy decks. I just couldn't build the solutions myself. That realization led me to Shanghai Jinshan Capital, where I operated fund-of-funds and conducted due diligence on AI startups. I built data dashboards, extracted insights from messy datasets, and presented findings to investors making multi-million-dollar decisions. The work taught me to see patterns—but also reinforced what I was missing: the ability to ship.",
+                  "但我不断看到同一个差距：我能分析市场、发现机会、撰写战略方案，却无法亲手构建解决方案。这个认知促使我加入上海金山资本，运营母基金并对AI初创企业进行尽职调查。我搭建数据看板，从杂乱的数据集中提取洞察，向做出数百万美元决策的投资人呈现分析结果。这份工作教会我识别模式——但也强化了我所欠缺的：将想法落地的能力。"
+                )}
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                {t(
+                  "Today, I build at the intersection of data and product. I believe the best solutions come from understanding both the numbers and the humans behind them.",
+                  "如今，我在数据与产品的交叉领域深耕。我相信最好的解决方案来自于同时理解数字和数字背后的人。"
+                )}
+              </p>
 
-            {/* Fun Facts */}
-            <div className="pt-6 border-t border-border">
-              <h3 className="font-heading text-lg font-semibold mb-4">
-                {t("Fun Facts", "有趣的事")}
-              </h3>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-                {funFacts.map((fact, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                    <span className="text-primary mt-0.5 shrink-0">✦</span>
-                    {fact}
-                  </li>
-                ))}
-              </ul>
+              <div className="pt-6 border-t border-border">
+                <h3 className="font-heading text-lg font-semibold mb-4">
+                  {t("Fun Facts", "有趣的事")}
+                </h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                  {funFacts.map((fact, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                      <span className="text-primary mt-0.5 shrink-0">✦</span>
+                      {fact}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </motion.div>
 
-          {/* Right: Film Strip */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="md:col-span-2"
+            style={leftHeight ? { height: `${leftHeight}px` } : undefined}
           >
             <div
-              className="relative w-full rounded-sm overflow-hidden flex flex-col"
+              className="relative w-full h-full rounded-sm overflow-hidden"
               style={{
                 backgroundColor: "#2A2A2A",
                 padding: "1rem 0",
-                height: leftHeight ? `${leftHeight}px` : "auto",
               }}
             >
-              {/* Film grain overlay */}
               <div
                 className="absolute inset-0 z-20 pointer-events-none"
                 style={{
@@ -146,34 +152,28 @@ const DetailedAbout = () => {
                 }}
               />
 
-              {/* Top gradient fade */}
               <div
                 className="absolute top-0 left-0 right-0 h-6 z-20 pointer-events-none"
                 style={{ background: "linear-gradient(to bottom, #2A2A2A, transparent)" }}
               />
-              {/* Bottom gradient fade */}
               <div
                 className="absolute bottom-0 left-0 right-0 h-6 z-20 pointer-events-none"
                 style={{ background: "linear-gradient(to top, #2A2A2A, transparent)" }}
               />
 
-              {/* Left film border */}
               <div className="absolute left-0 top-0 bottom-0">
                 <FilmBorder />
               </div>
-              {/* Right film border */}
               <div className="absolute right-0 top-0 bottom-0">
                 <FilmBorder />
               </div>
 
-              {/* Photo frames — continuous vertical scroll */}
-              <div className="flex flex-col px-4 relative z-[5] flex-1 min-h-0 overflow-hidden">
+              <div className="h-full overflow-hidden px-4 relative z-[5]">
                 <motion.div
                   className="flex flex-col gap-1.5"
                   animate={{ y: ["0%", "-50%"] }}
                   transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
                 >
-                  {/* Duplicate photos for seamless loop */}
                   {[...allPhotos, ...allPhotos].map((src, i) => {
                     const globalIndex = i % allPhotos.length;
                     return (
@@ -216,9 +216,6 @@ const DetailedAbout = () => {
                 </motion.div>
               </div>
             </div>
-            <p className="text-xs text-muted-foreground text-center mt-3 font-mono">
-              {t("Nice to meet you!", "很高兴认识你！")}
-            </p>
           </motion.div>
         </div>
       </div>
