@@ -72,8 +72,8 @@ const Hero = () => {
               style={{ fontSize: "clamp(32px, 4.2vw, 56px)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-1px" }}
             >
               {t(
-                <>BUILDING WITH DATA.<br className="md:hidden" /> SHIPPING WITH AI.</>,
-                <>以数据洞察，<br className="md:hidden" />以AI交付。</>
+                <>BUILDING WITH DATA.<br /> SHIPPING WITH AI.</>,
+                <>以数据洞察，<br />以AI交付。</>
               )}
             </h1>
 
@@ -82,7 +82,7 @@ const Hero = () => {
                 href="#featured-projects"
                 className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-heading font-semibold text-lg text-primary-foreground bg-primary transition-all duration-300 hover:scale-[1.03] hover:bg-primary/90 shadow-lg"
               >
-                {t("View My Work", "查看我的作品")}
+                {t("View My Projects", "查看我的作品")}
                 <ArrowDown size={18} />
               </a>
               <a
