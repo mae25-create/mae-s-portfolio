@@ -19,8 +19,11 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Darker Grotesque"', '"LXGW WenKai"', 'sans-serif'],
-        body: ['"Plus Jakarta Sans"', '"LXGW WenKai"', 'sans-serif'],
+        heading: ['"Outfit"', '"LXGW WenKai"', 'sans-serif'],
+        body: ['"Inter"', '"LXGW WenKai"', 'sans-serif'],
+      },
+      maxWidth: {
+        content: "1200px",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -56,12 +59,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        gold: "hsl(var(--gold))",
-        teal: "hsl(var(--teal))",
-        coral: "hsl(var(--coral))",
-        navy: "hsl(var(--navy))",
-        "warm-cream": "hsl(var(--warm-cream))",
-        "warm-beige": "hsl(var(--warm-beige))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
