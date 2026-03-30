@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
+import lasVegasAirport from "@/assets/las-vegas-airport.jpeg";
 
 const Marquee = ({ text }: { text: string }) => (
   <div className="overflow-hidden py-3 bg-foreground">
@@ -23,13 +24,13 @@ const Marquee = ({ text }: { text: string }) => (
 
 const dataProjects = [
   {
-    title: "Venture Capital Portfolio Dashboard",
-    titleZh: "风险投资组合看板",
-    description: "Internal analytics dashboard tracking 50+ portfolio companies, integrating financial metrics, market signals, and competitive intelligence across 6 sectors.",
-    descriptionZh: "内部分析看板，追踪50+被投企业，整合财务指标、市场信号和竞争情报。",
-    tags: ["PYTHON", "SQL", "TABLEAU", "PANDAS"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    to: "/projects/data-analysis",
+    title: "LAS Flight Delay Prediction & Passenger Forecasting",
+    titleZh: "LAS航班延误预测与客流量预测",
+    description: "ML-driven classification model (XGBoost) to predict departure delays and SARIMA time-series model to forecast monthly passenger volumes at Harry Reid International Airport.",
+    descriptionZh: "基于XGBoost的机器学习分类模型预测出发延误，SARIMA时间序列模型预测哈里·里德国际机场月度客流量。",
+    tags: ["PYTHON", "XGBOOST", "SARIMA", "SQL", "PANDAS"],
+    image: lasVegasAirport,
+    to: "/projects/data-analysis/flight-delay",
   },
   {
     title: "Gen-Z Consumer Insights Analysis",

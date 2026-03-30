@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import lasVegasAirport from "@/assets/las-vegas-airport.jpeg";
 
 const dataProjects = [
   {
@@ -11,7 +12,7 @@ const dataProjects = [
     titleZh: "LAS航班延误预测与客流量预测",
     descriptionZh: "基于XGBoost的机器学习分类模型预测出发延误，SARIMA时间序列模型预测哈里·里德国际机场月度客流量。",
     tech: ["Python", "XGBoost", "SARIMA", "SQL", "Pandas"],
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=600&q=80",
+    image: lasVegasAirport,
     link: "/projects/data-analysis/flight-delay",
   },
   {
