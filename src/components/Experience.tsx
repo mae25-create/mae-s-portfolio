@@ -12,8 +12,9 @@ const Experience = () => {
       period: t("July 2021 – July 2024", "2021年7月 – 2024年7月"),
       location: t("Shanghai, China", "上海"),
       highlights: [
-        t("Led investment strategy and portfolio optimization for 3 Fund-of-Funds and direct investments across AI, renewable energy, and biotech. Partnered with C-suite executives and subsidiaries to define long-term objectives, allocate capital, and align deployment with corporate strategy and long-term growth.\nl \nConducted 15+ commercial due diligence projects using SQL and advanced financial modeling to evaluate market opportunities, providing critical insights that directly informed the investment committee's decisions.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "领导了3支母基金及AI、新能源、生物技术领域直投项目的投资策略和投后管理。与高管及子公司合作确定长期目标、分配资本，并使投资布局与公司战略及长期增长保持一致。"),
-        t("\n\nl  Conducted 15+ commercial due diligence projects using SQL and advanced financial modeling to evaluate market opportunities, providing critical insights that directly informed the investment committee's decisions.\n\n Built and maintained real-time risk assessment dashboards in Python and Tableau, improving fund allocation efficiency by 20% and enabling faster, data-transparent strategic choices.\n\nl  Designed a standardized reporting system that consolidated data from 35+ subsidiaries across 17 departments, enhancing cross-functional alignment and accelerating monthly reporting speed by 30%.", "为AI和消费科技领域的A/B轮投资进行尽职调查"),
+        t("Conducted 15+ commercial due diligence projects on AI and renewable energy startups, using SQL and financial modeling to evaluate market opportunities and inform investment decisions", "对AI和新能源初创企业进行了15+商业尽职调查项目，使用SQL和财务建模评估市场机会并为投资决策提供信息"),
+        t("Built a standardized reporting system consolidating data from 35+ subsidiaries, improving cross-functional alignment and accelerating monthly reporting by 30%", "构建了一个标准化报告系统，整合35+子公司数据，改善跨职能协作并将月度报告速度提升30%"),
+        t("Deployed analytical dashboards and enhanced data workflows, integrating tools into internal systems and driving 15% operational efficiency gains", "部署分析仪表板并优化数据工作流，将工具集成到内部系统中，推动运营效率提升15%"),
       ],
     },
     {
@@ -22,8 +23,9 @@ const Experience = () => {
       period: t("Feb 2019 – Jun 2021", "2019年2月 – 2021年6月"),
       location: t("Hybrid", "远程/混合"),
       highlights: [
-        t("Designed GTM strategy for a $2M ARR SaaS product targeting SMB market", "为一款年收入200万美元的SaaS产品设计进入中小企业市场的策略"),
-        t("Led cross-functional workshops with 15+ stakeholders across 3 time zones", "领导跨3个时区、15+利益相关者的跨职能研讨会"),
+        t("Led GTM and localization strategies for 70+ SME clients expanding into APAC and LATAM markets, focusing on e-commerce and manufacturing sectors", "为70+中小企业客户制定进入亚太和拉美市场的GTM和本地化策略，专注于电商和制造业"),
+        t("Managed a 13-member cross-functional team to secure partnerships with local legal, financial, and distribution partners, improving client market entry success rates by 25%", "管理13人跨职能团队，与当地法律、财务和分销合作伙伴建立合作关系，将客户市场进入成功率提升25%"),
+        t("Designed KPI dashboards to track post-expansion performance, contributing to an 18% increase in client retention through data-driven optimization", "设计KPI仪表板追踪扩展后的业绩表现，通过数据驱动优化将客户留存率提升18%"),
       ],
     },
     {
@@ -32,18 +34,20 @@ const Experience = () => {
       period: t("Jun 2020 – Apr 2020", "2020年6月 – 2020年4月"),
       location: t("Shanghai, China", "上海"),
       highlights: [
-        t("Analyzed 10K+ data points to identify Gen-Z consumption patterns", "分析10,000+数据点识别Z世代消费趋势"),
-        t("Delivered go-to-market recommendations adopted by regional marketing team", "提交的市场策略建议被区域营销团队采纳"),
+        t("Performed consumer insights analysis and market research for new beverage product launches, producing strategic reports to inform GTM decisions", "进行消费者洞察分析和市场研究，为新饮品产品发布制定战略报告以指导GTM决策"),
+        t("Executed financial scenario modeling across distribution channels, identifying opportunities for 15% revenue growth", "对各分销渠道进行财务情景建模，发现15%收入增长机会"),
+        t("Collaborated with cross-functional teams to refine product-market fit ahead of the company's IPO", "与跨职能团队合作，在公司IPO前优化产品市场契合度"),
       ],
     },
     {
-      company: t("CICC (China International Capital Corp)", "中金公司"),
+      company: t("China International Capital Corporation (CICC)", "中金公司"),
       role: t("Data Analyst Intern", "数据分析实习生"),
       period: t("July 2019 – Dec 2019", "2019年7月 – 2019年12月"),
       location: t("Beijing, China", "北京"),
       highlights: [
-        t("Supported IPO and M&A projects with combined deal value of $500M+", "参与总交易金额超5亿美元的IPO及并购项目"),
-        t("Built financial models and industry reports for TMT sector deals", "为TMT行业交易构建财务模型和行业研究报告"),
+        t("Developed 18+ interactive Tableau dashboards for HR analytics and knowledge management, providing synthesized insights for executive decision-making", "开发18+交互式Tableau仪表板用于HR分析和知识管理，为高管决策提供综合洞察"),
+        t("Automated reporting workflows with SQL and Excel macros, reducing manual reporting time by 50%", "使用SQL和Excel宏自动化报告流程，将手动报告时间减少50%"),
+        t("Built and maintained a 50,000-entry alumni database, improving engagement tracking accuracy by 40%", "构建并维护50,000条记录的校友数据库，将参与度追踪准确率提升40%"),
       ],
     },
   ];
