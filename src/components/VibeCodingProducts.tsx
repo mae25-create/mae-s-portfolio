@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Marquee = ({ text }: { text: string }) => (
-  <div className="overflow-hidden py-3" style={{ background: "#000" }}>
+  <div className="overflow-hidden py-3 bg-foreground">
     <motion.div
       className="flex whitespace-nowrap"
       animate={{ x: ["0%", "-50%"] }}
@@ -11,8 +11,7 @@ const Marquee = ({ text }: { text: string }) => (
       {[...Array(4)].map((_, i) => (
         <span
           key={i}
-          className="font-heading text-xl md:text-2xl font-black uppercase tracking-wider mx-8"
-          style={{ color: "#CDDC39" }}
+          className="font-heading text-xl md:text-2xl font-black uppercase tracking-wider mx-8 text-primary"
         >
           {text} •&nbsp;&nbsp;
         </span>

@@ -3,7 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 
 const Marquee = ({ text }: { text: string }) => (
-  <div className="overflow-hidden py-3" style={{ background: "#000" }}>
+  <div className="overflow-hidden py-3 bg-foreground">
     <motion.div
       className="flex whitespace-nowrap"
       animate={{ x: ["0%", "-50%"] }}
@@ -12,8 +12,7 @@ const Marquee = ({ text }: { text: string }) => (
       {[...Array(4)].map((_, i) => (
         <span
           key={i}
-          className="font-heading text-xl md:text-2xl font-black uppercase tracking-wider mx-8"
-          style={{ color: "#CDDC39" }}
+          className="font-heading text-xl md:text-2xl font-black uppercase tracking-wider mx-8 text-primary"
         >
           {text} •&nbsp;&nbsp;
         </span>
@@ -96,11 +95,10 @@ const FeaturedProjects = () => {
             >
               <Link
                 to={project.to}
-                className="group grid md:grid-cols-2 gap-0 rounded-xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
-                style={{ background: "white" }}
+                className="group grid md:grid-cols-2 gap-0 rounded-xl overflow-hidden border border-border bg-card hover:border-primary/30 hover:shadow-lg transition-all duration-300"
               >
                 {/* Image */}
-                <div className="h-[240px] md:h-[320px] overflow-hidden" style={{ background: "#F5EBE8" }}>
+                <div className="h-[240px] md:h-[320px] overflow-hidden bg-muted">
                   <img
                     src={project.image}
                     alt={t(project.title, project.titleZh)}
@@ -114,8 +112,7 @@ const FeaturedProjects = () => {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs font-mono font-medium tracking-wider"
-                        style={{ color: "#666" }}
+                        className="text-xs font-mono font-medium tracking-wider text-muted-foreground"
                       >
                         {tag}
                         {tag !== project.tags[project.tags.length - 1] && (
@@ -125,18 +122,15 @@ const FeaturedProjects = () => {
                     ))}
                   </div>
                   <h3
-                    className="font-heading text-2xl md:text-3xl font-black uppercase mb-4"
-                    style={{ color: "#000", lineHeight: 1.1 }}
+                    className="font-heading text-2xl md:text-3xl font-black uppercase mb-4 text-foreground"
+                    style={{ lineHeight: 1.1 }}
                   >
                     {t(project.title, project.titleZh)}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                     {t(project.description, project.descriptionZh)}
                   </p>
-                  <span
-                    className="text-sm font-mono font-semibold uppercase tracking-wider group-hover:underline"
-                    style={{ color: "#000" }}
-                  >
+                  <span className="text-sm font-mono font-semibold uppercase tracking-wider text-foreground group-hover:underline">
                     {t("VIEW CASE STUDY", "查看案例研究")}
                   </span>
                 </div>

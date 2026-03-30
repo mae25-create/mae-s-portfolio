@@ -10,10 +10,9 @@ const floatAnimation = (delay: number, duration: number, y: number) => ({
 
 const Highlight = ({ children, color = "yellow" }: { children: React.ReactNode; color?: "yellow" | "green" }) => (
   <span
-    className="px-1 rounded"
-    style={{
-      background: color === "yellow" ? "rgba(255, 255, 0, 0.3)" : "rgba(205, 220, 57, 0.4)",
-    }}
+    className={`px-1 rounded ${
+      color === "yellow" ? "bg-primary/20" : "bg-accent/20"
+    }`}
   >
     {children}
   </span>
@@ -29,14 +28,14 @@ const Hero = () => {
   ];
 
   const decorativeIcons = [
-    { icon: BarChart3, bg: "#1B4B5A", shadow: "rgba(27, 75, 90, 0.3)", delay: 0, size: 56, pos: "top-[-20px] left-[-30px]" },
-    { icon: Code2, bg: "#FF8225", shadow: "rgba(255, 130, 37, 0.3)", delay: 0.3, size: 48, pos: "top-[10px] right-[-25px]" },
-    { icon: Globe, bg: "#B85A5A", shadow: "rgba(184, 90, 90, 0.3)", delay: 0.6, size: 44, pos: "bottom-[40px] left-[-35px]" },
-    { icon: Sparkles, bg: "white", shadow: "rgba(255, 130, 37, 0.2)", delay: 0.9, outline: true, size: 40, pos: "bottom-[20px] right-[-20px]" },
+    { icon: BarChart3, variant: "secondary" as const, delay: 0, size: 56, pos: "top-[-20px] left-[-30px]" },
+    { icon: Code2, variant: "primary" as const, delay: 0.3, size: 48, pos: "top-[10px] right-[-25px]" },
+    { icon: Globe, variant: "destructive" as const, delay: 0.6, size: 44, pos: "bottom-[40px] left-[-35px]" },
+    { icon: Sparkles, variant: "outline" as const, delay: 0.9, size: 40, pos: "bottom-[20px] right-[-20px]" },
   ];
 
   return (
-    <section className="relative overflow-hidden" style={{ background: "#FFF8F0", minHeight: "90vh" }}>
+    <section className="relative overflow-hidden bg-background" style={{ minHeight: "90vh" }}>
       <div className="max-w-[1200px] mx-auto px-6 md:px-[60px] pt-28 md:pt-36 pb-10 md:pb-20">
         {/* TWO COLUMN LAYOUT */}
         <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
@@ -48,7 +47,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
           >
             {/* Small intro */}
-            <p className="text-lg mb-6 leading-relaxed" style={{ color: "#2A2A2A" }}>
+            <p className="text-lg mb-6 leading-relaxed text-foreground">
               {t(
                 <>
                   Hi there! I'm Mae, a data analyst with{" "}
@@ -65,14 +64,12 @@ const Hero = () => {
 
             {/* MASSIVE HEADLINE */}
             <h1
-              className="font-heading uppercase mb-8"
+              className="font-heading uppercase mb-8 text-foreground"
               style={{
                 fontSize: "clamp(36px, 6vw, 72px)",
                 fontWeight: 900,
-                color: "#000000",
                 lineHeight: 1.05,
                 letterSpacing: "-1px",
-                textShadow: "2px 2px 0px rgba(255, 130, 37, 0.2)",
               }}
             >
               {t(
@@ -92,7 +89,7 @@ const Hero = () => {
             </h1>
 
             {/* Description */}
-            <p className="text-lg leading-[1.7] mb-10 max-w-[550px]" style={{ color: "#6B6B6B" }}>
+            <p className="text-lg leading-[1.7] mb-10 max-w-[550px] text-muted-foreground">
               {t(
                 <>
                   Data analyst turned AI product builder. I spent{" "}
@@ -113,32 +110,14 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row items-start gap-4 mb-8">
               <a
                 href="#featured-projects"
-                className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-heading font-semibold text-lg text-white transition-all duration-300 hover:scale-[1.03]"
-                style={{
-                  background: "#FF8225",
-                  boxShadow: "0 6px 20px rgba(255, 130, 37, 0.4)",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "#E67320")}
-                onMouseLeave={(e) => (e.currentTarget.style.background = "#FF8225")}
+                className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-heading font-semibold text-lg text-primary-foreground bg-primary transition-all duration-300 hover:scale-[1.03] hover:bg-primary/90 shadow-lg"
               >
                 {t("View My Work", "查看我的作品")}
                 <ArrowDown size={18} />
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-9 py-[14px] rounded-xl font-heading font-semibold text-lg bg-transparent transition-all duration-300"
-                style={{
-                  color: "#1B4B5A",
-                  border: "3px solid #1B4B5A",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#1B4B5A";
-                  e.currentTarget.style.color = "white";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "#1B4B5A";
-                }}
+                className="inline-flex items-center gap-2 px-9 py-[14px] rounded-xl font-heading font-semibold text-lg bg-transparent text-secondary border-[3px] border-secondary transition-all duration-300 hover:bg-secondary hover:text-secondary-foreground"
               >
                 {t("Download Resume", "下载简历")}
               </a>
@@ -155,14 +134,12 @@ const Hero = () => {
           >
             {/* Decorative blob behind photo */}
             <div
-              className="absolute rounded-3xl"
+              className="absolute rounded-3xl bg-primary/15"
               style={{
                 width: "110%",
                 height: "90%",
                 top: "5%",
                 left: "-5%",
-                background: "linear-gradient(135deg, #FF8225 0%, #FFB574 100%)",
-                opacity: 0.15,
                 transform: "rotate(-3deg)",
               }}
             />
@@ -179,8 +156,7 @@ const Hero = () => {
               />
               {/* Name badge */}
               <motion.div
-                className="absolute -top-3 -right-3 z-20 px-4 py-1.5 rounded-full font-heading font-bold text-sm text-white"
-                style={{ background: "#1B4B5A" }}
+                className="absolute -top-3 -right-3 z-20 px-4 py-1.5 rounded-full font-heading font-bold text-sm text-secondary-foreground bg-secondary"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.5, type: "spring" }}
@@ -190,41 +166,40 @@ const Hero = () => {
             </div>
 
             {/* Floating icon badges around photo */}
-            {decorativeIcons.map(({ icon: Icon, bg, shadow, delay, outline, size, pos }, i) => (
+            {decorativeIcons.map(({ icon: Icon, variant, delay, size, pos }, i) => (
               <motion.div
                 key={i}
-                className={`absolute ${pos} flex items-center justify-center rounded-xl z-20`}
-                style={{
-                  width: size,
-                  height: size,
-                  background: bg,
-                  border: outline ? "3px solid #FF8225" : "none",
-                  boxShadow: `0 6px 18px ${shadow}`,
-                }}
+                className={`absolute ${pos} flex items-center justify-center rounded-xl z-20 ${
+                  variant === "primary" ? "bg-primary shadow-primary/30" :
+                  variant === "secondary" ? "bg-secondary shadow-secondary/30" :
+                  variant === "destructive" ? "bg-destructive shadow-destructive/30" :
+                  "bg-card border-[3px] border-primary shadow-primary/20"
+                } shadow-lg`}
+                style={{ width: size, height: size }}
                 animate={floatAnimation(delay, 2.5 + i * 0.3, 6)}
               >
-                <Icon size={size * 0.45} color={outline ? "#FF8225" : "white"} />
+                <Icon
+                  size={size * 0.45}
+                  className={variant === "outline" ? "text-primary" : "text-primary-foreground"}
+                />
               </motion.div>
             ))}
 
             {/* Floating text badges */}
             <motion.span
-              className="absolute top-[-10px] left-[40%] z-20 px-3 py-1.5 rounded-full text-xs font-bold text-white"
-              style={{ background: "#1B4B5A", boxShadow: "0 4px 12px rgba(27,75,90,0.3)" }}
+              className="absolute top-[-10px] left-[40%] z-20 px-3 py-1.5 rounded-full text-xs font-bold text-secondary-foreground bg-secondary shadow-lg"
               animate={floatAnimation(0.2, 3, 5)}
             >
               Python & SQL
             </motion.span>
             <motion.span
-              className="absolute bottom-[-5px] right-[5%] z-20 px-3 py-1.5 rounded-full text-xs font-bold text-white"
-              style={{ background: "#FF8225", boxShadow: "0 4px 12px rgba(255,130,37,0.3)" }}
+              className="absolute bottom-[-5px] right-[5%] z-20 px-3 py-1.5 rounded-full text-xs font-bold text-primary-foreground bg-primary shadow-lg"
               animate={floatAnimation(0.5, 2.8, 4)}
             >
               Vibe Coding
             </motion.span>
             <motion.span
-              className="absolute bottom-[60px] left-[-40px] z-20 px-3 py-1.5 rounded-full text-xs font-bold text-white"
-              style={{ background: "#B85A5A", boxShadow: "0 4px 12px rgba(184,90,90,0.3)" }}
+              className="absolute bottom-[60px] left-[-40px] z-20 px-3 py-1.5 rounded-full text-xs font-bold text-destructive-foreground bg-destructive shadow-lg"
               animate={floatAnimation(0.8, 3.2, 5)}
             >
               MBA
@@ -239,10 +214,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md transition-all duration-200 hover:scale-110"
-                  style={{ color: "#1B4B5A" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#FF8225")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#1B4B5A")}
+                  className="flex items-center justify-center w-10 h-10 rounded-full bg-card shadow-md transition-all duration-200 hover:scale-110 text-secondary hover:text-primary"
                 >
                   <Icon size={20} />
                 </a>
