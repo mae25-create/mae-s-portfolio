@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import lasVegasAirport from "@/assets/las-vegas-airport.jpeg";
 import cardinalsImg from "@/assets/cardinals-cover.png";
 import energyMonsterImg from "@/assets/energy-monster-cover.png";
+import gotCover from "@/assets/got-vs-hotd-cover.jpg";
 
 const dataProjects = [
   {
@@ -43,6 +44,15 @@ const dataProjects = [
     tech: ["Market Analysis", "TAM Estimation", "GTM Strategy"],
     image: energyMonsterImg,
     link: "/projects/data-analysis/energy-monster",
+  },
+  {
+    title: "Game of Thrones vs. House of the Dragon — TV Data Analysis",
+    description: "Visual analysis comparing two iconic HBO fantasy series using IMDb ratings, episode runtimes, cast data, and award nominations — presented as an interactive Tableau dashboard.",
+    titleZh: "权力的游戏 vs. 龙之家族 — 电视数据分析",
+    descriptionZh: "使用IMDb评分、剧集时长、演员数据和奖项提名，对比两部HBO标志性奇幻剧集的可视化分析——以Tableau交互式仪表板呈现。",
+    tech: ["Tableau", "IMDb Data", "Data Visualization"],
+    image: gotCover,
+    link: "/projects/data-analysis/got-analysis",
   },
 ];
 
