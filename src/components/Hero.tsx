@@ -148,21 +148,19 @@ const Hero = () => {
 
           {/* DESCRIPTION — full width row 2 */}
           <motion.div
-            className="order-3 md:[grid-column:1/-1] md:[grid-row:2] md:mx-auto md:text-center max-w-[900px]"
+            className="order-3 md:[grid-column:1/-1] md:[grid-row:2] max-w-[900px] mx-auto text-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="text-lg leading-[1.8] text-muted-foreground space-y-4">
+            <div className="text-lg leading-[1.7] text-muted-foreground space-y-6">
               {t(
                 <>
-                  <p>I spent years in investment and strategy consulting, analyzing deals across markets and advising SMEs on global expansion.</p>
-                  <p>I learned to extract insights from complex data and translate them into growth strategies.</p>
+                  <p>I spent years in investment and strategy consulting, analyzing deals across markets and advising SMEs on global expansion. I learned to extract insights from complex data and translate them into growth strategies.</p>
                   <p>Now I do both: analyze what matters, build what works. Bilingual (EN/CN), bridging data and product, East and West.</p>
                 </>,
                 <>
-                  <p>我在投资和战略咨询领域工作多年，分析跨市场交易，为中小企业提供全球扩张建议。</p>
-                  <p>我学会了从复杂数据中提取洞察，并将其转化为增长策略。</p>
+                  <p>我在投资和战略咨询领域工作多年，分析跨市场交易，为中小企业提供全球扩张建议。我学会了从复杂数据中提取洞察，并将其转化为增长策略。</p>
                   <p>现在我兼顾两者：分析关键问题，构建有效方案。双语（中英），连接数据与产品，东方与西方。</p>
                 </>
               )}
@@ -170,6 +168,21 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Floating scroll indicator */}
+      <motion.a
+        href="#featured-projects"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center w-12 h-12 rounded-full bg-card border-2 border-primary cursor-pointer transition-transform duration-200 hover:scale-110"
+        style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        onClick={(e) => {
+          e.preventDefault();
+          document.querySelector("#featured-projects")?.scrollIntoView({ behavior: "smooth" });
+        }}
+      >
+        <ChevronDown size={24} className="text-primary" />
+      </motion.a>
     </section>
   );
 };
