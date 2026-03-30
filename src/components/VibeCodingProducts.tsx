@@ -82,8 +82,8 @@ const VibeCodingProducts = () => {
       {/* Marquee Banner */}
       <Marquee
         text={t(
-          "SKETCHES • PROTOTYPES • VIBE CODING • EXPERIMENTS",
-          "草图 • 原型 • VIBE CODING • 实验"
+          "SKETCHES • PROTOTYPES • VIBE CODING • PRODUCTS",
+          "草图 • 原型 • VIBE CODING • 产品"
         )}
       />
 
@@ -96,12 +96,12 @@ const VibeCodingProducts = () => {
           className="mb-12"
         >
           <h2 className="font-heading text-3xl md:text-4xl font-semibold mb-4">
-            {t("Vibe Coding Products", "Vibe Coding 产品")}
+            {t("AI Products", "AI 产品")}
           </h2>
           <p className="text-muted-foreground max-w-lg">
             {t(
-              "A collection of rapid prototypes, code sketches, and visual experiments.",
-              "一系列快速原型、代码草图和视觉实验。"
+              "A collection of rapid prototypes, vibe coding products, and visual experiments.",
+              "一系列快速原型、vibe coding 产品和视觉实验。"
             )}
           </p>
         </motion.div>
