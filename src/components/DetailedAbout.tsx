@@ -71,25 +71,25 @@ const DetailedAbout = () => {
             <p className="text-muted-foreground leading-relaxed">
               {t(
                 "Growing up in one of China's first provinces to embrace economic reform, I watched international trade and technology reshape everything around me. That early exposure sparked a question I'm still exploring: how do products cross borders and cultures?",
-                "在上海长大让我亲眼见证了中国的科技革命。在南京大学获得学位后，我来到美国，在约翰霍普金斯SAIS攻读研究生，之后在Hult国际商学院攻读MBA。"
+                "在中国最早拥抱经济改革的省份长大，我亲眼目睹了国际贸易和科技如何重塑周围的一切。那段早期经历引发了一个我至今仍在探索的问题：产品如何跨越国界和文化？"
               )}
             </p>
             <p className="text-muted-foreground leading-relaxed">
               {t(
                 "After graduating from Nanjing University, I co-founded Brive Consulting to help Chinese SMEs expand globally while pursuing my Master's at Johns Hopkins SAIS. We worked with 70+ clients on market entry and localization—building partner networks, running cross-border roadshows, pivoting to digital engagement during COVID.",
-                "我的职业生涯始于中金公司的投资银行部门，参与了总额超过5亿美元的IPO及并购交易。这让我深入理解了财务建模和市场动态。之后我进入小米生态链旗下的金山资本从事风险投资，搭建数据看板并对AI初创企业进行尽职调查。"
+                "从南京大学毕业后，我在约翰霍普金斯大学SAIS攻读硕士期间联合创立了Brive Consulting，帮助中国中小企业走向全球。我们与70多家客户合作，涵盖市场进入和本地化——建立合作伙伴网络、举办跨境路演，并在疫情期间转向数字化运营。"
               )}
             </p>
             <p className="text-muted-foreground leading-relaxed">
               {t(
                 "But I kept seeing the same gap: I could analyze markets, identify opportunities, and write the strategy decks. I just couldn't build the solutions myself. That realization led me to Shanghai Jinshan Capital, where I operated fund-of-funds and conducted due diligence on AI startups. I built data dashboards, extracted insights from messy datasets, and presented findings to investors making multi-million-dollar decisions. The work taught me to see patterns—but also reinforced what I was missing: the ability to ship.",
-                "如今，我专注于数据分析和AI产品开发的交叉领域。我正在构建Avanti——一个面向内容创作者的AI工具，同时也在创作关于AI和数据分析的教育内容。我相信最好的产品来自于对数据和用户的双重理解。"
+                "但我不断看到同一个差距：我能分析市场、发现机会、撰写战略方案，却无法亲手构建解决方案。这个认知促使我加入上海金山资本，运营母基金并对AI初创企业进行尽职调查。我搭建数据看板，从杂乱的数据集中提取洞察，向做出数百万美元决策的投资人呈现分析结果。这份工作教会我识别模式——但也强化了我所欠缺的：将想法落地的能力。"
               )}
             </p>
             <p className="text-muted-foreground leading-relaxed">
               {t(
                 "Today, I build at the intersection of data and product. I believe the best solutions come from understanding both the numbers and the humans behind them.",
-                "我的独特之处在于能够连接东西方——无论是文化、语言还是专业领域。无论是用Python分析数据集还是用中文向利益相关者汇报，我始终保持同样的严谨和好奇心。"
+                "如今，我在数据与产品的交叉领域深耕。我相信最好的解决方案来自于同时理解数字和数字背后的人。"
               )}
             </p>
 
