@@ -28,7 +28,7 @@ const Hero = () => {
             </p>
 
             {/* Massive Headline */}
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-[72px] font-bold text-foreground mb-6 leading-[1.1] whitespace-pre-line">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-[72px] font-bold mb-6 leading-[1.1] whitespace-pre-line" style={{ color: '#F5EBE8' }}>
               {t(
                 "Building with data.\nShipping with AI.",
                 "以数据构建。\n以AI交付。"
