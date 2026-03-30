@@ -6,12 +6,13 @@ import Navbar from "@/components/Navbar";
 
 const dataProjects = [
   {
-    title: "Venture Capital Portfolio Dashboard",
-    description: "Internal analytics dashboard tracking 50+ portfolio companies, integrating financial metrics, market signals, and competitive intelligence across 6 sectors.",
-    titleZh: "风险投资组合看板",
-    descriptionZh: "内部分析看板，追踪50+被投企业，整合财务指标、市场信号和竞争情报。",
-    tech: ["Python", "SQL", "Tableau", "Pandas"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+    title: "LAS Flight Delay Prediction & Passenger Forecasting",
+    description: "ML-driven classification model (XGBoost) to predict departure delays and SARIMA time-series model to forecast monthly passenger volumes at Harry Reid International Airport.",
+    titleZh: "LAS航班延误预测与客流量预测",
+    descriptionZh: "基于XGBoost的机器学习分类模型预测出发延误，SARIMA时间序列模型预测哈里·里德国际机场月度客流量。",
+    tech: ["Python", "XGBoost", "SARIMA", "SQL", "Pandas"],
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=600&q=80",
+    link: "/projects/data-analysis/flight-delay",
   },
   {
     title: "Gen-Z Consumer Insights Analysis",
@@ -98,9 +99,15 @@ const DataAnalysisPage = () => {
                     </span>
                   ))}
                 </div>
-                <button className="text-sm font-medium text-primary hover:underline transition-colors">
-                  {t("View Details →", "查看详情 →")}
-                </button>
+                {project.link ? (
+                  <Link to={project.link} className="text-sm font-medium text-primary hover:underline transition-colors">
+                    {t("View Details →", "查看详情 →")}
+                  </Link>
+                ) : (
+                  <span className="text-sm font-medium text-muted-foreground">
+                    {t("Coming Soon", "即将推出")}
+                  </span>
+                )}
               </div>
             </motion.div>
           ))}
