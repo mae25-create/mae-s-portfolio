@@ -111,9 +111,9 @@ const Navbar = () => {
             )}
           </div>
 
-          {navLink("#experience", t("Work Experience", "经历"))}
-          {navLink("#about", t("About", "关于"))}
-          {navLink("#contact", t("Contact", "联系"))}
+          {navLink("#experience", t("Work Experience", "工作经历"))}
+          {navLink("#about", t("About", "关于我"))}
+          {navLink("#contact", t("Contact", "联系我"))}
 
           {/* Language toggle */}
           <button
