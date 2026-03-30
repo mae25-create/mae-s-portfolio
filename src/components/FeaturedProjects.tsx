@@ -43,13 +43,13 @@ const dataProjects = [
     to: "/projects/data-analysis/nfl-draft",
   },
   {
-    title: "SaaS GTM Strategy Model",
-    titleZh: "SaaS市场进入策略模型",
-    description: "Go-to-market strategy and financial model for a $2M ARR SaaS product, covering pricing optimization, channel strategy, and SMB market segmentation.",
-    descriptionZh: "为年收入200万美元的SaaS产品建立GTM策略和财务模型。",
-    tags: ["EXCEL", "SQL", "TABLEAU"],
+    title: "Retail Product Market Report",
+    titleZh: "零售产品市场报告",
+    description: "Comprehensive evaluation of 1.39M+ retail products using BigQuery SQL and Python, analyzing sales performance, customer engagement, and market segmentation.",
+    descriptionZh: "使用BigQuery SQL和Python对139万+零售产品进行全面评估，分析销售表现、客户参与度和市场细分。",
+    tags: ["BIGQUERY SQL", "PYTHON", "GOOGLE COLAB", "VANNA.AI"],
     image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80",
-    to: "/projects/data-analysis",
+    to: "/projects/data-analysis/retail-analysis",
   },
 ];
 
