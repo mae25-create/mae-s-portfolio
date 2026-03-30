@@ -3,12 +3,12 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useEffect, useRef, useCallback } from "react";
 
 const allPhotos = [
-  "/1749c2b4-6fda-42ec-a7c5-ea335af09c28.jpg",
+  "/7f3a3d0b-72ab-45e4-a595-9d2d6a9a78ae.jpg",
   "/4880bb82-4e87-426a-ab79-bab6b4ea4504.jpg",
   "/f6af3d19-4c0e-4b16-ad0f-1a887013517d.png",
   "/a91b7e83-5d7f-404e-9a0f-587711142c7d.png",
   "/b28dc0af-6c4a-4fd1-83bf-8f3bf8fdeaa1.png",
-  "/1749c2b4-6fda-42ec-a7c5-ea335af09c28.jpg",
+  "/14b8cd63-c43e-4973-970f-c3f925db71a0.png",
 ];
 
 const VISIBLE_COUNT = 4;
@@ -69,9 +69,9 @@ const DetailedAbout = () => {
   const funFacts = [
     t("🐕 Corgi parent to a 3-year-old troublemaker", "🐕 三岁柯基的铲屎官"),
     t("📲 Runs a Xiaohongshu channel teaching AI tools in Chinese", "📲 运营小红书频道，用中文教AI工具"),
-    t("☕ Coffee snob — currently rotating between Sightglass, Andytown, and home espresso", "☕ 咖啡控——目前轮换Sightglass、Andytown和家用意式"),
-    t("🥾 Weekend warrior hiking Bay Area trails", "🥾 周末湾区徒步爱好者"),
     t("🍜 Food-first travel planner — museums second, local eats first", "🍜 美食优先的旅行者——博物馆其次，当地美食第一"),
+    t("🥾 Weekend warrior hiking Bay Area trails", "🥾 周末湾区徒步爱好者"),
+    t("☕ Coffee snob — currently rotating between Sightglass, Andytown, and home espresso", "☕ 咖啡控——目前轮换Sightglass、Andytown和家用意式"),
     t("🎨 I enjoy listening to heavy metal while painting and working with pottery", "🎨 喜欢一边听重金属音乐一边画画和做陶艺"),
   ];
 
