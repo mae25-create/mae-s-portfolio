@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ArrowDown, ChevronDown, Linkedin, Github, Mail, BarChart3, Code2, GraduationCap, Sparkles } from "lucide-react";
+import { ArrowDown, Linkedin, Github, Mail, BarChart3, Code2, GraduationCap, Sparkles } from "lucide-react";
 import headshot from "@/assets/headshot-cutout.png";
 
 const floatAnimation = (delay: number, duration: number, y: number) => ({
@@ -169,20 +169,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Floating scroll indicator */}
-      <motion.a
-        href="#featured-projects"
-        className="relative mt-0 mb-16 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center w-12 h-12 rounded-full bg-card border-2 border-primary cursor-pointer transition-transform duration-200 hover:scale-110"
-        style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        onClick={(e) => {
-          e.preventDefault();
-          document.querySelector("#featured-projects")?.scrollIntoView({ behavior: "smooth" });
-        }}
-      >
-        <ChevronDown size={24} className="text-primary" />
-      </motion.a>
     </section>
   );
 };

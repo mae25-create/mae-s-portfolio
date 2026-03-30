@@ -64,7 +64,16 @@ const Navbar = () => {
     >
       <div className="max-w-content mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="font-heading text-xl font-bold tracking-tight">
+        <Link
+          to="/"
+          onClick={(e) => {
+            if (isHome) {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+          className="font-heading text-xl font-bold tracking-tight"
+        >
           Mae<span className="text-primary">.</span>
         </Link>
 
