@@ -7,13 +7,14 @@ const Marquee = ({ text }: { text: string }) => (
   <div className="overflow-hidden py-3 bg-foreground">
     <motion.div
       className="flex whitespace-nowrap"
-      animate={{ x: ["0%", "-50%"] }}
+      animate={{ x: ["-50%", "0%"] }}
       transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
     >
       {[...Array(4)].map((_, i) => (
         <span
           key={i}
-          className="font-heading text-xl md:text-2xl font-black uppercase tracking-wider mx-8 text-primary"
+          className="font-heading text-xl md:text-2xl font-black uppercase tracking-wider mx-8"
+          style={{ color: "#0046FF" }}
         >
           {text} •&nbsp;&nbsp;
         </span>
