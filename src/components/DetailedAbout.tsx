@@ -166,49 +166,54 @@ const DetailedAbout = () => {
                 <FilmBorder />
               </div>
 
-              {/* Photo frames — 4 visible, equal height */}
-              <div className="flex flex-col gap-1.5 px-4 relative z-[5] flex-1 min-h-0">
-                <AnimatePresence mode="popLayout">
-                  {visiblePhotos.map(({ src, globalIndex }) => (
-                    <motion.div
-                      key={`${globalIndex}-${startIndex}`}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.5 }}
-                      className="relative cursor-pointer flex-1 min-h-0"
-                      style={{
-                        border: "0.125rem solid #1A1A1A",
-                        transform: activePhoto === globalIndex ? "scale(1.08)" : "scale(1)",
-                        zIndex: activePhoto === globalIndex ? 10 : 1,
-                        boxShadow: activePhoto === globalIndex ? "0 0.5rem 1.5rem rgba(0,0,0,0.4)" : "none",
-                        filter: activePhoto === globalIndex ? "brightness(1.1)" : "brightness(1)",
-                        transition: "transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease",
-                      }}
-                      onMouseEnter={() => setActivePhoto(globalIndex)}
-                      onMouseLeave={() => setActivePhoto(null)}
-                    >
-                      <div className="w-full h-full overflow-hidden">
-                        <img
-                          src={src}
-                          alt={`Photo ${globalIndex + 1}`}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                      <span
-                        className="absolute bottom-1 right-1.5 select-none"
+              {/* Photo frames — continuous vertical scroll */}
+              <div className="flex flex-col px-4 relative z-[5] flex-1 min-h-0 overflow-hidden">
+                <motion.div
+                  className="flex flex-col gap-1.5"
+                  animate={{ y: ["0%", "-50%"] }}
+                  transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+                >
+                  {/* Duplicate photos for seamless loop */}
+                  {[...allPhotos, ...allPhotos].map((src, i) => {
+                    const globalIndex = i % allPhotos.length;
+                    return (
+                      <div
+                        key={i}
+                        className="relative cursor-pointer"
                         style={{
-                          fontFamily: "'Courier New', Courier, monospace",
-                          fontSize: "0.625rem",
-                          color: "rgba(255,255,255,0.6)",
+                          aspectRatio: "3/4",
+                          border: "0.125rem solid #1A1A1A",
+                          transform: activePhoto === i ? "scale(1.08)" : "scale(1)",
+                          zIndex: activePhoto === i ? 10 : 1,
+                          boxShadow: activePhoto === i ? "0 0.5rem 1.5rem rgba(0,0,0,0.4)" : "none",
+                          filter: activePhoto === i ? "brightness(1.1)" : "brightness(1)",
+                          transition: "transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease",
                         }}
+                        onMouseEnter={() => setActivePhoto(i)}
+                        onMouseLeave={() => setActivePhoto(null)}
                       >
-                        {String(globalIndex + 1).padStart(2, "0")}A
-                      </span>
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
+                        <div className="w-full h-full overflow-hidden">
+                          <img
+                            src={src}
+                            alt={`Photo ${globalIndex + 1}`}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                        <span
+                          className="absolute bottom-1 right-1.5 select-none"
+                          style={{
+                            fontFamily: "'Courier New', Courier, monospace",
+                            fontSize: "0.625rem",
+                            color: "rgba(255,255,255,0.6)",
+                          }}
+                        >
+                          {String(globalIndex + 1).padStart(2, "0")}A
+                        </span>
+                      </div>
+                    );
+                  })}
+                </motion.div>
               </div>
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3 font-mono">
