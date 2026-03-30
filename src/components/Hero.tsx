@@ -39,7 +39,7 @@ const Hero = () => {
   const socialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/in/mae-jiahao/", label: "LinkedIn" },
     { icon: Github, href: "https://github.com/mae25-create", label: "GitHub" },
-    { icon: Mail, href: "mailto:mae@example.com", label: "Email" },
+    { icon: Mail, href: "mailto:meijiahao219@gmail.com", label: "Email" },
   ];
 
   return (
