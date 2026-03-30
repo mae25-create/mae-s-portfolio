@@ -102,7 +102,7 @@ const VibeCodingProducts = () => {
           <p className="text-muted-foreground max-w-lg">
             {t(
               "A collection of rapid prototypes, vibe coding products, and visual experiments.",
-              "一系列快速原型、vibe coding 产品和视觉实验。"
+              "一系列设计原型、vibe coding 产品和视觉实验。"
             )}
           </p>
         </motion.div>
