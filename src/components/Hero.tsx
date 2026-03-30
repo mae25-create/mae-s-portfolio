@@ -76,7 +76,7 @@ const Hero = () => {
             <img
               src={headshot}
               alt="Mae Mei"
-              className="relative z-[2] w-[280px] h-[280px] md:w-[340px] md:h-[340px] lg:w-[400px] lg:h-[400px] object-cover object-top rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] translate-x-[-10px] translate-y-[10px]"
+              className="relative z-[2] w-[280px] h-[280px] md:w-[340px] md:h-[340px] lg:w-[400px] lg:h-[400px] object-cover object-top rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] translate-x-[-10px] translate-y-[10px] border-muted border border-dashed"
             />
 
             {/* Floating icon - Chart (top-left) */}
