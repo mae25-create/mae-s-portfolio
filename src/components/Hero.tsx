@@ -15,12 +15,11 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 text-sm font-medium mb-6">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              {t("Open to opportunities", "正在寻找机会")}
-            </div>
+            <p className="font-body text-lg italic text-muted-foreground mb-4">
+              {t("Hi, my name is Mae (Jiahao) Mei", "你好，我是梅嘉豪 (Mae)")}
+            </p>
 
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
+            <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight mb-6 uppercase">
               {t("I TURN DATA INTO", "用数据驱动")}
               <br />
               <span className="text-primary">{t("BUSINESS", "商业")}</span>
