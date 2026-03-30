@@ -150,7 +150,7 @@ const DetailedAbout = () => {
               </div>
 
               {/* Photo frames */}
-              <div className="flex flex-col gap-[8px] px-[16px] relative z-[5]">
+              <div className="flex flex-col gap-[6px] px-[16px] relative z-[5]">
                 {visiblePhotos.map((src, i) => (
                   <div
                     key={i}
@@ -167,7 +167,7 @@ const DetailedAbout = () => {
                     onMouseLeave={() => setActivePhoto(null)}
                     onClick={() => setActivePhoto(activePhoto === i ? null : i)}
                   >
-                    <div className="w-full aspect-[4/3] overflow-hidden">
+                    <div className="w-full aspect-[3/2] overflow-hidden">
                       <img
                         src={src}
                         alt={`Photo ${i + 1}`}
