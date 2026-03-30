@@ -29,14 +29,14 @@ const Hero = () => {
   ];
 
   const decorativeIcons = [
-    { icon: BarChart3, bg: "#1B4B5A", shadow: "rgba(27, 75, 90, 0.3)", delay: 0 },
-    { icon: Code2, bg: "#FF8225", shadow: "rgba(255, 130, 37, 0.3)", delay: 0.3 },
-    { icon: Globe, bg: "#B85A5A", shadow: "rgba(184, 90, 90, 0.3)", delay: 0.6 },
-    { icon: Sparkles, bg: "white", shadow: "rgba(255, 130, 37, 0.2)", delay: 0.9, outline: true },
+    { icon: BarChart3, bg: "#1B4B5A", shadow: "rgba(27, 75, 90, 0.3)", delay: 0, size: 56, pos: "top-[-20px] left-[-30px]" },
+    { icon: Code2, bg: "#FF8225", shadow: "rgba(255, 130, 37, 0.3)", delay: 0.3, size: 48, pos: "top-[10px] right-[-25px]" },
+    { icon: Globe, bg: "#B85A5A", shadow: "rgba(184, 90, 90, 0.3)", delay: 0.6, size: 44, pos: "bottom-[40px] left-[-35px]" },
+    { icon: Sparkles, bg: "white", shadow: "rgba(255, 130, 37, 0.2)", delay: 0.9, outline: true, size: 40, pos: "bottom-[20px] right-[-20px]" },
   ];
 
   return (
-    <section className="relative overflow-hidden" style={{ background: "#F5EBE8", minHeight: "90vh" }}>
+    <section className="relative overflow-hidden" style={{ background: "#FFF8F0", minHeight: "90vh" }}>
       <div className="max-w-[1200px] mx-auto px-6 md:px-[60px] pt-28 md:pt-36 pb-10 md:pb-20">
         {/* TWO COLUMN LAYOUT */}
         <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
@@ -144,16 +144,6 @@ const Hero = () => {
               </a>
             </div>
 
-            {/* STATUS BADGE */}
-            <span
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white"
-              style={{
-                background: "#0F6E56",
-                boxShadow: "0 4px 16px rgba(0, 0, 0, 0.2)",
-              }}
-            >
-              ✅ {t("Available for PM roles", "开放产品经理岗位")}
-            </span>
           </motion.div>
 
           {/* RIGHT SIDE - 1/3 Photo + Decorative */}
@@ -177,15 +167,14 @@ const Hero = () => {
               }}
             />
 
-            {/* Photo */}
+            {/* Photo - cutout style */}
             <div className="relative mb-6">
               <img
                 src={headshot}
                 alt="Mae Mei"
-                className="w-56 h-56 md:w-64 md:h-64 rounded-3xl object-cover object-top relative z-10"
+                className="w-56 h-56 md:w-64 md:h-64 object-cover object-top relative z-10"
                 style={{
-                  border: "4px solid #FF8225",
-                  boxShadow: "0 12px 40px rgba(0, 0, 0, 0.15)",
+                  filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.15))",
                 }}
               />
               {/* Name badge */}
@@ -200,23 +189,46 @@ const Hero = () => {
               </motion.div>
             </div>
 
-            {/* Decorative Icons around photo */}
-            <div className="flex items-center gap-3 flex-wrap justify-center">
-              {decorativeIcons.map(({ icon: Icon, bg, shadow, delay, outline }, i) => (
-                <motion.div
-                  key={i}
-                  className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-xl"
-                  style={{
-                    background: bg,
-                    border: outline ? "3px solid #FF8225" : "none",
-                    boxShadow: `0 6px 18px ${shadow}`,
-                  }}
-                  animate={floatAnimation(delay, 2.5 + i * 0.3, 5)}
-                >
-                  <Icon size={24} color={outline ? "#FF8225" : "white"} />
-                </motion.div>
-              ))}
-            </div>
+            {/* Floating icon badges around photo */}
+            {decorativeIcons.map(({ icon: Icon, bg, shadow, delay, outline, size, pos }, i) => (
+              <motion.div
+                key={i}
+                className={`absolute ${pos} flex items-center justify-center rounded-xl z-20`}
+                style={{
+                  width: size,
+                  height: size,
+                  background: bg,
+                  border: outline ? "3px solid #FF8225" : "none",
+                  boxShadow: `0 6px 18px ${shadow}`,
+                }}
+                animate={floatAnimation(delay, 2.5 + i * 0.3, 6)}
+              >
+                <Icon size={size * 0.45} color={outline ? "#FF8225" : "white"} />
+              </motion.div>
+            ))}
+
+            {/* Floating text badges */}
+            <motion.span
+              className="absolute top-[-10px] left-[40%] z-20 px-3 py-1.5 rounded-full text-xs font-bold text-white"
+              style={{ background: "#1B4B5A", boxShadow: "0 4px 12px rgba(27,75,90,0.3)" }}
+              animate={floatAnimation(0.2, 3, 5)}
+            >
+              Python & SQL
+            </motion.span>
+            <motion.span
+              className="absolute bottom-[-5px] right-[5%] z-20 px-3 py-1.5 rounded-full text-xs font-bold text-white"
+              style={{ background: "#FF8225", boxShadow: "0 4px 12px rgba(255,130,37,0.3)" }}
+              animate={floatAnimation(0.5, 2.8, 4)}
+            >
+              Vibe Coding
+            </motion.span>
+            <motion.span
+              className="absolute bottom-[60px] left-[-40px] z-20 px-3 py-1.5 rounded-full text-xs font-bold text-white"
+              style={{ background: "#B85A5A", boxShadow: "0 4px 12px rgba(184,90,90,0.3)" }}
+              animate={floatAnimation(0.8, 3.2, 5)}
+            >
+              MBA
+            </motion.span>
 
             {/* Social links */}
             <div className="flex items-center gap-3 mt-5">

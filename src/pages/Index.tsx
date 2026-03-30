@@ -14,13 +14,13 @@ const Index = () => {
       <div style={{ background: "#FFF8F0" }}>
         <FeaturedProjects />
       </div>
-      <div style={{ background: "#FFFBF1" }}>
+      <div style={{ background: "#FFF8F0" }}>
         <VibeCodingProducts />
       </div>
       <div style={{ background: "#FFF8F0" }}>
         <Experience />
       </div>
-      <div style={{ background: "#FFFBF1" }}>
+      <div style={{ background: "#FFF8F0" }}>
         <DetailedAbout />
       </div>
       <div style={{ background: "#FFF8F0" }}>
