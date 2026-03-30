@@ -19,7 +19,7 @@ const Hero = () => {
           >
             {/* Intro Label */}
             <p className="text-base font-body font-medium tracking-wide text-primary mb-6">
-              {t("👋 Hi, I'm Mae (Jiahao) Mei", "👋 你好，我是梅家昊")}
+              {t("👋 Hi, my name is Mae (Jiahao) Mei", "👋 你好，我是梅家昊")}
             </p>
 
             {/* Role Label */}
@@ -28,18 +28,18 @@ const Hero = () => {
             </p>
 
             {/* Massive Headline */}
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-[72px] font-bold text-foreground mb-6 leading-[1.1]">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-[72px] font-bold text-foreground mb-6 leading-[1.1] whitespace-pre-line">
               {t(
-                "I turn data into products.",
-                "我将数据转化为产品。"
+                "Building with data.\nShipping with AI.",
+                "以数据构建。\n以AI交付。"
               )}
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg text-muted-foreground leading-[1.7] mb-10 max-w-[520px] mx-auto md:mx-0">
+            <p className="text-lg text-muted-foreground leading-[1.7] mb-10 max-w-[520px] mx-auto md:mx-0 whitespace-pre-line">
               {t(
-                "Data analyst turned AI product builder. I spent 4 years analyzing investment deals in Shanghai, then taught myself to code and shipped 5 AI products in 6 months.",
-                "从数据分析师转型为AI产品构建者。我在上海花了4年分析投资交易，然后自学编程，6个月内交付了5个AI产品。"
+                "I'm a strategy analyst and AI product builder with a background in international business. \nI specialize in turning complex datasets into actionable insights and shipping AI-powered products that solve real-world problems.",
+                "我是一名具有国际业务背景的战略分析师和 AI 产品构建者。\n我专注于将复杂的数据集转化为可操作的洞察，并交付解决现实世界问题的 AI 驱动产品。"
               )}
             </p>
 
@@ -109,7 +109,7 @@ const Hero = () => {
             {/* Status Badge */}
             <div className="absolute bottom-8 right-8 md:bottom-6 md:right-12 z-[4] bg-secondary text-secondary-foreground px-5 py-2.5 rounded-full text-sm font-heading font-semibold flex items-center gap-2 shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              {t("Open to opportunities", "开放机会中")}
+              {t("MBA", "MBA")}
             </div>
           </motion.div>
         </div>
