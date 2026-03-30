@@ -56,25 +56,25 @@ const DetailedAbout = () => {
           >
             <p className="text-muted-foreground leading-relaxed">
               {t(
-                "Growing up in Shanghai gave me a front-row seat to China's tech revolution. After earning my degree at Nanjing University, I moved to the U.S. to pursue graduate studies at Johns Hopkins SAIS and later an MBA at Hult International Business School.",
+                "Growing up in one of China's first provinces to embrace economic reform, I watched international trade and technology reshape everything around me. That early exposure sparked a question I'm still exploring: how do products cross borders and cultures?",
                 "在上海长大让我亲眼见证了中国的科技革命。在南京大学获得学位后，我来到美国，在约翰霍普金斯SAIS攻读研究生，之后在Hult国际商学院攻读MBA。"
               )}
             </p>
             <p className="text-muted-foreground leading-relaxed">
               {t(
-                "My career started in investment banking at CICC, where I worked on IPO and M&A deals worth over $500M. This gave me a deep understanding of financial modeling and market dynamics. I then moved into venture capital at Kingsoft Capital, part of the Xiaomi ecosystem, where I built data dashboards and conducted due diligence on AI startups.",
-                "我的职业生涯始于中金公司的投资银行部门，参与了总额超过5亿美元的IPO和并购交易。这让我深入理解了财务建模和市场动态。之后我进入小米生态链旗下的金山资本从事风险投资，搭建数据看板并对AI初创企业进行尽职调查。"
+                "After graduating from Nanjing University, I co-founded Brive Consulting to help Chinese SMEs expand globally while pursuing my Master's at Johns Hopkins SAIS. We worked with 70+ clients on market entry and localization—building partner networks, running cross-border roadshows, pivoting to digital engagement during COVID.",
+                "我的职业生涯始于中金公司的投资银行部门，参与了总额超过5亿美元的IPO及并购交易。这让我深入理解了财务建模和市场动态。之后我进入小米生态链旗下的金山资本从事风险投资，搭建数据看板并对AI初创企业进行尽职调查。"
               )}
             </p>
             <p className="text-muted-foreground leading-relaxed">
               {t(
-                "Today, I'm focused on the intersection of data analysis and AI product development. I'm building Avanti, an AI-powered tool for content creators, while creating educational content about AI and data analytics. I believe the best products come from understanding both the numbers and the humans behind them.",
+                "But I kept seeing the same gap: I could analyze markets, identify opportunities, and write the strategy decks. I just couldn't build the solutions myself. That realization led me to Shanghai Jinshan Capital, where I operated fund-of-funds and conducted due diligence on AI startups. I built data dashboards, extracted insights from messy datasets, and presented findings to investors making multi-million-dollar decisions. The work taught me to see patterns—but also reinforced what I was missing: the ability to ship.",
                 "如今，我专注于数据分析和AI产品开发的交叉领域。我正在构建Avanti——一个面向内容创作者的AI工具，同时也在创作关于AI和数据分析的教育内容。我相信最好的产品来自于对数据和用户的双重理解。"
               )}
             </p>
             <p className="text-muted-foreground leading-relaxed">
               {t(
-                "What sets me apart is my ability to bridge East and West — culturally, linguistically, and professionally. Whether I'm analyzing a dataset in Python or pitching to stakeholders in Mandarin, I bring the same rigor and curiosity to everything I do.",
+                "\n\n\nToday, I build at the intersection of data and product. I believe the best solutions come from understanding both the numbers and the humans behind them.",
                 "我的独特之处在于能够连接东西方——无论是文化、语言还是专业领域。无论是用Python分析数据集还是用中文向利益相关者汇报，我始终保持同样的严谨和好奇心。"
               )}
             </p>
