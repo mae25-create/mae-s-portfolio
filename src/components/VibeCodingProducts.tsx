@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
+import nestedCover from "@/assets/nested-cover.jpg";
 
 const Marquee = ({ text }: { text: string }) => (
   <div className="overflow-hidden py-3 bg-foreground">
@@ -21,6 +23,15 @@ const Marquee = ({ text }: { text: string }) => (
 );
 
 const vibeProducts = [
+  {
+    title: "NestEd — Breaking the Cycle",
+    titleZh: "NestEd — 打破贫困循环",
+    description: "AI-powered mobile app empowering low-income parents in Brazil with parenting, financial literacy, and career skills.",
+    descriptionZh: "AI驱动的移动应用，为巴西低收入家庭父母提供育儿、金融素养和职业技能支持。",
+    tags: ["FLUTTERFLOW", "FIREBASE", "AI/ML"],
+    image: nestedCover,
+    to: "/projects/ai-products/nested",
+  },
   {
     title: "Avanti",
     titleZh: "Avanti",
@@ -52,6 +63,14 @@ const vibeProducts = [
     descriptionZh: "实时市场情报看板，聚合新闻、社交舆情和财务数据。",
     tags: ["PYTHON", "REACT", "OPENAI", "POSTGRESQL"],
     image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80",
+  },
+  {
+    title: "Cross-Cultural AI Chatbot",
+    titleZh: "跨文化AI聊天机器人",
+    description: "Bilingual conversational AI for cross-border business communication with cultural context awareness.",
+    descriptionZh: "面向跨境商务沟通的双语AI助手，具备文化语境感知和实时翻译功能。",
+    tags: ["CLAUDE API", "REACT", "WEBSOCKET"],
+    image: "https://images.unsplash.com/photo-1531746790095-e5888436e48f?w=800&q=80",
   },
 ];
 
@@ -111,6 +130,11 @@ const VibeCodingProducts = () => {
               <p className="text-muted-foreground text-xs mt-1 line-clamp-2">
                 {t(product.description, product.descriptionZh)}
               </p>
+              {product.to && (
+                <Link to={product.to} className="text-xs font-medium text-primary hover:underline mt-2 inline-block">
+                  {t("View Details →", "查看详情 →")}
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>

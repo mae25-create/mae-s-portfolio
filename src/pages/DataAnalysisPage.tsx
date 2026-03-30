@@ -7,6 +7,7 @@ import lasVegasAirport from "@/assets/las-vegas-airport.jpeg";
 import cardinalsImg from "@/assets/cardinals-cover.png";
 import energyMonsterImg from "@/assets/energy-monster-cover.png";
 import gotCover from "@/assets/got-vs-hotd-cover.jpg";
+import intelCover from "@/assets/intel-apec-cover.jpg";
 
 const dataProjects = [
   {
@@ -53,6 +54,15 @@ const dataProjects = [
     tech: ["Tableau", "IMDb Data", "Data Visualization"],
     image: gotCover,
     link: "/projects/data-analysis/got-analysis",
+  },
+  {
+    title: "Intel APEC: Facebook Media Plan Optimization",
+    description: "Linear programming optimization model for Intel's Catch & Win campaign, maximizing engagement across 6 APAC markets through optimal Facebook ad budget allocation.",
+    titleZh: "英特尔亚太区：Facebook媒体计划优化",
+    descriptionZh: "为英特尔Catch & Win活动构建线性规划优化模型，通过优化Facebook广告预算分配最大化6个亚太市场的互动效果。",
+    tech: ["Linear Programming", "Excel Solver", "Sensitivity Analysis"],
+    image: intelCover,
+    link: "/projects/data-analysis/intel-apec",
   },
 ];
 
