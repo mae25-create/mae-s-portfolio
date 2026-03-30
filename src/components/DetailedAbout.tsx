@@ -11,7 +11,7 @@ const allPhotos = [
   "/14b8cd63-c43e-4973-970f-c3f925db71a0.png",
 ];
 
-const VISIBLE_COUNT = 4;
+const PHOTO_GAP_REM = 0.375; // gap-1.5 = 0.375rem
 
 const FilmPerforation = () => (
   <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#1A1A1A" }} />
