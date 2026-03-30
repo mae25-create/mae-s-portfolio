@@ -7,8 +7,8 @@ const Contact = () => {
 
   const contactItems = [
     { icon: Mail, label: "Email", value: "meijiahao219@gmail.com", href: "mailto:meijiahao219@gmail.com" },
-    { icon: Linkedin, label: "LinkedIn", value: "https://www.linkedin.com/in/mae-jiahao/", href: "https://linkedin.com/in/meijiahao" },
-    { icon: Github, label: "GitHub", value: "https://github.com/mae25-create", href: "https://github.com/meijiahao" },
+    { icon: Linkedin, label: "LinkedIn", value: "https://www.linkedin.com/in/mae-jiahao/", href: "https://www.linkedin.com/in/mae-jiahao/" },
+    { icon: Github, label: "GitHub", value: "https://github.com/mae25-create", href: "https://github.com/mae25-create" },
     { icon: MapPin, label: t("Location", "位置"), value: t("San Francisco Bay Area, USA｜Hangzhou, CN", "美国旧金山湾区｜中国杭州"), href: null },
   ];
 
