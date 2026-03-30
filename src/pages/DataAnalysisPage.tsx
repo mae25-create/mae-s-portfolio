@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import lasVegasAirport from "@/assets/las-vegas-airport.jpeg";
+import cardinalsImg from "@/assets/cardinals-cover.png";
 
 const dataProjects = [
   {
@@ -16,12 +17,13 @@ const dataProjects = [
     link: "/projects/data-analysis/flight-delay",
   },
   {
-    title: "Gen-Z Consumer Insights Analysis",
-    description: "Data-driven market research analyzing 10K+ data points to uncover Gen-Z beverage consumption patterns for Monster Energy's regional marketing strategy.",
-    titleZh: "Z世代消费洞察分析",
-    descriptionZh: "数据驱动的市场研究，分析10,000+数据点，发掘Z世代饮料消费趋势。",
-    tech: ["Python", "SQL", "Power BI", "Excel"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+    title: "NFL Draft — Arizona Cardinals 2025",
+    description: "ML models (XGBoost, Random Forest, Neural Network) predicting player success for the Arizona Cardinals' 2025 NFL Draft, combining production metrics (wAV, DrAV) and PFF performance grades.",
+    titleZh: "NFL选秀 — 亚利桑那红雀队2025",
+    descriptionZh: "机器学习模型（XGBoost、随机森林、神经网络）预测亚利桑那红雀队2025年NFL选秀球员成功概率，结合产出指标和PFF表现评分。",
+    tech: ["Python", "XGBoost", "Random Forest", "Neural Network", "PFF Data"],
+    image: cardinalsImg,
+    link: "/projects/data-analysis/nfl-draft",
   },
   {
     title: "SaaS GTM Strategy Model",
