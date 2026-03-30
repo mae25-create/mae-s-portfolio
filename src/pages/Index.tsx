@@ -2,7 +2,6 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import BriefAbout from "@/components/BriefAbout";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import Experience from "@/components/Experience";
 import DetailedAbout from "@/components/DetailedAbout";
@@ -13,7 +12,6 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
-      <BriefAbout />
       <FeaturedProjects />
       <Experience />
       <DetailedAbout />
