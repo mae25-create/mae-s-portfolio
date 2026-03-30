@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import Index from "./pages/Index.tsx";
 import DataAnalysisPage from "./pages/DataAnalysisPage.tsx";
 import AIProductsPage from "./pages/AIProductsPage.tsx";
+import FlightDelayPage from "./pages/FlightDelayPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/projects/data-analysis" element={<DataAnalysisPage />} />
               <Route path="/projects/ai-products" element={<AIProductsPage />} />
+              <Route path="/projects/data-analysis/flight-delay" element={<FlightDelayPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
