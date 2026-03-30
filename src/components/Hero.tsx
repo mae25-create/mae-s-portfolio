@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ArrowDown, Linkedin, Github, Mail, BarChart3, Code2, Globe, Sparkles } from "lucide-react";
+import { ArrowDown, Linkedin, Github, Mail, BarChart3, Code2, GraduationCap, Sparkles } from "lucide-react";
 import headshot from "@/assets/headshot-cutout.png";
 
 const floatAnimation = (delay: number, duration: number, y: number) => ({
@@ -9,14 +9,32 @@ const floatAnimation = (delay: number, duration: number, y: number) => ({
 });
 
 const Highlight = ({ children, color = "yellow" }: { children: React.ReactNode; color?: "yellow" | "green" }) => (
-  <span
-    className={`px-1 rounded ${
-      color === "yellow" ? "bg-primary/20" : "bg-accent/20"
-    }`}
-  >
+  <span className={`px-1 rounded ${color === "yellow" ? "bg-primary/20" : "bg-accent/20"}`}>
     {children}
   </span>
 );
+
+interface BadgeProps {
+  icon: React.ElementType;
+  label: string;
+  variant: "teal" | "orange" | "burgundy";
+  pos: string;
+  delay: number;
+}
+
+const FloatingBadge = ({ icon: Icon, label, variant, pos, delay }: BadgeProps) => {
+  const bgClass = variant === "orange" ? "bg-primary" : variant === "burgundy" ? "bg-destructive" : "bg-secondary";
+  return (
+    <motion.div
+      className={`absolute ${pos} z-20 flex flex-col items-center justify-center gap-1 ${bgClass} text-primary-foreground rounded-xl border-[3px] border-foreground p-3 shadow-lg`}
+      style={{ width: 80, height: 80, boxShadow: "0 4px 12px rgba(0,0,0,0.15)" }}
+      animate={floatAnimation(delay, 2.8 + delay, 6)}
+    >
+      <Icon size={24} />
+      <span className="text-[11px] font-bold leading-tight text-center">{label}</span>
+    </motion.div>
+  );
+};
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -27,17 +45,9 @@ const Hero = () => {
     { icon: Mail, href: "mailto:mae@example.com", label: "Email" },
   ];
 
-  const decorativeIcons = [
-    { icon: BarChart3, variant: "secondary" as const, delay: 0, size: 56, pos: "top-[-20px] left-[-30px]" },
-    { icon: Code2, variant: "primary" as const, delay: 0.3, size: 48, pos: "top-[10px] right-[-25px]" },
-    { icon: Globe, variant: "destructive" as const, delay: 0.6, size: 44, pos: "bottom-[40px] left-[-35px]" },
-    { icon: Sparkles, variant: "outline" as const, delay: 0.9, size: 40, pos: "bottom-[20px] right-[-20px]" },
-  ];
-
   return (
     <section className="relative overflow-hidden bg-background" style={{ minHeight: "90vh" }}>
       <div className="max-w-[1200px] mx-auto px-6 md:px-[60px] pt-28 md:pt-36 pb-10 md:pb-20">
-        {/* TWO COLUMN LAYOUT */}
         <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
           {/* LEFT SIDE - 2/3 */}
           <motion.div
@@ -46,67 +56,38 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {/* Small intro */}
             <p className="text-lg mb-6 leading-relaxed text-foreground">
               {t(
-                <>
-                  Hi there! I'm Mae, a data analyst with{" "}
-                  <Highlight color="yellow">4 years</Highlight> of experience analyzing
-                  investment deals, now building AI products that bridge markets.
-                </>,
-                <>
-                  你好！我是Mae，一名拥有
-                  <Highlight color="yellow">4年</Highlight>
-                  投资分析经验的数据分析师，现专注于构建连接市场的AI产品。
-                </>
+                "Hi there! I'm Mae (Jiahao Mei), a data analyst and AI builder.",
+                "你好！我是Mae（梅嘉豪），一名数据分析师和AI产品构建者。"
               )}
             </p>
 
-            {/* MASSIVE HEADLINE */}
             <h1
               className="font-heading uppercase mb-8 text-foreground"
-              style={{
-                fontSize: "clamp(36px, 6vw, 72px)",
-                fontWeight: 900,
-                lineHeight: 1.05,
-                letterSpacing: "-1px",
-              }}
+              style={{ fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-1px" }}
             >
               {t(
-                <>
-                  I BUILD AI
-                  <br />
-                  PRODUCTS THAT
-                  <br />
-                  BRIDGE MARKETS.
-                </>,
-                <>
-                  以数据构建产品
-                  <br />
-                  以AI连接市场
-                </>
+                <>BUILDING WITH DATA.<br />SHIPPING WITH AI.</>,
+                <>以数据洞察，<br />以AI交付。</>
               )}
             </h1>
 
-            {/* Description */}
-            <p className="text-lg leading-[1.7] mb-10 max-w-[550px] text-muted-foreground">
+            <div className="text-lg leading-[1.8] mb-10 max-w-[580px] text-muted-foreground space-y-4">
               {t(
                 <>
-                  Data analyst turned AI product builder. I spent{" "}
-                  <Highlight color="yellow">4 years</Highlight> analyzing deals in
-                  Shanghai, then taught myself to code and shipped{" "}
-                  <Highlight color="green">5 AI products</Highlight> in 6 months.
+                  <p>I spent years in investment and strategy consulting, analyzing deals across markets and advising SMEs on global expansion.</p>
+                  <p>I learned to extract insights from complex data and translate them into growth strategies.</p>
+                  <p>Now I do both: analyze what matters, build what works. Bilingual (EN/CN), bridging data and product, East and West.</p>
                 </>,
                 <>
-                  从数据分析师到AI产品构建者。我在上海花了
-                  <Highlight color="yellow">4年</Highlight>
-                  分析投资交易，随后自学编程，在6个月内交付了
-                  <Highlight color="green">5个AI产品</Highlight>。
+                  <p>我在投资和战略咨询领域工作多年，分析跨市场交易，为中小企业提供全球扩张建议。</p>
+                  <p>我学会了从复杂数据中提取洞察，并将其转化为增长策略。</p>
+                  <p>现在我兼顾两者：分析关键问题，构建有效方案。双语（中英），连接数据与产品，东方与西方。</p>
                 </>
               )}
-            </p>
+            </div>
 
-            {/* CTA BUTTONS */}
             <div className="flex flex-col sm:flex-row items-start gap-4 mb-8">
               <a
                 href="#featured-projects"
@@ -122,91 +103,39 @@ const Hero = () => {
                 {t("Download Resume", "下载简历")}
               </a>
             </div>
-
           </motion.div>
 
-          {/* RIGHT SIDE - 1/3 Photo + Decorative */}
+          {/* RIGHT SIDE - 1/3 */}
           <motion.div
             className="w-full md:w-1/3 flex flex-col items-center relative"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {/* Decorative blob behind photo */}
+            {/* Orange blob */}
             <div
-              className="absolute rounded-3xl bg-primary/15"
-              style={{
-                width: "110%",
-                height: "90%",
-                top: "5%",
-                left: "-5%",
-                transform: "rotate(-3deg)",
-              }}
+              className="absolute bg-primary/80 rounded-[40%_60%_55%_45%/40%_45%_55%_60%]"
+              style={{ width: "110%", height: "85%", top: "5%", left: "-5%", filter: "blur(2px)" }}
             />
 
-            {/* Photo - cutout style */}
+            {/* Photo */}
             <div className="relative mb-6">
               <img
                 src={headshot}
                 alt="Mae Mei"
                 className="w-56 h-56 md:w-64 md:h-64 object-cover object-top relative z-10"
-                style={{
-                  filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.15))",
-                }}
+                style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.2))" }}
               />
-              {/* Name badge */}
-              <motion.div
-                className="absolute -top-3 -right-3 z-20 px-4 py-1.5 rounded-full font-heading font-bold text-sm text-secondary-foreground bg-secondary"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.5, type: "spring" }}
-              >
-                Mae
-              </motion.div>
+
+              {/* Floating badges */}
+              <FloatingBadge icon={BarChart3} label="Python & SQL" variant="teal" pos="top-[-30px] left-[-45px]" delay={0} />
+              <FloatingBadge icon={Code2} label="Vibe Coding" variant="orange" pos="top-[-20px] right-[-45px]" delay={0.3} />
+              <FloatingBadge icon={GraduationCap} label="MBA" variant="burgundy" pos="bottom-[20px] left-[-50px]" delay={0.6} />
+              <FloatingBadge icon={Sparkles} label="Tableau" variant="teal" pos="bottom-[10px] right-[-40px]" delay={0.9} />
             </div>
 
-            {/* Floating icon badges around photo */}
-            {decorativeIcons.map(({ icon: Icon, variant, delay, size, pos }, i) => (
-              <motion.div
-                key={i}
-                className={`absolute ${pos} flex items-center justify-center rounded-xl z-20 ${
-                  variant === "primary" ? "bg-primary shadow-primary/30" :
-                  variant === "secondary" ? "bg-secondary shadow-secondary/30" :
-                  variant === "destructive" ? "bg-destructive shadow-destructive/30" :
-                  "bg-card border-[3px] border-primary shadow-primary/20"
-                } shadow-lg`}
-                style={{ width: size, height: size }}
-                animate={floatAnimation(delay, 2.5 + i * 0.3, 6)}
-              >
-                <Icon
-                  size={size * 0.45}
-                  className={variant === "outline" ? "text-primary" : "text-primary-foreground"}
-                />
-              </motion.div>
-            ))}
-
-            {/* Floating text badges */}
-            <motion.span
-              className="absolute top-[-10px] left-[40%] z-20 px-3 py-1.5 rounded-full text-xs font-bold text-secondary-foreground bg-secondary shadow-lg"
-              animate={floatAnimation(0.2, 3, 5)}
-            >
-              Python & SQL
-            </motion.span>
-            <motion.span
-              className="absolute bottom-[-5px] right-[5%] z-20 px-3 py-1.5 rounded-full text-xs font-bold text-primary-foreground bg-primary shadow-lg"
-              animate={floatAnimation(0.5, 2.8, 4)}
-            >
-              Vibe Coding
-            </motion.span>
-            <motion.span
-              className="absolute bottom-[60px] left-[-40px] z-20 px-3 py-1.5 rounded-full text-xs font-bold text-destructive-foreground bg-destructive shadow-lg"
-              animate={floatAnimation(0.8, 3.2, 5)}
-            >
-              MBA
-            </motion.span>
-
             {/* Social links */}
-            <div className="flex items-center gap-3 mt-5">
+            <div className="flex items-center gap-3 mt-5 relative z-20">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
