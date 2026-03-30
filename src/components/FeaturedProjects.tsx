@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import lasVegasAirport from "@/assets/las-vegas-airport.jpeg";
 import cardinalsImg from "@/assets/cardinals-cover.png";
 import energyMonsterImg from "@/assets/energy-monster-cover.png";
-import gotCover from "@/assets/got-vs-hotd-cover.jpg";
-import intelCover from "@/assets/intel-apec-cover.jpg";
+import gotCover from "@/assets/got-analysis.png";
+import intelCover from "@/assets/intel-apec.png";
+import retailCover from "@/assets/retail-analysis.png";
 
 const Marquee = ({ text }: { text: string }) => (
   <div className="overflow-hidden py-3 bg-foreground">
@@ -52,7 +53,7 @@ const dataProjects = [
     description: "Comprehensive evaluation of 1.39M+ retail products using BigQuery SQL and Python, analyzing sales performance, customer engagement, and market segmentation.",
     descriptionZh: "使用BigQuery SQL和Python对139万+零售产品进行全面评估，分析销售表现、客户参与度和市场细分。",
     tags: ["BIGQUERY SQL", "PYTHON", "GOOGLE COLAB", "VANNA.AI"],
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80",
+    image: retailCover,
     to: "/projects/data-analysis/retail-analysis",
   },
   {
