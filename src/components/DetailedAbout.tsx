@@ -70,7 +70,7 @@ const DetailedAbout = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto items-start">
           {/* Left: Text + Fun Facts */}
           <motion.div
             ref={leftRef}
@@ -130,7 +130,7 @@ const DetailedAbout = () => {
             className="md:col-span-2"
           >
             <div
-              className="relative w-full rounded-sm overflow-hidden flex flex-col"
+              className="relative w-full rounded-sm overflow-hidden"
               style={{
                 backgroundColor: "#2A2A2A",
                 padding: "1rem 0",
@@ -146,34 +146,28 @@ const DetailedAbout = () => {
                 }}
               />
 
-              {/* Top gradient fade */}
               <div
                 className="absolute top-0 left-0 right-0 h-6 z-20 pointer-events-none"
                 style={{ background: "linear-gradient(to bottom, #2A2A2A, transparent)" }}
               />
-              {/* Bottom gradient fade */}
               <div
                 className="absolute bottom-0 left-0 right-0 h-6 z-20 pointer-events-none"
                 style={{ background: "linear-gradient(to top, #2A2A2A, transparent)" }}
               />
 
-              {/* Left film border */}
               <div className="absolute left-0 top-0 bottom-0">
                 <FilmBorder />
               </div>
-              {/* Right film border */}
               <div className="absolute right-0 top-0 bottom-0">
                 <FilmBorder />
               </div>
 
-              {/* Photo frames — continuous vertical scroll */}
-              <div className="flex flex-col px-4 relative z-[5] flex-1 min-h-0 overflow-hidden">
+              <div className="h-full overflow-hidden px-4 relative z-[5]">
                 <motion.div
                   className="flex flex-col gap-1.5"
                   animate={{ y: ["0%", "-50%"] }}
                   transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
                 >
-                  {/* Duplicate photos for seamless loop */}
                   {[...allPhotos, ...allPhotos].map((src, i) => {
                     const globalIndex = i % allPhotos.length;
                     return (
@@ -216,9 +210,6 @@ const DetailedAbout = () => {
                 </motion.div>
               </div>
             </div>
-            <p className="text-xs text-muted-foreground text-center mt-3 font-mono">
-              {t("Nice to meet you!", "很高兴认识你！")}
-            </p>
           </motion.div>
         </div>
       </div>
