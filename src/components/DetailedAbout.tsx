@@ -13,14 +13,13 @@ const FilmPerforation = () => (
   <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#1A1A1A" }} />
 );
 
-const FilmBorder = ({ photoCount }: { photoCount: number }) => {
-  const perforationCount = Math.max(20, photoCount * 5);
+const FilmBorder = () => {
   return (
     <div
-      className="absolute top-0 bottom-0 w-[12px] flex flex-col items-center justify-between py-3 z-10"
+      className="absolute top-0 bottom-0 w-3 flex flex-col items-center justify-between py-3 z-10"
       style={{ backgroundColor: "#111" }}
     >
-      {Array.from({ length: perforationCount }).map((_, i) => (
+      {Array.from({ length: 20 }).map((_, i) => (
         <FilmPerforation key={i} />
       ))}
     </div>
