@@ -8,6 +8,7 @@ import rookiePffImg from "@/assets/nfl-rookie-pff.png";
 import draftDistributionImg from "@/assets/nfl-draft-distribution.png";
 import successRankingImg from "@/assets/nfl-success-ranking.png";
 import successFormulaImg from "@/assets/nfl-success-formula.png";
+import cardinalsImg from "@/assets/cardinals-cover.png";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
