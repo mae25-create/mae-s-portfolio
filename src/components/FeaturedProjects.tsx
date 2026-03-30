@@ -53,7 +53,7 @@ const dataProjects = [
     description: "Comprehensive evaluation of 1.39M+ retail products using BigQuery SQL and Python, analyzing sales performance, customer engagement, and market segmentation.",
     descriptionZh: "使用BigQuery SQL和Python对139万+零售产品进行全面评估，分析销售表现、客户参与度和市场细分。",
     tags: ["BIGQUERY SQL", "PYTHON", "GOOGLE COLAB", "VANNA.AI"],
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80",
+    image: retailCover,
     to: "/projects/data-analysis/retail-analysis",
   },
   {
