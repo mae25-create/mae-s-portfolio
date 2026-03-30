@@ -111,7 +111,7 @@ const FeaturedProjects = () => {
           <p className="text-muted-foreground max-w-lg">
             {t(
               "A collection of real-world projects spanning data analysis, market research, and business intelligence.",
-              "涵盖数据分析、市场研究和商业智能的真实世界项目合集。"
+              "涵盖数据分析、市场研究和商业智能的真实案例合集。"
             )}
           </p>
         </motion.div>

@@ -85,7 +85,7 @@ const Navbar = () => {
               onClick={() => setProjectsOpen(!projectsOpen)}
               className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
-              {t("My Projects", "我的项目")}
+              {t("My Projects", "过往项目")}
               <ChevronDown
                 size={14}
                 className={`transition-transform duration-200 ${projectsOpen ? "rotate-180" : ""}`}
@@ -111,9 +111,9 @@ const Navbar = () => {
             )}
           </div>
 
-          {navLink("#experience", t("Work Experience", "经历"))}
-          {navLink("#about", t("About", "关于"))}
-          {navLink("#contact", t("Contact", "联系"))}
+          {navLink("#experience", t("Work Experience", "工作经历"))}
+          {navLink("#about", t("About", "关于我"))}
+          {navLink("#contact", t("Contact", "联系我"))}
 
           {/* Language toggle */}
           <button
@@ -156,7 +156,7 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden bg-background border-b border-border px-6 pb-4 space-y-3">
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider pt-2">
-            {t("My Projects", "我的项目")}
+            {t("My Projects", "过往项目")}
           </p>
           <Link
             to="/projects/data-analysis"
@@ -173,13 +173,13 @@ const Navbar = () => {
             {t("AI Products", "AI 产品")}
           </Link>
           <a href="#experience" onClick={() => setOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground">
-            {t("Work Experience", "经历")}
+            {t("Work Experience", "工作经历")}
           </a>
           <a href="#about" onClick={() => setOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground">
-            {t("About", "关于")}
+            {t("About", "关于我")}
           </a>
           <a href="#contact" onClick={() => setOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground">
-            {t("Contact", "联系")}
+            {t("Contact", "联系我")}
           </a>
         </div>
       )}
