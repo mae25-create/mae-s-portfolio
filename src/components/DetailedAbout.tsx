@@ -1,34 +1,70 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
-const filmPhotos = [
+const allPhotos = [
   "/1749c2b4-6fda-42ec-a7c5-ea335af09c28.jpg",
   "/4880bb82-4e87-426a-ab79-bab6b4ea4504.jpg",
   "/f6af3d19-4c0e-4b16-ad0f-1a887013517d.png",
   "/a91b7e83-5d7f-404e-9a0f-587711142c7d.png",
+  "/b28dc0af-6c4a-4fd1-83bf-8f3bf8fdeaa1.png",
+  "/1749c2b4-6fda-42ec-a7c5-ea335af09c28.jpg",
 ];
+
+const VISIBLE_COUNT = 4;
 
 const FilmPerforation = () => (
   <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#1A1A1A" }} />
 );
 
-const FilmBorder = () => {
-  return (
-    <div
-      className="absolute top-0 bottom-0 w-3 flex flex-col items-center justify-between py-3 z-10"
-      style={{ backgroundColor: "#111" }}
-    >
-      {Array.from({ length: 20 }).map((_, i) => (
-        <FilmPerforation key={i} />
-      ))}
-    </div>
-  );
-};
+const FilmBorder = () => (
+  <div
+    className="absolute top-0 bottom-0 w-3 flex flex-col items-center justify-between py-3 z-10"
+    style={{ backgroundColor: "#111" }}
+  >
+    {Array.from({ length: 20 }).map((_, i) => (
+      <FilmPerforation key={i} />
+    ))}
+  </div>
+);
 
 const DetailedAbout = () => {
   const { t } = useLanguage();
   const [activePhoto, setActivePhoto] = useState<number | null>(null);
+  const [startIndex, setStartIndex] = useState(0);
+  const leftRef = useRef<HTMLDivElement>(null);
+  const [leftHeight, setLeftHeight] = useState<number | null>(null);
+
+  // Measure left column height
+  useEffect(() => {
+    const measure = () => {
+      if (leftRef.current) {
+        setLeftHeight(leftRef.current.offsetHeight);
+      }
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  // Auto-rotate carousel every 4s
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setStartIndex((prev) => (prev + 1) % allPhotos.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const getVisiblePhotos = useCallback(() => {
+    const photos = [];
+    for (let i = 0; i < VISIBLE_COUNT; i++) {
+      const idx = (startIndex + i) % allPhotos.length;
+      photos.push({ src: allPhotos[idx], globalIndex: idx });
+    }
+    return photos;
+  }, [startIndex]);
+
+  const visiblePhotos = getVisiblePhotos();
 
   const funFacts = [
     t("🐕 Corgi parent to a 3-year-old troublemaker", "🐕 三岁柯基的铲屎官"),
@@ -38,8 +74,6 @@ const DetailedAbout = () => {
     t("🍜 Food-first travel planner — museums second, local eats first", "🍜 美食优先的旅行者——博物馆其次，当地美食第一"),
     t("🎨 I enjoy listening to heavy metal while painting and working with pottery", "🎨 喜欢一边听重金属音乐一边画画和做陶艺"),
   ];
-
-  const visiblePhotos = filmPhotos;
 
   return (
     <section id="about" className="py-20 md:py-28">
@@ -56,9 +90,10 @@ const DetailedAbout = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto items-stretch">
+        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto">
           {/* Left: Text + Fun Facts */}
           <motion.div
+            ref={leftRef}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -112,11 +147,15 @@ const DetailedAbout = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="md:col-span-2 flex flex-col"
+            className="md:col-span-2"
           >
             <div
-              className="relative w-full rounded-sm overflow-hidden flex-1 flex flex-col"
-              style={{ backgroundColor: "#2A2A2A", padding: "1rem 0" }}
+              className="relative w-full rounded-sm overflow-hidden flex flex-col"
+              style={{
+                backgroundColor: "#2A2A2A",
+                padding: "1rem 0",
+                height: leftHeight ? `${leftHeight}px` : "auto",
+              }}
             >
               {/* Film grain overlay */}
               <div
@@ -147,45 +186,49 @@ const DetailedAbout = () => {
                 <FilmBorder />
               </div>
 
-              {/* Photo frames */}
-              <div className="flex flex-col gap-1.5 px-4 relative z-[5] flex-1">
-                {visiblePhotos.map((src, i) => (
-                  <div
-                    key={i}
-                    className="relative cursor-pointer flex-1 min-h-0"
-                    style={{
-                      border: "0.125rem solid #1A1A1A",
-                      transform: activePhoto === i ? "scale(1.08)" : "scale(1)",
-                      zIndex: activePhoto === i ? 10 : 1,
-                      boxShadow: activePhoto === i ? "0 0.5rem 1.5rem rgba(0,0,0,0.4)" : "none",
-                      filter: activePhoto === i ? "brightness(1.1)" : "brightness(1)",
-                      transition: "all 0.3s ease",
-                    }}
-                    onMouseEnter={() => setActivePhoto(i)}
-                    onMouseLeave={() => setActivePhoto(null)}
-                    onClick={() => setActivePhoto(activePhoto === i ? null : i)}
-                  >
-                    <div className="w-full h-full overflow-hidden">
-                      <img
-                        src={src}
-                        alt={`Photo ${i + 1}`}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                    {/* Frame number */}
-                    <span
-                      className="absolute bottom-1 right-1.5 select-none"
+              {/* Photo frames — 4 visible, equal height */}
+              <div className="flex flex-col gap-1.5 px-4 relative z-[5] flex-1 min-h-0">
+                <AnimatePresence mode="popLayout">
+                  {visiblePhotos.map(({ src, globalIndex }) => (
+                    <motion.div
+                      key={`${globalIndex}-${startIndex}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5 }}
+                      className="relative cursor-pointer flex-1 min-h-0"
                       style={{
-                        fontFamily: "'Courier New', Courier, monospace",
-                        fontSize: "0.625rem",
-                        color: "rgba(255,255,255,0.6)",
+                        border: "0.125rem solid #1A1A1A",
+                        transform: activePhoto === globalIndex ? "scale(1.08)" : "scale(1)",
+                        zIndex: activePhoto === globalIndex ? 10 : 1,
+                        boxShadow: activePhoto === globalIndex ? "0 0.5rem 1.5rem rgba(0,0,0,0.4)" : "none",
+                        filter: activePhoto === globalIndex ? "brightness(1.1)" : "brightness(1)",
+                        transition: "transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease",
                       }}
+                      onMouseEnter={() => setActivePhoto(globalIndex)}
+                      onMouseLeave={() => setActivePhoto(null)}
                     >
-                      {String(i + 1).padStart(2, "0")}A
-                    </span>
-                  </div>
-                ))}
+                      <div className="w-full h-full overflow-hidden">
+                        <img
+                          src={src}
+                          alt={`Photo ${globalIndex + 1}`}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                      <span
+                        className="absolute bottom-1 right-1.5 select-none"
+                        style={{
+                          fontFamily: "'Courier New', Courier, monospace",
+                          fontSize: "0.625rem",
+                          color: "rgba(255,255,255,0.6)",
+                        }}
+                      >
+                        {String(globalIndex + 1).padStart(2, "0")}A
+                      </span>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
               </div>
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3 font-mono">
