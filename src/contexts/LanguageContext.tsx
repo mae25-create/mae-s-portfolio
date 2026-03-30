@@ -5,7 +5,7 @@ type Language = "en" | "zh";
 interface LanguageContextType {
   lang: Language;
   toggle: () => void;
-  t: (en: string, zh: string) => string;
+  t: <T>(en: T, zh: T) => T;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
