@@ -11,6 +11,7 @@ import AIProductsPage from "./pages/AIProductsPage.tsx";
 import FlightDelayPage from "./pages/FlightDelayPage.tsx";
 import NFLDraftPage from "./pages/NFLDraftPage.tsx";
 import RetailAnalysisPage from "./pages/RetailAnalysisPage.tsx";
+import EnergyMonsterPage from "./pages/EnergyMonsterPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
               <Route path="/projects/data-analysis/flight-delay" element={<FlightDelayPage />} />
               <Route path="/projects/data-analysis/nfl-draft" element={<NFLDraftPage />} />
               <Route path="/projects/data-analysis/retail-analysis" element={<RetailAnalysisPage />} />
+              <Route path="/projects/data-analysis/energy-monster" element={<EnergyMonsterPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
