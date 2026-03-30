@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Space Grotesk"', 'sans-serif'],
+        heading: ['"Darker Grotesque"', '"LXGW WenKai"', 'sans-serif'],
         body: ['"Plus Jakarta Sans"', '"LXGW WenKai"', 'sans-serif'],
       },
       colors: {
