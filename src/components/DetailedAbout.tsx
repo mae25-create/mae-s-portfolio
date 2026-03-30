@@ -1,25 +1,39 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState } from "react";
 
-const placeholderPhotos = [
+const filmPhotos = [
   "/1749c2b4-6fda-42ec-a7c5-ea335af09c28.jpg",
   "/4880bb82-4e87-426a-ab79-bab6b4ea4504.jpg",
   "/f6af3d19-4c0e-4b16-ad0f-1a887013517d.png",
   "/a91b7e83-5d7f-404e-9a0f-587711142c7d.png",
   "/b28dc0af-6c4a-4fd1-83bf-8f3bf8fdeaa1.png",
+  "/1749c2b4-6fda-42ec-a7c5-ea335af09c28.jpg",
+  "/4880bb82-4e87-426a-ab79-bab6b4ea4504.jpg",
+  "/f6af3d19-4c0e-4b16-ad0f-1a887013517d.png",
 ];
 
-// Each frame gets a slight random rotation and offset for an organic feel
-const frameTransforms = [
-  { rotate: -2, x: 4, y: 0 },
-  { rotate: 1.5, x: -6, y: 2 },
-  { rotate: -1, x: 2, y: -3 },
-  { rotate: 2.5, x: -3, y: 4 },
-  { rotate: -1.8, x: 5, y: -2 },
-];
+const FilmPerforation = () => (
+  <div className="w-[6px] h-[6px] rounded-full" style={{ backgroundColor: "#1A1A1A" }} />
+);
+
+const FilmBorder = ({ photoCount }: { photoCount: number }) => {
+  const perforationCount = Math.max(20, photoCount * 5);
+  return (
+    <div
+      className="absolute top-0 bottom-0 w-[12px] flex flex-col items-center justify-between py-3 z-10"
+      style={{ backgroundColor: "#111" }}
+    >
+      {Array.from({ length: perforationCount }).map((_, i) => (
+        <FilmPerforation key={i} />
+      ))}
+    </div>
+  );
+};
 
 const DetailedAbout = () => {
   const { t } = useLanguage();
+  const [activePhoto, setActivePhoto] = useState<number | null>(null);
 
   const funFacts = [
     t("🐕 Corgi parent to a 3-year-old troublemaker", "🐕 三岁柯基的铲屎官"),
@@ -28,6 +42,8 @@ const DetailedAbout = () => {
     t("🥾 Weekend warrior hiking Bay Area trails", "🥾 周末湾区徒步爱好者"),
     t("🍜 Food-first travel planner — museums second, local eats first", "🍜 美食优先的旅行者——博物馆其次，当地美食第一"),
   ];
+
+  const visiblePhotos = filmPhotos;
 
   return (
     <section id="about" className="py-20 md:py-28">
@@ -44,7 +60,7 @@ const DetailedAbout = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-12 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto">
           {/* Left: Text + Fun Facts */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -73,7 +89,7 @@ const DetailedAbout = () => {
             </p>
             <p className="text-muted-foreground leading-relaxed">
               {t(
-                "\n\n\nToday, I build at the intersection of data and product. I believe the best solutions come from understanding both the numbers and the humans behind them.",
+                "Today, I build at the intersection of data and product. I believe the best solutions come from understanding both the numbers and the humans behind them.",
                 "我的独特之处在于能够连接东西方——无论是文化、语言还是专业领域。无论是用Python分析数据集还是用中文向利益相关者汇报，我始终保持同样的严谨和好奇心。"
               )}
             </p>
@@ -94,7 +110,7 @@ const DetailedAbout = () => {
             </div>
           </motion.div>
 
-          {/* Right: Film strip photos */}
+          {/* Right: Film Strip */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -102,56 +118,78 @@ const DetailedAbout = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="md:col-span-2"
           >
-            <div className="relative">
-              {/* Film strip spine — vertical line */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-border z-0" />
+            <div
+              className="relative w-full rounded-sm overflow-hidden"
+              style={{ backgroundColor: "#2A2A2A", padding: "16px 0" }}
+            >
+              {/* Film grain overlay */}
+              <div
+                className="absolute inset-0 z-20 pointer-events-none"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E")`,
+                  backgroundSize: "128px 128px",
+                }}
+              />
 
-              {/* Sprocket holes along the strip */}
-              <div className="absolute left-1/2 -translate-x-[22px] top-0 bottom-0 w-[6px] z-[1] flex flex-col justify-between py-2">
-                {Array.from({ length: 18 }).map((_, i) => (
-                  <div key={`l-${i}`} className="w-[6px] h-[6px] rounded-[1px] bg-border" />
-                ))}
+              {/* Top gradient fade */}
+              <div
+                className="absolute top-0 left-0 right-0 h-8 z-20 pointer-events-none"
+                style={{ background: "linear-gradient(to bottom, #2A2A2A, transparent)" }}
+              />
+              {/* Bottom gradient fade */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-8 z-20 pointer-events-none"
+                style={{ background: "linear-gradient(to top, #2A2A2A, transparent)" }}
+              />
+
+              {/* Left film border */}
+              <div className="absolute left-0 top-0 bottom-0">
+                <FilmBorder photoCount={visiblePhotos.length} />
               </div>
-              <div className="absolute left-1/2 translate-x-[16px] top-0 bottom-0 w-[6px] z-[1] flex flex-col justify-between py-2">
-                {Array.from({ length: 18 }).map((_, i) => (
-                  <div key={`r-${i}`} className="w-[6px] h-[6px] rounded-[1px] bg-border" />
-                ))}
+              {/* Right film border */}
+              <div className="absolute right-0 top-0 bottom-0">
+                <FilmBorder photoCount={visiblePhotos.length} />
               </div>
 
-              {/* Photos stacked vertically with irregular rotations */}
-              <div className="relative z-[2] flex flex-col items-center gap-3 py-4">
-                {placeholderPhotos.map((src, i) => {
-                  const t = frameTransforms[i];
-                  return (
-                    <motion.div
-                      key={i}
-                      className="relative group"
+              {/* Photo frames */}
+              <div className="flex flex-col gap-[8px] px-[16px] relative z-[5]">
+                {visiblePhotos.map((src, i) => (
+                  <div
+                    key={i}
+                    className="relative cursor-pointer"
+                    style={{
+                      border: "2px solid #1A1A1A",
+                      transform: activePhoto === i ? "scale(1.1)" : "scale(1)",
+                      zIndex: activePhoto === i ? 10 : 1,
+                      boxShadow: activePhoto === i ? "0 8px 24px rgba(0,0,0,0.4)" : "none",
+                      filter: activePhoto === i ? "brightness(1.1)" : "brightness(1)",
+                      transition: "all 0.3s ease",
+                    }}
+                    onMouseEnter={() => setActivePhoto(i)}
+                    onMouseLeave={() => setActivePhoto(null)}
+                    onClick={() => setActivePhoto(activePhoto === i ? null : i)}
+                  >
+                    <div className="w-full aspect-[4/3] overflow-hidden">
+                      <img
+                        src={src}
+                        alt={`Photo ${i + 1}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    {/* Frame number */}
+                    <span
+                      className="absolute bottom-2 right-2 select-none"
                       style={{
-                        rotate: `${t.rotate}deg`,
-                        x: t.x,
-                        y: t.y,
+                        fontFamily: "'Courier New', Courier, monospace",
+                        fontSize: "10px",
+                        color: "rgba(255,255,255,0.6)",
                       }}
-                      whileHover={{ scale: 1.08, rotate: 0, zIndex: 10 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
-                      {/* Polaroid-style frame */}
-                      <div className="bg-card border border-border rounded-sm p-[5px] pb-6 shadow-md group-hover:shadow-xl transition-shadow duration-300">
-                        <div className="w-[160px] h-[110px] md:w-[180px] md:h-[120px] overflow-hidden rounded-[2px]">
-                          <img
-                            src={src}
-                            alt={`Photo ${i + 1}`}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            loading="lazy"
-                          />
-                        </div>
-                        {/* Film frame number */}
-                        <span className="absolute bottom-1.5 right-2.5 text-[9px] font-mono text-muted-foreground/50">
-                          {String(i + 1).padStart(2, "0")}A
-                        </span>
-                      </div>
-                    </motion.div>
-                  );
-                })}
+                      {String(i + 1).padStart(2, "0")}A
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3 font-mono">
