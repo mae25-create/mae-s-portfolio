@@ -55,6 +55,15 @@ const dataProjects = [
     to: "/projects/data-analysis/retail-analysis",
   },
   {
+    title: "GTM Strategy: Power Bank Sharing in Japan",
+    titleZh: "市场进入策略：日本共享充电宝市场",
+    description: "Go-to-market analysis of Energy Monster's expansion from China to Japan, examining market readiness through smartphone penetration, mobile payments, and cultural factors.",
+    descriptionZh: "分析怪兽充电从中国拓展至日本的市场进入策略，从智能手机渗透率、移动支付和文化因素评估市场准备度。",
+    tags: ["MARKET ANALYSIS", "TAM ESTIMATION", "GTM STRATEGY"],
+    image: energyMonsterImg,
+    to: "/projects/data-analysis/energy-monster",
+  },
+  {
     title: "Game of Thrones vs. House of the Dragon — TV Data Analysis",
     titleZh: "权力的游戏 vs. 龙之家族 — 电视数据分析",
     description: "Visual analysis comparing two iconic HBO fantasy series using IMDb ratings, episode runtimes, cast data, and award nominations via Tableau.",
@@ -62,6 +71,15 @@ const dataProjects = [
     tags: ["TABLEAU", "IMDb DATA", "DATA VISUALIZATION"],
     image: gotCover,
     to: "/projects/data-analysis/got-analysis",
+  },
+  {
+    title: "Intel APEC: Facebook Media Plan Optimization",
+    titleZh: "英特尔亚太区：Facebook媒体计划优化",
+    description: "Linear programming optimization model for Intel's Catch & Win campaign, maximizing engagement across 6 APAC markets through optimal Facebook ad budget allocation.",
+    descriptionZh: "为英特尔Catch & Win活动构建线性规划优化模型，通过优化Facebook广告预算分配最大化6个亚太市场的互动效果。",
+    tags: ["LINEAR PROGRAMMING", "EXCEL SOLVER", "SENSITIVITY ANALYSIS"],
+    image: intelCover,
+    to: "/projects/data-analysis/intel-apec",
   },
 ];
 
