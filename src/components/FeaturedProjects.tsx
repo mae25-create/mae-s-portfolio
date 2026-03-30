@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import lasVegasAirport from "@/assets/las-vegas-airport.jpeg";
 import cardinalsImg from "@/assets/cardinals-cover.png";
+import gotCover from "@/assets/got-vs-hotd-cover.jpg";
 
 const Marquee = ({ text }: { text: string }) => (
   <div className="overflow-hidden py-3 bg-foreground">
@@ -50,6 +51,15 @@ const dataProjects = [
     tags: ["BIGQUERY SQL", "PYTHON", "GOOGLE COLAB", "VANNA.AI"],
     image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80",
     to: "/projects/data-analysis/retail-analysis",
+  },
+  {
+    title: "Game of Thrones vs. House of the Dragon — TV Data Analysis",
+    titleZh: "权力的游戏 vs. 龙之家族 — 电视数据分析",
+    description: "Visual analysis comparing two iconic HBO fantasy series using IMDb ratings, episode runtimes, cast data, and award nominations via Tableau.",
+    descriptionZh: "使用IMDb评分、剧集时长、演员数据和奖项提名，通过Tableau对比两部HBO奇幻剧集的可视化分析。",
+    tags: ["TABLEAU", "IMDb DATA", "DATA VISUALIZATION"],
+    image: gotCover,
+    to: "/projects/data-analysis/got-analysis",
   },
 ];
 
