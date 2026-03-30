@@ -148,7 +148,7 @@ const Hero = () => {
 
           {/* DESCRIPTION — full width row 2 */}
           <motion.div
-            className="order-3 md:[grid-column:1/-1] md:[grid-row:2] max-w-[900px] mx-auto text-left"
+            className="order-3 md:[grid-column:1/-1] md:[grid-row:2] w-full text-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -172,7 +172,7 @@ const Hero = () => {
       {/* Floating scroll indicator */}
       <motion.a
         href="#featured-projects"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center w-12 h-12 rounded-full bg-card border-2 border-primary cursor-pointer transition-transform duration-200 hover:scale-110"
+        className="relative mt-8 mb-16 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center w-12 h-12 rounded-full bg-card border-2 border-primary cursor-pointer transition-transform duration-200 hover:scale-110"
         style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
