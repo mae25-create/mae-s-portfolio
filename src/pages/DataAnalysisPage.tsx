@@ -6,8 +6,9 @@ import Navbar from "@/components/Navbar";
 import lasVegasAirport from "@/assets/las-vegas-airport.jpeg";
 import cardinalsImg from "@/assets/cardinals-cover.png";
 import energyMonsterImg from "@/assets/energy-monster-cover.png";
-import gotCover from "@/assets/got-vs-hotd-cover.jpg";
-import intelCover from "@/assets/intel-apec-cover.jpg";
+import gotCover from "@/assets/got-analysis.png";
+import intelCover from "@/assets/intel-apec.png";
+import retailCover from "@/assets/retail-analysis.png";
 
 const dataProjects = [
   {
@@ -34,7 +35,7 @@ const dataProjects = [
     titleZh: "零售产品市场报告",
     descriptionZh: "使用BigQuery SQL和Python对139万+零售产品进行全面评估，分析销售表现、产品质量、客户参与度和市场细分。",
     tech: ["BigQuery SQL", "Python", "Google Colab", "Vanna.AI"],
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80",
+    image: retailCover,
     link: "/projects/data-analysis/retail-analysis",
   },
   {
