@@ -81,7 +81,8 @@ const Hero = () => {
 
             {/* Badge - MBA (top-left) */}
             <motion.div
-              className="absolute top-6 left-2 md:top-2 md:left-6 z-[3] bg-secondary text-secondary-foreground px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg"
+              className="absolute top-4 left-0 md:top-0 md:left-2 z-[3] px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg"
+              style={{ background: '#F8EDED', color: '#2A2A2A' }}
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -90,16 +91,18 @@ const Hero = () => {
 
             {/* Badge - Consultant (top-right) */}
             <motion.div
-              className="absolute top-10 right-0 md:top-6 md:right-4 z-[3] bg-primary text-primary-foreground px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg"
+              className="absolute top-0 right-2 md:-top-2 md:right-8 z-[3] px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg text-white"
+              style={{ background: '#FF8225' }}
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
             >
               💼 Consultant
             </motion.div>
 
-            {/* Badge - Investor (middle-right) */}
+            {/* Badge - Investor (middle-left) */}
             <motion.div
-              className="absolute top-1/2 -translate-y-1/2 -right-2 md:right-0 z-[3] bg-accent text-accent-foreground px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg"
+              className="absolute top-[40%] -left-4 md:-left-6 z-[3] px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg"
+              style={{ background: '#F8EDED', color: '#2A2A2A' }}
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
             >
@@ -108,7 +111,8 @@ const Hero = () => {
 
             {/* Badge - Python & SQL (bottom-left) */}
             <motion.div
-              className="absolute bottom-16 left-0 md:bottom-12 md:left-4 z-[3] bg-destructive text-destructive-foreground px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg"
+              className="absolute bottom-20 -left-2 md:bottom-16 md:left-0 z-[3] px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg text-white"
+              style={{ background: '#B43F3F' }}
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
             >
@@ -117,7 +121,8 @@ const Hero = () => {
 
             {/* Badge - Vibe Coding (bottom-right) */}
             <motion.div
-              className="absolute bottom-6 right-4 md:bottom-4 md:right-8 z-[3] bg-card text-card-foreground border-2 border-primary px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg"
+              className="absolute bottom-8 right-0 md:bottom-6 md:right-4 z-[3] px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg text-white"
+              style={{ background: '#FF8225' }}
               animate={{ y: [0, -5, 0] }}
               transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
             >
