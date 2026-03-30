@@ -111,7 +111,10 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        {/* Footer */}
+      </div>
+
+      {/* Footer - full width */}
+      <div className="max-w-content mx-auto px-6">
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
           <p>© 2026 Mae (Jiahao) Mei. {t("All rights reserved.", "保留所有权利。")}</p>
           <p className="mt-2 md:mt-0">
