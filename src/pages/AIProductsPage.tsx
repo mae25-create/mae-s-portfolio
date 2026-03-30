@@ -3,8 +3,19 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import nestedCover from "@/assets/nested-cover.jpg";
 
 const aiProducts = [
+  {
+    title: "NestEd — Breaking the Cycle",
+    description: "AI-powered mobile app empowering low-income parents in Brazil with parenting skills, financial literacy, nutrition, and career development. Built with FlutterFlow and Firebase.",
+    titleZh: "NestEd — 打破贫困循环",
+    descriptionZh: "AI驱动的移动应用，为巴西低收入家庭父母提供育儿、金融素养、营养和职业发展支持。使用FlutterFlow和Firebase构建。",
+    tech: ["FlutterFlow", "Firebase", "AI/ML", "Social Impact"],
+    image: nestedCover,
+    link: "/projects/ai-products/nested",
+    hasDemo: true,
+  },
   {
     title: "Avanti",
     description: "AI-powered content creation assistant that helps creators produce high-quality multilingual content at scale. Features smart templates and audience analytics.",
@@ -112,14 +123,19 @@ const AIProductsPage = () => {
                   ))}
                 </div>
                 <div className="flex gap-3">
-                  {product.hasDemo && (
+                  {product.link ? (
+                    <Link to={product.link} className="text-sm font-medium text-primary hover:underline">
+                      {t("View Details →", "查看详情 →")}
+                    </Link>
+                  ) : product.hasDemo ? (
                     <button className="text-sm font-medium text-primary hover:underline">
                       {t("View Demo", "查看演示")}
                     </button>
+                  ) : (
+                    <span className="text-sm font-medium text-muted-foreground">
+                      {t("Coming Soon", "即将推出")}
+                    </span>
                   )}
-                  <button className="text-sm font-medium text-muted-foreground hover:text-foreground hover:underline transition-colors">
-                    {t("View Details", "查看详情")}
-                  </button>
                 </div>
               </div>
             </motion.div>
