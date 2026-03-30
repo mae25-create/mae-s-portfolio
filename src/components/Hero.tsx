@@ -62,7 +62,7 @@ const Hero = () => {
           >
             <p className="text-lg leading-[1.7] text-muted-foreground mb-6">
               {t(
-                "Hi there! I'm Mae (Jiahao Mei), a data analyst and AI builder.",
+                "Hi there! I'm Mae (Jiahao) Mei, a data analyst and AI builder.",
                 "你好！我是梅嘉豪（Mae），一名数据分析师和AI构建者。"
               )}
             </p>

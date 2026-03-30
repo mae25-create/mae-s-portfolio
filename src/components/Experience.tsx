@@ -12,8 +12,8 @@ const Experience = () => {
       period: t("July 2021 – July 2024", "2021年7月 – 2024年7月"),
       location: t("Shanghai, China", "上海"),
       highlights: [
-        t("Led investment strategy and portfolio optimization for 3 Fund-of-Funds and direct investments across AI, renewable energy, and biotech. Partnered with C-suite executives and subsidiaries to define long-term objectives, allocate capital, and align deployment with corporate strategy and long-term growth.", "领导了3支母基金及AI、新能源、生物技术领域直投项目的投资策略和投后管理。与高管及子公司合作确定长期目标、分配资本，并使投资布局与公司战略及长期增长保持一致。"),
-        t("Conducted due diligence for Series A/B deals in AI and consumer tech", "为AI和消费科技领域的A/B轮投资进行尽职调查"),
+        t("Led investment strategy and portfolio optimization for 3 Fund-of-Funds and direct investments across AI, renewable energy, and biotech. Partnered with C-suite executives and subsidiaries to define long-term objectives, allocate capital, and align deployment with corporate strategy and long-term growth.\nl \nConducted 15+ commercial due diligence projects using SQL and advanced financial modeling to evaluate market opportunities, providing critical insights that directly informed the investment committee's decisions.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "领导了3支母基金及AI、新能源、生物技术领域直投项目的投资策略和投后管理。与高管及子公司合作确定长期目标、分配资本，并使投资布局与公司战略及长期增长保持一致。"),
+        t("\n\nl  Conducted 15+ commercial due diligence projects using SQL and advanced financial modeling to evaluate market opportunities, providing critical insights that directly informed the investment committee's decisions.\n\n Built and maintained real-time risk assessment dashboards in Python and Tableau, improving fund allocation efficiency by 20% and enabling faster, data-transparent strategic choices.\n\nl  Designed a standardized reporting system that consolidated data from 35+ subsidiaries across 17 departments, enhancing cross-functional alignment and accelerating monthly reporting speed by 30%.", "为AI和消费科技领域的A/B轮投资进行尽职调查"),
       ],
     },
     {
