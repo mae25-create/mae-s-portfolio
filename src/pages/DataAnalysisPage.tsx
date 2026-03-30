@@ -99,9 +99,15 @@ const DataAnalysisPage = () => {
                     </span>
                   ))}
                 </div>
-                <button className="text-sm font-medium text-primary hover:underline transition-colors">
-                  {t("View Details →", "查看详情 →")}
-                </button>
+                {project.link ? (
+                  <Link to={project.link} className="text-sm font-medium text-primary hover:underline transition-colors">
+                    {t("View Details →", "查看详情 →")}
+                  </Link>
+                ) : (
+                  <span className="text-sm font-medium text-muted-foreground">
+                    {t("Coming Soon", "即将推出")}
+                  </span>
+                )}
               </div>
             </motion.div>
           ))}
