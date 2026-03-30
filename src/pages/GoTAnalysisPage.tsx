@@ -3,7 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import gotCover from "@/assets/got-vs-hotd-cover.jpg";
+import gotCover from "@/assets/got-analysis-hero.png";
 
 const GoTAnalysisPage = () => {
   const { t } = useLanguage();
