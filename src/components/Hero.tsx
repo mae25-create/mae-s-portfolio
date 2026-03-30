@@ -102,7 +102,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {/* Organic wave blob */}
-            <div className="absolute z-0 w-[500px] h-[500px] md:w-[550px] md:h-[550px]"
+            <div className="absolute z-0 w-[340px] h-[340px] md:w-[380px] md:h-[380px]"
               style={{
                 top: "50%",
                 left: "50%",
@@ -118,8 +118,8 @@ const Hero = () => {
               <img
                 src={headshot}
                 alt="Mae Mei"
-                className="w-[300px] h-[300px] rounded-full object-cover object-top relative z-10"
-                style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.15)" }}
+                className="w-[300px] h-[300px] object-cover object-top relative z-10"
+                style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.15)", borderRadius: "40% 60% 55% 45% / 50% 45% 55% 50%" }}
               />
 
               {/* Floating badges — no borders, varied sizes */}
