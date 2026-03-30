@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import lasVegasAirport from "@/assets/las-vegas-airport.jpeg";
 import cardinalsImg from "@/assets/cardinals-cover.png";
+import energyMonsterImg from "@/assets/energy-monster-cover.png";
 
 const dataProjects = [
   {
@@ -35,12 +36,13 @@ const dataProjects = [
     link: "/projects/data-analysis/retail-analysis",
   },
   {
-    title: "IPO Financial Due Diligence",
-    description: "Comprehensive financial analysis and modeling for TMT sector IPO deals at CICC, covering valuation, comparable analysis, and market sizing.",
-    titleZh: "IPO财务尽职调查",
-    descriptionZh: "在中金公司为TMT行业IPO交易进行全面财务分析和建模。",
-    tech: ["Excel", "VBA", "Bloomberg", "Capital IQ"],
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80",
+    title: "GTM Strategy: Power Bank Sharing in Japan",
+    description: "Go-to-market analysis of Energy Monster's expansion from China to Japan, examining market readiness through smartphone penetration, mobile payments, credit systems, and cultural factors.",
+    titleZh: "市场进入策略：日本共享充电宝市场",
+    descriptionZh: "分析怪兽充电从中国拓展至日本的市场进入策略，从智能手机渗透率、移动支付、信用体系和文化因素评估市场准备度。",
+    tech: ["Market Analysis", "TAM Estimation", "GTM Strategy"],
+    image: energyMonsterImg,
+    link: "/projects/data-analysis/energy-monster",
   },
 ];
 
