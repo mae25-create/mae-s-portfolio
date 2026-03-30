@@ -90,33 +90,42 @@ const NFLDraftPage = () => {
         </Link>
 
         {/* Hero */}
-        <motion.div {...fadeUp()} className="mb-16">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-              <Trophy size={20} className="text-primary" />
-            </div>
-            <span className="text-sm font-medium text-muted-foreground">
-              {t("Sports Analytics · 2025", "体育分析 · 2025")}
-            </span>
-          </div>
-          <h1 className="font-heading text-3xl md:text-4xl font-semibold mb-4">
-            {t(
-              "Arizona Cardinals — 2025 NFL Draft Day",
-              "亚利桑那红雀队 — 2025 NFL选秀日"
-            )}
-          </h1>
-          <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            {t(
-              "Machine learning models for predicting player success, combined with strategic draft analysis covering team needs, historical trends, and optimal pick sequencing for the Arizona Cardinals.",
-              "结合机器学习模型预测球员成功概率，以及战略选秀分析——涵盖球队需求、历史趋势和亚利桑那红雀队的最佳选秀顺序。"
-            )}
-          </p>
-          <div className="flex flex-wrap gap-2 mt-6">
-            {["Python", "XGBoost", "Random Forest", "Neural Network", "kNN", "PFF Data"].map((tech) => (
-              <span key={tech} className="px-3 py-1.5 bg-muted rounded-full text-xs font-medium">
-                {tech}
+        <motion.div {...fadeUp()} className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Trophy size={20} className="text-primary" />
+              </div>
+              <span className="text-sm font-medium text-muted-foreground">
+                {t("Sports Analytics · 2025", "体育分析 · 2025")}
               </span>
-            ))}
+            </div>
+            <h1 className="font-heading text-3xl md:text-4xl font-semibold mb-4">
+              {t(
+                "Arizona Cardinals — 2025 NFL Draft Day",
+                "亚利桑那红雀队 — 2025 NFL选秀日"
+              )}
+            </h1>
+            <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
+              {t(
+                "Machine learning models for predicting player success, combined with strategic draft analysis covering team needs, historical trends, and optimal pick sequencing for the Arizona Cardinals.",
+                "结合机器学习模型预测球员成功概率，以及战略选秀分析——涵盖球队需求、历史趋势和亚利桑那红雀队的最佳选秀顺序。"
+              )}
+            </p>
+            <div className="flex flex-wrap gap-2 mt-6">
+              {["Python", "XGBoost", "Random Forest", "Neural Network", "kNN", "PFF Data"].map((tech) => (
+                <span key={tech} className="px-3 py-1.5 bg-muted rounded-full text-xs font-medium">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-xl overflow-hidden border border-border">
+            <img
+              src={cardinalsImg}
+              alt="Arizona Cardinals"
+              className="w-full h-full object-cover"
+            />
           </div>
         </motion.div>
 
