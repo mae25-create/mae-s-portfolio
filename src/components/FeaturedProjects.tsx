@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import lasVegasAirport from "@/assets/las-vegas-airport.jpeg";
 import cardinalsImg from "@/assets/cardinals-cover.png";
 import energyMonsterImg from "@/assets/energy-monster-cover.png";
-import gotCover from "@/assets/got-vs-hotd-cover.jpg";
-import intelCover from "@/assets/intel-apec-cover.jpg";
+import gotCover from "@/assets/got-analysis.png";
+import intelCover from "@/assets/intel-apec.png";
+import retailCover from "@/assets/retail-analysis.png";
 
 const Marquee = ({ text }: { text: string }) => (
   <div className="overflow-hidden py-3 bg-foreground">
