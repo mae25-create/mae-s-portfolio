@@ -10,7 +10,7 @@ const filmPhotos = [
 ];
 
 const FilmPerforation = () => (
-  <div className="w-[6px] h-[6px] rounded-full" style={{ backgroundColor: "#1A1A1A" }} />
+  <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#1A1A1A" }} />
 );
 
 const FilmBorder = ({ photoCount }: { photoCount: number }) => {
