@@ -17,7 +17,8 @@ const Marquee = ({ text }: { text: string }) => (
       {[...Array(4)].map((_, i) => (
         <span
           key={i}
-          className="font-heading text-xl md:text-2xl font-black uppercase tracking-wider mx-8 text-primary"
+          className="font-heading text-xl md:text-2xl font-black uppercase tracking-wider mx-8"
+          style={{ color: "#FF7F11" }}
         >
           {text} •&nbsp;&nbsp;
         </span>
