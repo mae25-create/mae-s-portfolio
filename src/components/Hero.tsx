@@ -67,15 +67,6 @@ const Hero = () => {
               )}
             </p>
 
-            <h1
-              className="font-heading uppercase mb-8 text-foreground"
-              style={{ fontSize: "clamp(32px, 4.2vw, 56px)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-1px" }}
-            >
-              {t(
-                <>BUILDING WITH DATA.<br /> SHIPPING WITH AI.</>,
-                <>以数据洞察，<br />以AI交付。</>
-              )}
-            </h1>
 
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <a
