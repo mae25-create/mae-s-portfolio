@@ -14,18 +14,21 @@ interface BadgeProps {
   variant: "teal" | "orange" | "burgundy";
   pos: string;
   delay: number;
+  size: number;
 }
 
-const FloatingBadge = ({ icon: Icon, label, variant, pos, delay }: BadgeProps) => {
+const FloatingBadge = ({ icon: Icon, label, variant, pos, delay, size }: BadgeProps) => {
   const bgClass = variant === "orange" ? "bg-primary" : variant === "burgundy" ? "bg-destructive" : "bg-secondary";
+  const iconSize = size >= 80 ? 22 : 16;
+  const textSize = size >= 80 ? "text-[11px]" : "text-[9px]";
   return (
     <motion.div
-      className={`absolute ${pos} z-20 flex flex-col items-center justify-center gap-1 ${bgClass} text-primary-foreground rounded-xl border-[4px] border-foreground p-2`}
-      style={{ width: 70, height: 70, boxShadow: "0 4px 12px rgba(0,0,0,0.15)" }}
+      className={`absolute ${pos} z-20 flex flex-col items-center justify-center gap-1 ${bgClass} text-primary-foreground rounded-xl p-2`}
+      style={{ width: size, height: size, boxShadow: "0 6px 16px rgba(0,0,0,0.12)" }}
       animate={floatAnimation(delay, 2.8 + delay, 6)}
     >
-      <Icon size={20} />
-      <span className="text-[10px] font-bold leading-tight text-center">{label}</span>
+      <Icon size={iconSize} />
+      <span className={`${textSize} font-bold leading-tight text-center`}>{label}</span>
     </motion.div>
   );
 };
@@ -42,7 +45,6 @@ const Hero = () => {
   return (
     <section className="relative overflow-hidden bg-background" style={{ minHeight: "90vh" }}>
       <div className="max-w-[1200px] mx-auto">
-        {/* Desktop: Grid layout / Mobile: Flex column */}
         <div
           className="flex flex-col gap-10 px-6 pt-28 pb-10
                      md:grid md:gap-[60px] md:px-[60px] md:pt-36 md:pb-20"
@@ -51,7 +53,7 @@ const Hero = () => {
             gridTemplateRows: "auto auto",
           }}
         >
-          {/* TEXT — grid-col 1, row 1 */}
+          {/* TEXT */}
           <motion.div
             className="order-1 flex flex-col justify-center md:[grid-column:1] md:[grid-row:1]"
             initial={{ opacity: 0, y: 30 }}
@@ -67,11 +69,11 @@ const Hero = () => {
 
             <h1
               className="font-heading uppercase mb-8 text-foreground"
-              style={{ fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-1px" }}
+              style={{ fontSize: "clamp(32px, 4.2vw, 56px)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-1px" }}
             >
               {t(
-                <>BUILDING WITH DATA.<br />SHIPPING WITH AI.</>,
-                <>以数据洞察，<br />以AI交付。</>
+                <>BUILDING WITH DATA.<br className="md:hidden" /> SHIPPING WITH AI.</>,
+                <>以数据洞察，<br className="md:hidden" />以AI交付。</>
               )}
             </h1>
 
@@ -92,29 +94,26 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* VISUAL — grid-col 2, row 1 */}
+          {/* VISUAL */}
           <motion.div
             className="order-2 flex flex-col items-center relative md:[grid-column:2] md:[grid-row:1] md:items-center md:justify-center"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {/* Orange blob */}
-            <div
-              className="absolute z-0"
+            {/* Organic wave blob */}
+            <div className="absolute z-0 w-[500px] h-[500px] md:w-[550px] md:h-[550px]"
               style={{
-                width: 450,
-                height: 450,
                 top: "50%",
                 left: "50%",
-                transform: "translate(-55%, -48%)",
-                borderRadius: "63% 37% 54% 46% / 55% 48% 52% 45%",
-                background: "linear-gradient(135deg, hsl(var(--primary)), hsl(24 100% 67%))",
-                filter: "blur(2px)",
+                transform: "translate(-50%, -48%)",
+                borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
+                background: "linear-gradient(135deg, hsl(var(--primary)), hsl(36 100% 65%))",
+                filter: "blur(1px)",
               }}
             />
 
-            {/* Photo + badges container */}
+            {/* Photo + badges */}
             <div className="relative" style={{ width: 300, height: 300 }}>
               <img
                 src={headshot}
@@ -123,11 +122,11 @@ const Hero = () => {
                 style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.15)" }}
               />
 
-              {/* Floating badges */}
-              <FloatingBadge icon={BarChart3} label="Python & SQL" variant="teal" pos="top-[-25px] left-[-40px]" delay={0} />
-              <FloatingBadge icon={Code2} label="Vibe Coding" variant="orange" pos="top-[-15px] right-[-40px]" delay={0.3} />
-              <FloatingBadge icon={GraduationCap} label="MBA" variant="burgundy" pos="bottom-[-10px] left-[-45px]" delay={0.6} />
-              <FloatingBadge icon={Sparkles} label="Tableau" variant="teal" pos="bottom-[-20px] right-[-35px]" delay={0.9} />
+              {/* Floating badges — no borders, varied sizes */}
+              <FloatingBadge icon={BarChart3} label="Python & SQL" variant="teal" pos="top-[-30px] left-[-50px]" delay={0} size={80} />
+              <FloatingBadge icon={Code2} label="Vibe Coding" variant="orange" pos="top-[-20px] right-[-35px]" delay={0.3} size={60} />
+              <FloatingBadge icon={GraduationCap} label="MBA" variant="burgundy" pos="bottom-[-15px] left-[-40px]" delay={0.6} size={60} />
+              <FloatingBadge icon={Sparkles} label="Tableau" variant="teal" pos="bottom-[-25px] right-[-45px]" delay={0.9} size={80} />
             </div>
 
             {/* Social links */}
@@ -147,7 +146,7 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* DESCRIPTION — spans full width, row 2 */}
+          {/* DESCRIPTION — full width row 2 */}
           <motion.div
             className="order-3 md:[grid-column:1/-1] md:[grid-row:2] md:mx-auto md:text-center max-w-[900px]"
             initial={{ opacity: 0, y: 20 }}
