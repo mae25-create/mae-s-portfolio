@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ArrowDown, ChevronDown, Linkedin, Github, Mail, BarChart3, Code2, GraduationCap, Sparkles } from "lucide-react";
+import { ArrowDown, Linkedin, Github, Mail, BarChart3, Code2, GraduationCap, Sparkles } from "lucide-react";
 import headshot from "@/assets/headshot-cutout.png";
 
 const floatAnimation = (delay: number, duration: number, y: number) => ({
