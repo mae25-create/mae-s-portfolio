@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowDown, Briefcase, BarChart3, Brain } from "lucide-react";
+import headshotImg from "@/assets/headshot-cutout.png";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -58,15 +59,22 @@ const Hero = () => {
             className="relative hidden md:block"
           >
             <div className="relative w-full aspect-square max-w-md mx-auto">
-              {/* Background circle */}
-              <div className="absolute inset-8 rounded-full bg-primary/20" />
-              <div className="absolute inset-16 rounded-full bg-primary/30" />
+              {/* Background shape */}
+              <div className="absolute inset-8 rounded-[2rem] bg-primary rotate-3" />
+              <div className="absolute inset-8 rounded-[2rem] bg-primary/80 -rotate-1" />
+
+              {/* Headshot cutout */}
+              <img
+                src={headshotImg}
+                alt="Mae (Jiahao) Mei"
+                className="absolute inset-0 w-full h-full object-contain object-bottom z-10 drop-shadow-xl"
+              />
 
               {/* Floating tags */}
               <motion.div
                 animate={{ y: [-5, 5, -5] }}
                 transition={{ repeat: Infinity, duration: 3 }}
-                className="absolute top-8 right-8 bg-primary text-primary-foreground px-4 py-2 rounded-lg font-heading font-bold text-sm shadow-lg"
+                className="absolute top-4 right-4 z-20 bg-primary text-primary-foreground px-4 py-2 rounded-lg font-heading font-bold text-sm shadow-lg"
               >
                 <Briefcase className="inline w-4 h-4 mr-1" />
                 MBA
@@ -74,7 +82,7 @@ const Hero = () => {
               <motion.div
                 animate={{ y: [5, -5, 5] }}
                 transition={{ repeat: Infinity, duration: 3.5 }}
-                className="absolute top-1/3 left-0 bg-teal text-accent-foreground px-4 py-2 rounded-lg font-heading font-bold text-sm shadow-lg"
+                className="absolute top-1/3 -left-4 z-20 bg-teal text-accent-foreground px-4 py-2 rounded-lg font-heading font-bold text-sm shadow-lg"
               >
                 <BarChart3 className="inline w-4 h-4 mr-1" />
                 SQL & Python
@@ -82,7 +90,7 @@ const Hero = () => {
               <motion.div
                 animate={{ y: [-3, 7, -3] }}
                 transition={{ repeat: Infinity, duration: 4 }}
-                className="absolute bottom-16 right-4 bg-coral text-primary-foreground px-4 py-2 rounded-lg font-heading font-bold text-sm shadow-lg"
+                className="absolute bottom-12 -right-2 z-20 bg-coral text-primary-foreground px-4 py-2 rounded-lg font-heading font-bold text-sm shadow-lg"
               >
                 <Brain className="inline w-4 h-4 mr-1" />
                 AI Builder
@@ -90,7 +98,7 @@ const Hero = () => {
               <motion.div
                 animate={{ y: [4, -6, 4] }}
                 transition={{ repeat: Infinity, duration: 3.2 }}
-                className="absolute bottom-1/3 left-8 bg-foreground text-background px-4 py-2 rounded-lg font-heading font-bold text-sm shadow-lg"
+                className="absolute bottom-1/3 -left-6 z-20 bg-foreground text-background px-4 py-2 rounded-lg font-heading font-bold text-sm shadow-lg"
               >
                 ✦ {t("Strategy", "战略")}
               </motion.div>
