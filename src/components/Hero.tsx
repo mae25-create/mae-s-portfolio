@@ -60,6 +60,12 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <p className="text-lg leading-[1.7] text-muted-foreground mb-6">
+              {t(
+                "Hi there! I'm Mae (Jiahao Mei), a data analyst and AI builder.",
+                "你好！我是梅嘉豪（Mae），一名数据分析师和AI构建者。"
+              )}
+            </p>
             <h1
               className="font-heading uppercase mb-8 text-foreground"
               style={{ fontSize: "clamp(28px, 3.8vw, 48px)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-1px" }}
