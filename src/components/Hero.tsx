@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ArrowDown, TrendingUp, Code, Globe } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import headshot from "@/assets/headshot-cutout.png";
 
 const Hero = () => {
@@ -79,38 +79,50 @@ const Hero = () => {
               className="relative z-[2] w-[280px] h-[280px] md:w-[340px] md:h-[340px] lg:w-[400px] lg:h-[400px] object-cover object-top rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] translate-x-[-10px] translate-y-[10px]"
             />
 
-            {/* Floating icon - Chart (top-left) */}
+            {/* Badge - MBA (top-left) */}
             <motion.div
-              className="absolute top-8 left-4 md:top-4 md:left-8 z-[3] w-[60px] h-[60px] rounded-xl bg-secondary flex items-center justify-center shadow-lg"
-              animate={{ y: [0, -8, 0] }}
+              className="absolute top-6 left-2 md:top-2 md:left-6 z-[3] bg-secondary text-secondary-foreground px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg"
+              animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
-              <TrendingUp size={28} className="text-secondary-foreground" />
+              🎓 MBA
             </motion.div>
 
-            {/* Floating icon - Code (bottom-right) */}
+            {/* Badge - Consultant (top-right) */}
             <motion.div
-              className="absolute bottom-16 right-4 md:bottom-12 md:right-8 z-[3] w-[60px] h-[60px] rounded-xl bg-destructive flex items-center justify-center shadow-lg"
+              className="absolute top-10 right-0 md:top-6 md:right-4 z-[3] bg-primary text-primary-foreground px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+            >
+              💼 Consultant
+            </motion.div>
+
+            {/* Badge - Investor (middle-right) */}
+            <motion.div
+              className="absolute top-1/2 -translate-y-1/2 -right-2 md:right-0 z-[3] bg-accent text-accent-foreground px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg"
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+            >
+              📈 Investor
+            </motion.div>
+
+            {/* Badge - Python & SQL (bottom-left) */}
+            <motion.div
+              className="absolute bottom-16 left-0 md:bottom-12 md:left-4 z-[3] bg-destructive text-destructive-foreground px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg"
               animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
             >
-              <Code size={28} className="text-destructive-foreground" />
+              🐍 Python & SQL
             </motion.div>
 
-            {/* Floating icon - Globe (middle-right) */}
+            {/* Badge - Vibe Coding (bottom-right) */}
             <motion.div
-              className="absolute top-1/2 -translate-y-1/2 right-0 md:right-2 z-[3] w-[50px] h-[50px] rounded-full bg-card border-2 border-primary flex items-center justify-center shadow-md"
-              animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-6 right-4 md:bottom-4 md:right-8 z-[3] bg-card text-card-foreground border-2 border-primary px-4 py-2 rounded-xl text-sm font-heading font-semibold shadow-lg"
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
             >
-              <Globe size={22} className="text-primary" />
+              ✨ Vibe Coding
             </motion.div>
-
-            {/* Status Badge */}
-            <div className="absolute bottom-8 right-8 md:bottom-6 md:right-12 z-[4] bg-secondary text-secondary-foreground px-5 py-2.5 rounded-full text-sm font-heading font-semibold flex items-center gap-2 shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              {t("MBA", "MBA")}
-            </div>
           </motion.div>
         </div>
       </div>
