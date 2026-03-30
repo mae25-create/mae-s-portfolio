@@ -7,9 +7,9 @@ const Contact = () => {
 
   const contactItems = [
     { icon: Mail, label: "Email", value: "meijiahao219@gmail.com", href: "mailto:meijiahao219@gmail.com" },
-    { icon: Linkedin, label: "LinkedIn", value: "LinkedIn", href: "https://linkedin.com/in/meijiahao" },
-    { icon: Github, label: "GitHub", value: "GitHub", href: "https://github.com/meijiahao" },
-    { icon: MapPin, label: t("Location", "位置"), value: t("San Francisco Bay Area", "旧金山湾区"), href: null },
+    { icon: Linkedin, label: "LinkedIn", value: "https://www.linkedin.com/in/mae-jiahao/", href: "https://www.linkedin.com/in/mae-jiahao/" },
+    { icon: Github, label: "GitHub", value: "https://github.com/mae25-create", href: "https://github.com/mae25-create" },
+    { icon: MapPin, label: t("Location", "位置"), value: t("San Francisco Bay Area, USA｜Hangzhou, CN", "美国旧金山湾区｜中国杭州"), href: null },
   ];
 
   return (
@@ -97,7 +97,7 @@ const Contact = () => {
 
         {/* Footer */}
         <div className="mt-20 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-          <p>© 2025 Mae (Jiahao) Mei. {t("All rights reserved.", "保留所有权利。")}</p>
+          <p>© 2026 Mae (Jiahao) Mei. {t("All rights reserved.", "保留所有权利。")}</p>
           <p className="mt-2 md:mt-0">
             {t("Built with", "由")} ♥ {t("and data", "和数据构建")}
           </p>

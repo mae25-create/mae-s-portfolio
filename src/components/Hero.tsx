@@ -89,7 +89,7 @@ const Hero = () => {
                 href="#contact"
                 className="inline-flex items-center gap-2 px-9 py-[14px] rounded-xl font-heading font-semibold text-lg bg-transparent text-secondary border-[3px] border-secondary transition-all duration-300 hover:bg-secondary hover:text-secondary-foreground"
               >
-                {t("Download Resume", "下载简历")}
+                {t("Chat With Me", "和我聊天")}
               </a>
             </div>
           </motion.div>

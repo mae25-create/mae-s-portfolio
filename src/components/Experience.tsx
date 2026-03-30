@@ -7,30 +7,30 @@ const Experience = () => {
 
   const experiences = [
     {
-      company: t("Kingsoft Capital (Xiaomi Ecosystem)", "金山资本（小米生态链）"),
-      role: t("Business Analyst Intern", "商业分析实习生"),
-      period: t("Jun 2025 – Present", "2025年6月 – 至今"),
-      location: t("Beijing, China", "北京"),
+      company: t("Shanghai Jinshan Capital", "上海金山资本"),
+      role: t("Investment Manager", "投资经理"),
+      period: t("July 2021 – July 2024", "2021年7月 – 2024年7月"),
+      location: t("Shanghai, China", "上海"),
       highlights: [
-        t("Built internal data dashboards tracking 50+ portfolio companies across 6 sectors", "搭建内部数据看板，追踪50+被投企业的6个行业数据"),
+        t("Led investment strategy and portfolio optimization for 3 Fund-of-Funds and direct investments across AI, renewable energy, and biotech. Partnered with C-suite executives and subsidiaries to define long-term objectives, allocate capital, and align deployment with corporate strategy and long-term growth.", "领导了3支母基金及AI、新能源、生物技术领域直投项目的投资策略和投后管理。与高管及子公司合作确定长期目标、分配资本，并使投资布局与公司战略及长期增长保持一致。"),
         t("Conducted due diligence for Series A/B deals in AI and consumer tech", "为AI和消费科技领域的A/B轮投资进行尽职调查"),
       ],
     },
     {
       company: t("BRIVE Consulting", "BRIVE咨询"),
-      role: t("Business Analyst", "商业分析师"),
-      period: t("Sep 2024 – Apr 2025", "2024年9月 – 2025年4月"),
-      location: t("Boston, USA", "波士顿"),
+      role: t("Co-founder & Business Development", "联合创始人兼业务发展"),
+      period: t("Feb 2019 – Jun 2021", "2019年2月 – 2021年6月"),
+      location: t("Hybrid", "远程/混合"),
       highlights: [
         t("Designed GTM strategy for a $2M ARR SaaS product targeting SMB market", "为一款年收入200万美元的SaaS产品设计进入中小企业市场的策略"),
         t("Led cross-functional workshops with 15+ stakeholders across 3 time zones", "领导跨3个时区、15+利益相关者的跨职能研讨会"),
       ],
     },
     {
-      company: t("Monster Energy (via Hult)", "怪兽充电（Hult项目）"),
-      role: t("Strategy Consultant", "战略咨询顾问"),
-      period: t("Jan 2025 – Apr 2025", "2025年1月 – 2025年4月"),
-      location: t("Boston, USA", "波士顿"),
+      company: t("Energy Monster (Nasdaq: EM)", "怪兽充电 (Nasdaq: EM)"),
+      role: t("Strategy Analyst Intern", "战略分析实习生"),
+      period: t("Jun 2020 – Apr 2020", "2020年6月 – 2020年4月"),
+      location: t("Shanghai, China", "上海"),
       highlights: [
         t("Analyzed 10K+ data points to identify Gen-Z consumption patterns", "分析10,000+数据点识别Z世代消费趋势"),
         t("Delivered go-to-market recommendations adopted by regional marketing team", "提交的市场策略建议被区域营销团队采纳"),
@@ -38,8 +38,8 @@ const Experience = () => {
     },
     {
       company: t("CICC (China International Capital Corp)", "中金公司"),
-      role: t("Investment Banking Intern", "投资银行实习生"),
-      period: t("Jun 2022 – Sep 2022", "2022年6月 – 2022年9月"),
+      role: t("Data Analyst Intern", "数据分析实习生"),
+      period: t("July 2019 – Dec 2019", "2019年7月 – 2019年12月"),
       location: t("Beijing, China", "北京"),
       highlights: [
         t("Supported IPO and M&A projects with combined deal value of $500M+", "参与总交易金额超5亿美元的IPO及并购项目"),
@@ -59,12 +59,12 @@ const Experience = () => {
           className="text-center mb-12"
         >
           <h2 className="font-heading text-3xl md:text-4xl font-semibold">
-            {t("Experience", "工作经历")}
+            {t("Work Experience", "工作经历")}
           </h2>
           <p className="text-muted-foreground mt-4 max-w-lg mx-auto">
             {t(
-              "From investment banking to venture capital, strategy consulting to AI product building.",
-              "从投资银行到风险投资，从战略咨询到AI产品构建。"
+              "From strategy consulting to FoFs investment, cross-border commerce to AI product building.",
+              "从战略咨询到母基金投资，跨境电商到AI产品构建。"
             )}
           </p>
         </motion.div>
