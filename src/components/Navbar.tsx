@@ -85,7 +85,7 @@ const Navbar = () => {
               onClick={() => setProjectsOpen(!projectsOpen)}
               className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
-              {t("My Projects", "我的项目")}
+              {t("My Projects", "过往项目")}
               <ChevronDown
                 size={14}
                 className={`transition-transform duration-200 ${projectsOpen ? "rotate-180" : ""}`}
