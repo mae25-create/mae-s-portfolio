@@ -60,6 +60,12 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <p className="text-lg leading-[1.7] text-muted-foreground mb-6">
+              {t(
+                "Hi there! I'm Mae (Jiahao Mei), a data analyst and AI builder.",
+                "你好！我是梅嘉豪（Mae），一名数据分析师和AI构建者。"
+              )}
+            </p>
             <h1
               className="font-heading uppercase mb-8 text-foreground"
               style={{ fontSize: "clamp(28px, 3.8vw, 48px)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-1px" }}
@@ -166,7 +172,7 @@ const Hero = () => {
       {/* Floating scroll indicator */}
       <motion.a
         href="#featured-projects"
-        className="relative mt-2 mb-16 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center w-12 h-12 rounded-full bg-card border-2 border-primary cursor-pointer transition-transform duration-200 hover:scale-110"
+        className="relative mt-0 mb-16 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center w-12 h-12 rounded-full bg-card border-2 border-primary cursor-pointer transition-transform duration-200 hover:scale-110"
         style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
