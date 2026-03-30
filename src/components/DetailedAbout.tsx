@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const placeholderPhotos = [
-  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80",
-  "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80",
-  "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80",
-  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=80",
-  "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80",
+  "/1749c2b4-6fda-42ec-a7c5-ea335af09c28.jpg",
+  "/4880bb82-4e87-426a-ab79-bab6b4ea4504.jpg",
+  "/f6af3d19-4c0e-4b16-ad0f-1a887013517d.png",
+  "/a91b7e83-5d7f-404e-9a0f-587711142c7d.png",
+  "/b28dc0af-6c4a-4fd1-83bf-8f3bf8fdeaa1.png",
 ];
 
 // Each frame gets a slight random rotation and offset for an organic feel
