@@ -156,7 +156,7 @@ const DetailedAbout = () => {
               </div>
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3 font-mono">
-              🎬 {t("Life in frames", "胶片里的生活")}
+              {t("Nice to meet you!", "很高兴认识你！")}
             </p>
           </motion.div>
         </div>
