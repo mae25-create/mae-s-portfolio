@@ -7,103 +7,110 @@ const Hero = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
+    <section className="relative pt-24 pb-12 md:pt-28 md:pb-20 overflow-hidden">
       <div className="max-w-content mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-0">
+        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-0">
           {/* Left Column - 55% */}
           <motion.div
-            className="flex-1 md:w-[55%] md:max-w-[600px] text-center md:text-left md:pt-12"
+            className="flex-1 md:w-[55%] md:max-w-[600px] text-center md:text-left md:pr-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {/* Small Intro */}
-            <p className="text-base text-muted-foreground mb-10">
-              {t("Hi, my name is Mae.", "你好，我是梅家昊。")}
+            {/* Intro Label */}
+            <p className="text-base font-body font-medium tracking-wide text-primary mb-6">
+              {t("👋 Hi, I'm Mae (Jiahao) Mei", "👋 你好，我是梅家昊")}
+            </p>
+
+            {/* Role Label */}
+            <p className="text-sm uppercase tracking-[2px] font-heading font-semibold text-secondary mb-4">
+              {t("DATA ANALYST → AI BUILDER", "数据分析师 → AI 产品构建者")}
             </p>
 
             {/* Massive Headline */}
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-[80px] font-extrabold text-foreground mb-8 leading-[1.05] uppercase tracking-tight">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-[72px] font-bold text-foreground mb-6 leading-[1.1]">
               {t(
-                "Building with data. Shipping with AI.",
-                "用数据构建，用AI交付。"
+                "I turn data into products.",
+                "我将数据转化为产品。"
               )}
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg text-muted-foreground leading-[1.7] mb-10 max-w-[520px] mx-auto md:mx-0">
               {t(
-                "I'm a bilingual (EN/CN) data analyst and AI product builder with an MBA and a background in international business, specializing in turning complex datasets into actionable insights.",
-                "我是一名双语（中/英）数据分析师和AI产品构建者，拥有MBA学位和国际商务背景，擅长将复杂数据集转化为可执行洞察。"
+                "Data analyst turned AI product builder. I spent 4 years analyzing investment deals in Shanghai, then taught myself to code and shipped 5 AI products in 6 months.",
+                "从数据分析师转型为AI产品构建者。我在上海花了4年分析投资交易，然后自学编程，6个月内交付了5个AI产品。"
               )}
             </p>
 
-            {/* CTA Button */}
-            <a
-              href="#featured-projects"
-              className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-xl font-heading font-bold text-base hover:opacity-90 transition-all duration-300 shadow-[0_4px_12px_hsl(var(--primary)/0.3)] hover:scale-[1.02]"
-            >
-              {t("View My Work", "查看我的作品")}
-              <ArrowDown size={16} />
-            </a>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <a
+                href="#featured-projects"
+                className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-xl font-heading font-semibold text-base hover:opacity-90 transition-all duration-300 shadow-[0_4px_12px_hsl(var(--primary)/0.3)] hover:scale-[1.02]"
+              >
+                {t("View My Work", "查看我的作品")}
+                <ArrowDown size={16} />
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-[38px] py-[14px] bg-transparent text-secondary border-2 border-secondary rounded-xl font-heading font-semibold text-base hover:bg-secondary hover:text-secondary-foreground transition-all duration-300"
+              >
+                {t("Download Resume", "下载简历")}
+              </a>
+            </div>
           </motion.div>
 
           {/* Right Column - 45% */}
           <motion.div
             className="flex-1 md:w-[45%] flex justify-center items-center relative"
-            style={{ minHeight: 520 }}
+            style={{ minHeight: 500 }}
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            {/* Large decorative rounded rectangle */}
-            <div className="absolute w-[300px] h-[380px] md:w-[340px] md:h-[440px] lg:w-[380px] lg:h-[500px] rounded-[32px] bg-primary/90 z-[1] translate-x-[10px] translate-y-[10px]" />
+            {/* Large decorative blob */}
+            <div className="absolute w-[340px] h-[340px] md:w-[420px] md:h-[420px] lg:w-[500px] lg:h-[500px] rounded-[40%_60%_55%_45%/55%_45%_60%_40%] bg-primary/90 z-[1]" />
 
-            {/* Photo - overlapping the shape */}
+            {/* Photo */}
             <img
               src={headshot}
               alt="Mae Mei"
-              className="relative z-[2] w-[280px] h-[360px] md:w-[320px] md:h-[420px] lg:w-[360px] lg:h-[480px] object-cover object-top rounded-[28px] border-[3px] border-foreground/80 translate-x-[-10px] translate-y-[-10px]"
+              className="relative z-[2] w-[280px] h-[280px] md:w-[340px] md:h-[340px] lg:w-[400px] lg:h-[400px] object-cover object-top rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] translate-x-[-10px] translate-y-[10px]"
             />
-
-            {/* Floating badge - Name */}
-            <motion.div
-              className="absolute top-4 right-4 md:top-2 md:right-8 z-[3] bg-secondary text-secondary-foreground px-4 py-2 rounded-full text-sm font-heading font-bold shadow-md flex items-center gap-1"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              Mae ✦
-            </motion.div>
 
             {/* Floating icon - Chart (top-left) */}
             <motion.div
-              className="absolute top-16 left-0 md:top-12 md:left-2 z-[3] w-[56px] h-[56px] rounded-2xl bg-secondary flex items-center justify-center shadow-lg"
-              animate={{ y: [0, -6, 0] }}
+              className="absolute top-8 left-4 md:top-4 md:left-8 z-[3] w-[60px] h-[60px] rounded-xl bg-secondary flex items-center justify-center shadow-lg"
+              animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
-              <TrendingUp size={26} className="text-secondary-foreground" />
+              <TrendingUp size={28} className="text-secondary-foreground" />
             </motion.div>
 
             {/* Floating icon - Code (bottom-right) */}
             <motion.div
-              className="absolute bottom-20 right-0 md:bottom-16 md:right-4 z-[3] w-[56px] h-[56px] rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg border-2 border-primary"
-              animate={{ y: [0, 6, 0] }}
+              className="absolute bottom-16 right-4 md:bottom-12 md:right-8 z-[3] w-[60px] h-[60px] rounded-xl bg-destructive flex items-center justify-center shadow-lg"
+              animate={{ y: [0, 8, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             >
-              <Code size={24} />
+              <Code size={28} className="text-destructive-foreground" />
+            </motion.div>
+
+            {/* Floating icon - Globe (middle-right) */}
+            <motion.div
+              className="absolute top-1/2 -translate-y-1/2 right-0 md:right-2 z-[3] w-[50px] h-[50px] rounded-full bg-card border-2 border-primary flex items-center justify-center shadow-md"
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            >
+              <Globe size={22} className="text-primary" />
             </motion.div>
 
             {/* Status Badge */}
-            <motion.div
-              className="absolute bottom-6 right-6 md:bottom-4 md:right-8 z-[4] bg-green-700 text-white px-5 py-2.5 rounded-full text-sm font-heading font-semibold flex items-center gap-2 shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-            >
-              <span className="w-2 h-2 rounded-full bg-green-300 animate-pulse" />
+            <div className="absolute bottom-8 right-8 md:bottom-6 md:right-12 z-[4] bg-secondary text-secondary-foreground px-5 py-2.5 rounded-full text-sm font-heading font-semibold flex items-center gap-2 shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               {t("Open to opportunities", "开放机会中")}
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
