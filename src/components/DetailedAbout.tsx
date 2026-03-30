@@ -1,8 +1,29 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState, useEffect, useCallback } from "react";
+
+const placeholderPhotos = [
+  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80",
+  "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80",
+  "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80",
+  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=80",
+  "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80",
+];
 
 const DetailedAbout = () => {
   const { t } = useLanguage();
+  const [currentPhoto, setCurrentPhoto] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const nextPhoto = useCallback(() => {
+    setCurrentPhoto((prev) => (prev + 1) % placeholderPhotos.length);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(nextPhoto, 3000);
+    return () => clearInterval(interval);
+  }, [isPaused, nextPhoto]);
 
   const funFacts = [
     t("Born and raised in Shanghai, now based in San Francisco", "在上海出生长大，现居旧金山"),
@@ -29,6 +50,7 @@ const DetailedAbout = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-5 gap-12 max-w-4xl mx-auto">
+          {/* Left: Text + Fun Facts */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -60,8 +82,24 @@ const DetailedAbout = () => {
                 "我的独特之处在于能够连接东西方——无论是文化、语言还是专业领域。无论是用Python分析数据集还是用中文向利益相关者汇报，我始终保持同样的严谨和好奇心。"
               )}
             </p>
+
+            {/* Fun Facts — below text, visually distinct as a list */}
+            <div className="pt-6 border-t border-border">
+              <h3 className="font-heading text-lg font-semibold mb-4">
+                {t("Fun Facts", "有趣的事")}
+              </h3>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                {funFacts.map((fact, i) => (
+                  <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                    <span className="text-primary mt-0.5 shrink-0">✦</span>
+                    {fact}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
 
+          {/* Right: Photo carousel */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -69,24 +107,55 @@ const DetailedAbout = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="md:col-span-2"
           >
-            {/* Photo placeholder */}
-            <div className="aspect-[3/4] bg-muted rounded-xl mb-8 flex items-center justify-center text-muted-foreground text-sm">
-              {t("Photo", "照片")}
-            </div>
+            <div
+              className="aspect-[3/4] rounded-xl overflow-hidden relative cursor-pointer bg-muted"
+              onClick={() => setIsPaused((p) => !p)}
+            >
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentPhoto}
+                  src={placeholderPhotos[currentPhoto]}
+                  alt={t("Photos", "照片")}
+                  className="w-full h-full object-cover absolute inset-0"
+                  initial={{ opacity: 0, scale: 1.08 }}
+                  animate={{ opacity: 1, scale: isPaused ? 1.05 : 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                />
+              </AnimatePresence>
 
-            <div>
-              <h3 className="font-heading text-lg font-semibold mb-4">
-                {t("Fun Facts", "有趣的事")}
-              </h3>
-              <ul className="space-y-3">
-                {funFacts.map((fact, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="text-primary mt-0.5">✦</span>
-                    {fact}
-                  </li>
+              {/* Paused indicator */}
+              {isPaused && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="absolute bottom-3 right-3 bg-foreground/70 text-background text-xs font-mono px-2 py-1 rounded"
+                >
+                  {t("Paused", "已暂停")}
+                </motion.div>
+              )}
+
+              {/* Dots */}
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                {placeholderPhotos.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentPhoto(i);
+                    }}
+                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                      i === currentPhoto
+                        ? "bg-primary w-4"
+                        : "bg-background/50 hover:bg-background/80"
+                    }`}
+                  />
                 ))}
-              </ul>
+              </div>
             </div>
+            <p className="text-xs text-muted-foreground text-center mt-3 font-mono">
+              {t("Click to pause / resume", "点击暂停 / 继续")}
+            </p>
           </motion.div>
         </div>
       </div>
