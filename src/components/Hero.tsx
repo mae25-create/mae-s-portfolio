@@ -37,7 +37,7 @@ const Hero = () => {
 
   return (
     <section className="relative overflow-hidden" style={{ background: "#F5EBE8", minHeight: "90vh" }}>
-      <div className="max-w-[1200px] mx-auto px-6 md:px-[60px] py-10 md:py-20">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-[60px] pt-28 md:pt-36 pb-10 md:pb-20">
         {/* 1. TOP BAR */}
         <motion.div
           className="flex flex-col md:flex-row items-center justify-between mb-16 md:mb-20 gap-6"
