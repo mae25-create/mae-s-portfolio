@@ -8,12 +8,6 @@ const floatAnimation = (delay: number, duration: number, y: number) => ({
   transition: { duration, repeat: Infinity, ease: "easeInOut" as const, delay },
 });
 
-const Highlight = ({ children, color = "yellow" }: { children: React.ReactNode; color?: "yellow" | "green" }) => (
-  <span className={`px-1 rounded ${color === "yellow" ? "bg-primary/20" : "bg-accent/20"}`}>
-    {children}
-  </span>
-);
-
 interface BadgeProps {
   icon: React.ElementType;
   label: string;
@@ -26,12 +20,12 @@ const FloatingBadge = ({ icon: Icon, label, variant, pos, delay }: BadgeProps) =
   const bgClass = variant === "orange" ? "bg-primary" : variant === "burgundy" ? "bg-destructive" : "bg-secondary";
   return (
     <motion.div
-      className={`absolute ${pos} z-20 flex flex-col items-center justify-center gap-1 ${bgClass} text-primary-foreground rounded-xl border-[3px] border-foreground p-3 shadow-lg`}
-      style={{ width: 80, height: 80, boxShadow: "0 4px 12px rgba(0,0,0,0.15)" }}
+      className={`absolute ${pos} z-20 flex flex-col items-center justify-center gap-1 ${bgClass} text-primary-foreground rounded-xl border-[4px] border-foreground p-2`}
+      style={{ width: 70, height: 70, boxShadow: "0 4px 12px rgba(0,0,0,0.15)" }}
       animate={floatAnimation(delay, 2.8 + delay, 6)}
     >
-      <Icon size={24} />
-      <span className="text-[11px] font-bold leading-tight text-center">{label}</span>
+      <Icon size={20} />
+      <span className="text-[10px] font-bold leading-tight text-center">{label}</span>
     </motion.div>
   );
 };
@@ -47,11 +41,19 @@ const Hero = () => {
 
   return (
     <section className="relative overflow-hidden bg-background" style={{ minHeight: "90vh" }}>
-      <div className="max-w-[1200px] mx-auto px-6 md:px-[60px] pt-28 md:pt-36 pb-10 md:pb-20">
-        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-          {/* LEFT SIDE - 2/3 */}
+      <div className="max-w-[1200px] mx-auto">
+        {/* Desktop: Grid layout / Mobile: Flex column */}
+        <div
+          className="flex flex-col gap-10 px-6 pt-28 pb-10
+                     md:grid md:gap-[60px] md:px-[60px] md:pt-36 md:pb-20"
+          style={{
+            gridTemplateColumns: "55fr 45fr",
+            gridTemplateRows: "auto auto",
+          }}
+        >
+          {/* TEXT — grid-col 1, row 1 */}
           <motion.div
-            className="w-full md:w-2/3"
+            className="order-1 flex flex-col justify-center md:[grid-column:1] md:[grid-row:1]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -73,22 +75,7 @@ const Hero = () => {
               )}
             </h1>
 
-            <div className="text-lg leading-[1.8] mb-10 max-w-[580px] text-muted-foreground space-y-4">
-              {t(
-                <>
-                  <p>I spent years in investment and strategy consulting, analyzing deals across markets and advising SMEs on global expansion.</p>
-                  <p>I learned to extract insights from complex data and translate them into growth strategies.</p>
-                  <p>Now I do both: analyze what matters, build what works. Bilingual (EN/CN), bridging data and product, East and West.</p>
-                </>,
-                <>
-                  <p>我在投资和战略咨询领域工作多年，分析跨市场交易，为中小企业提供全球扩张建议。</p>
-                  <p>我学会了从复杂数据中提取洞察，并将其转化为增长策略。</p>
-                  <p>现在我兼顾两者：分析关键问题，构建有效方案。双语（中英），连接数据与产品，东方与西方。</p>
-                </>
-              )}
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-start gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row items-start gap-4">
               <a
                 href="#featured-projects"
                 className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-heading font-semibold text-lg text-primary-foreground bg-primary transition-all duration-300 hover:scale-[1.03] hover:bg-primary/90 shadow-lg"
@@ -105,37 +92,46 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE - 1/3 */}
+          {/* VISUAL — grid-col 2, row 1 */}
           <motion.div
-            className="w-full md:w-1/3 flex flex-col items-center relative"
+            className="order-2 flex flex-col items-center relative md:[grid-column:2] md:[grid-row:1] md:items-center md:justify-center"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {/* Orange blob */}
             <div
-              className="absolute bg-primary/80 rounded-[40%_60%_55%_45%/40%_45%_55%_60%]"
-              style={{ width: "110%", height: "85%", top: "5%", left: "-5%", filter: "blur(2px)" }}
+              className="absolute z-0"
+              style={{
+                width: 450,
+                height: 450,
+                top: "50%",
+                left: "50%",
+                transform: "translate(-55%, -48%)",
+                borderRadius: "63% 37% 54% 46% / 55% 48% 52% 45%",
+                background: "linear-gradient(135deg, hsl(var(--primary)), hsl(24 100% 67%))",
+                filter: "blur(2px)",
+              }}
             />
 
-            {/* Photo */}
-            <div className="relative mb-6">
+            {/* Photo + badges container */}
+            <div className="relative" style={{ width: 300, height: 300 }}>
               <img
                 src={headshot}
                 alt="Mae Mei"
-                className="w-56 h-56 md:w-64 md:h-64 object-cover object-top relative z-10"
-                style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.2))" }}
+                className="w-[300px] h-[300px] rounded-full object-cover object-top relative z-10"
+                style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.15)" }}
               />
 
               {/* Floating badges */}
-              <FloatingBadge icon={BarChart3} label="Python & SQL" variant="teal" pos="top-[-30px] left-[-45px]" delay={0} />
-              <FloatingBadge icon={Code2} label="Vibe Coding" variant="orange" pos="top-[-20px] right-[-45px]" delay={0.3} />
-              <FloatingBadge icon={GraduationCap} label="MBA" variant="burgundy" pos="bottom-[20px] left-[-50px]" delay={0.6} />
-              <FloatingBadge icon={Sparkles} label="Tableau" variant="teal" pos="bottom-[10px] right-[-40px]" delay={0.9} />
+              <FloatingBadge icon={BarChart3} label="Python & SQL" variant="teal" pos="top-[-25px] left-[-40px]" delay={0} />
+              <FloatingBadge icon={Code2} label="Vibe Coding" variant="orange" pos="top-[-15px] right-[-40px]" delay={0.3} />
+              <FloatingBadge icon={GraduationCap} label="MBA" variant="burgundy" pos="bottom-[-10px] left-[-45px]" delay={0.6} />
+              <FloatingBadge icon={Sparkles} label="Tableau" variant="teal" pos="bottom-[-20px] right-[-35px]" delay={0.9} />
             </div>
 
             {/* Social links */}
-            <div className="flex items-center gap-3 mt-5 relative z-20">
+            <div className="flex items-center gap-3 mt-8 relative z-20">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -148,6 +144,29 @@ const Hero = () => {
                   <Icon size={20} />
                 </a>
               ))}
+            </div>
+          </motion.div>
+
+          {/* DESCRIPTION — spans full width, row 2 */}
+          <motion.div
+            className="order-3 md:[grid-column:1/-1] md:[grid-row:2] md:mx-auto md:text-center max-w-[900px]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="text-lg leading-[1.8] text-muted-foreground space-y-4">
+              {t(
+                <>
+                  <p>I spent years in investment and strategy consulting, analyzing deals across markets and advising SMEs on global expansion.</p>
+                  <p>I learned to extract insights from complex data and translate them into growth strategies.</p>
+                  <p>Now I do both: analyze what matters, build what works. Bilingual (EN/CN), bridging data and product, East and West.</p>
+                </>,
+                <>
+                  <p>我在投资和战略咨询领域工作多年，分析跨市场交易，为中小企业提供全球扩张建议。</p>
+                  <p>我学会了从复杂数据中提取洞察，并将其转化为增长策略。</p>
+                  <p>现在我兼顾两者：分析关键问题，构建有效方案。双语（中英），连接数据与产品，东方与西方。</p>
+                </>
+              )}
             </div>
           </motion.div>
         </div>
