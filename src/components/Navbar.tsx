@@ -156,7 +156,7 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden bg-background border-b border-border px-6 pb-4 space-y-3">
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider pt-2">
-            {t("My Projects", "我的项目")}
+            {t("My Projects", "过往项目")}
           </p>
           <Link
             to="/projects/data-analysis"
