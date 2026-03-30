@@ -11,17 +11,8 @@ const InstagramIcon = () => (
 );
 const XiaohongshuIcon = () => (
   <svg viewBox="0 0 200 200" width="28" height="28">
-    <rect x="0" y="0" width="200" height="200" rx="40" fill="#FF2442"/>
-    {/* 小 */}
-    <path d="M30 125 L30 75 L30 125 M18 90 L42 90 M30 75 L30 55" stroke="white" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-    {/* 红 - stylized */}
-    <g transform="translate(62, 50)">
-      <path d="M0 35 L30 35 M15 15 L15 75 M0 75 L30 75 M30 15 L50 15 L50 75 L30 75 M30 45 L50 45" stroke="white" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-    </g>
-    {/* 书 - stylized */}
-    <g transform="translate(128, 50)">
-      <path d="M5 20 L5 65 M25 10 L25 75 M45 20 L45 65 M0 45 L50 45 M25 75 L25 85" stroke="white" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-    </g>
+    <rect x="0" y="0" width="200" height="200" rx="36" fill="currentColor"/>
+    <text x="100" y="108" textAnchor="middle" dominantBaseline="central" fill="var(--xhs-text, #FAFAFA)" fontSize="72" fontWeight="900" fontFamily="'Heiti SC','SimHei','Microsoft YaHei',sans-serif" letterSpacing="-2">小红书</text>
   </svg>
 );
 const WechatIcon = () => (
