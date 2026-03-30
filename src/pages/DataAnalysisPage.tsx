@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import lasVegasAirport from "@/assets/las-vegas-airport.jpeg";
 
 const dataProjects = [
   {
