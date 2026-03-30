@@ -1,61 +1,103 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Mail, Linkedin, Phone } from "lucide-react";
+import { Mail, Linkedin, Github, MapPin } from "lucide-react";
 
 const Contact = () => {
   const { t } = useLanguage();
 
+  const contactItems = [
+    { icon: Mail, label: "Email", value: "meijiahao219@gmail.com", href: "mailto:meijiahao219@gmail.com" },
+    { icon: Linkedin, label: "LinkedIn", value: "LinkedIn", href: "https://linkedin.com/in/meijiahao" },
+    { icon: Github, label: "GitHub", value: "GitHub", href: "https://github.com/meijiahao" },
+    { icon: MapPin, label: t("Location", "位置"), value: t("San Francisco Bay Area", "旧金山湾区"), href: null },
+  ];
+
   return (
-    <section id="contact" className="py-20 md:py-32 bg-foreground text-background">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="contact" className="py-20 md:py-28 bg-muted/30">
+      <div className="max-w-content mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto"
+          className="text-center mb-12"
         >
-          <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight mb-6">
-            {t("Let's Work", "一起")}
-            <span className="text-primary"> {t("Together", "合作")}</span>
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold mb-4">
+            {t("Get In Touch", "联系我")}
           </h2>
-          <p className="text-background/70 mb-10 text-lg">
+          <p className="text-muted-foreground max-w-lg mx-auto">
             {t(
-              "I'm actively seeking Business Analyst, Strategy Consultant, or Product roles. Let's connect!",
-              "我正在积极寻找商业分析师、战略咨询或产品相关岗位，期待与您联系！"
+              "Currently seeking Technical PM and AI PM roles in the San Francisco Bay Area",
+              "目前正在旧金山湾区寻找技术PM和AI PM相关职位"
             )}
           </p>
+        </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="mailto:meijiahao@example.com"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto mb-16">
+          {contactItems.map((item, i) => {
+            const Icon = item.icon;
+            const content = (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="bg-card border border-border rounded-xl p-5 text-center hover:border-primary/30 transition-all duration-300 hover:shadow-md"
+              >
+                <Icon size={22} className="mx-auto mb-3 text-primary" />
+                <p className="text-xs text-muted-foreground mb-1">{item.label}</p>
+                <p className="text-sm font-medium truncate">{item.value}</p>
+              </motion.div>
+            );
+            return item.href ? (
+              <a key={i} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
+                {content}
+              </a>
+            ) : (
+              <div key={i}>{content}</div>
+            );
+          })}
+        </div>
+
+        {/* Contact Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="max-w-xl mx-auto"
+        >
+          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <input
+                type="text"
+                placeholder={t("Name", "姓名")}
+                className="w-full px-4 py-3 rounded-lg bg-card border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+              />
+              <input
+                type="email"
+                placeholder={t("Email", "邮箱")}
+                className="w-full px-4 py-3 rounded-lg bg-card border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+              />
+            </div>
+            <textarea
+              rows={5}
+              placeholder={t("Message", "留言")}
+              className="w-full px-4 py-3 rounded-lg bg-card border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all resize-none"
+            />
+            <button
+              type="submit"
+              className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
             >
-              <Mail size={16} />
-              {t("Email Me", "发送邮件")}
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-background/30 rounded-full font-heading font-semibold text-sm hover:bg-background/10 transition-colors"
-            >
-              <Linkedin size={16} />
-              LinkedIn
-            </a>
-            <a
-              href="tel:+1234567890"
-              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-background/30 rounded-full font-heading font-semibold text-sm hover:bg-background/10 transition-colors"
-            >
-              <Phone size={16} />
-              {t("Call Me", "电话联系")}
-            </a>
-          </div>
+              {t("Send Message", "发送消息")}
+            </button>
+          </form>
         </motion.div>
 
         {/* Footer */}
-        <div className="mt-20 pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center text-sm text-background/50">
-          <p>© 2025 Jiahao (Mae) Mei. {t("All rights reserved.", "保留所有权利。")}</p>
+        <div className="mt-20 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
+          <p>© 2025 Mae (Jiahao) Mei. {t("All rights reserved.", "保留所有权利。")}</p>
           <p className="mt-2 md:mt-0">
             {t("Built with", "由")} ♥ {t("and data", "和数据构建")}
           </p>
