@@ -56,7 +56,7 @@ const DetailedAbout = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto items-stretch">
           {/* Left: Text + Fun Facts */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
