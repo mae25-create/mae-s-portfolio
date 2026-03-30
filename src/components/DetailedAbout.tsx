@@ -7,22 +7,19 @@ const filmPhotos = [
   "/4880bb82-4e87-426a-ab79-bab6b4ea4504.jpg",
   "/f6af3d19-4c0e-4b16-ad0f-1a887013517d.png",
   "/a91b7e83-5d7f-404e-9a0f-587711142c7d.png",
-  "/b28dc0af-6c4a-4fd1-83bf-8f3bf8fdeaa1.png",
-  "/1749c2b4-6fda-42ec-a7c5-ea335af09c28.jpg",
 ];
 
 const FilmPerforation = () => (
-  <div className="w-[6px] h-[6px] rounded-full" style={{ backgroundColor: "#1A1A1A" }} />
+  <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#1A1A1A" }} />
 );
 
-const FilmBorder = ({ photoCount }: { photoCount: number }) => {
-  const perforationCount = Math.max(20, photoCount * 5);
+const FilmBorder = () => {
   return (
     <div
-      className="absolute top-0 bottom-0 w-[12px] flex flex-col items-center justify-between py-3 z-10"
+      className="absolute top-0 bottom-0 w-3 flex flex-col items-center justify-between py-3 z-10"
       style={{ backgroundColor: "#111" }}
     >
-      {Array.from({ length: perforationCount }).map((_, i) => (
+      {Array.from({ length: 20 }).map((_, i) => (
         <FilmPerforation key={i} />
       ))}
     </div>
@@ -59,7 +56,7 @@ const DetailedAbout = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto items-stretch">
           {/* Left: Text + Fun Facts */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -115,52 +112,52 @@ const DetailedAbout = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="md:col-span-2"
+            className="md:col-span-2 flex flex-col"
           >
             <div
-              className="relative w-full rounded-sm overflow-hidden"
-              style={{ backgroundColor: "#2A2A2A", padding: "16px 0" }}
+              className="relative w-full rounded-sm overflow-hidden flex-1 flex flex-col"
+              style={{ backgroundColor: "#2A2A2A", padding: "1rem 0" }}
             >
               {/* Film grain overlay */}
               <div
                 className="absolute inset-0 z-20 pointer-events-none"
                 style={{
                   backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E")`,
-                  backgroundSize: "128px 128px",
+                  backgroundSize: "8rem 8rem",
                 }}
               />
 
               {/* Top gradient fade */}
               <div
-                className="absolute top-0 left-0 right-0 h-8 z-20 pointer-events-none"
+                className="absolute top-0 left-0 right-0 h-6 z-20 pointer-events-none"
                 style={{ background: "linear-gradient(to bottom, #2A2A2A, transparent)" }}
               />
               {/* Bottom gradient fade */}
               <div
-                className="absolute bottom-0 left-0 right-0 h-8 z-20 pointer-events-none"
+                className="absolute bottom-0 left-0 right-0 h-6 z-20 pointer-events-none"
                 style={{ background: "linear-gradient(to top, #2A2A2A, transparent)" }}
               />
 
               {/* Left film border */}
               <div className="absolute left-0 top-0 bottom-0">
-                <FilmBorder photoCount={visiblePhotos.length} />
+                <FilmBorder />
               </div>
               {/* Right film border */}
               <div className="absolute right-0 top-0 bottom-0">
-                <FilmBorder photoCount={visiblePhotos.length} />
+                <FilmBorder />
               </div>
 
               {/* Photo frames */}
-              <div className="flex flex-col gap-[6px] px-[16px] relative z-[5]">
+              <div className="flex flex-col gap-1.5 px-4 relative z-[5] flex-1">
                 {visiblePhotos.map((src, i) => (
                   <div
                     key={i}
-                    className="relative cursor-pointer"
+                    className="relative cursor-pointer flex-1 min-h-0"
                     style={{
-                      border: "2px solid #1A1A1A",
-                      transform: activePhoto === i ? "scale(1.1)" : "scale(1)",
+                      border: "0.125rem solid #1A1A1A",
+                      transform: activePhoto === i ? "scale(1.08)" : "scale(1)",
                       zIndex: activePhoto === i ? 10 : 1,
-                      boxShadow: activePhoto === i ? "0 8px 24px rgba(0,0,0,0.4)" : "none",
+                      boxShadow: activePhoto === i ? "0 0.5rem 1.5rem rgba(0,0,0,0.4)" : "none",
                       filter: activePhoto === i ? "brightness(1.1)" : "brightness(1)",
                       transition: "all 0.3s ease",
                     }}
@@ -168,7 +165,7 @@ const DetailedAbout = () => {
                     onMouseLeave={() => setActivePhoto(null)}
                     onClick={() => setActivePhoto(activePhoto === i ? null : i)}
                   >
-                    <div className="w-full aspect-[3/2] overflow-hidden">
+                    <div className="w-full h-full overflow-hidden">
                       <img
                         src={src}
                         alt={`Photo ${i + 1}`}
@@ -178,10 +175,10 @@ const DetailedAbout = () => {
                     </div>
                     {/* Frame number */}
                     <span
-                      className="absolute bottom-2 right-2 select-none"
+                      className="absolute bottom-1 right-1.5 select-none"
                       style={{
                         fontFamily: "'Courier New', Courier, monospace",
-                        fontSize: "10px",
+                        fontSize: "0.625rem",
                         color: "rgba(255,255,255,0.6)",
                       }}
                     >
