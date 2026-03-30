@@ -14,7 +14,7 @@ const Marquee = ({ text }: { text: string }) => (
         <span
           key={i}
           className="font-heading text-xl md:text-2xl font-black uppercase tracking-wider mx-8"
-          style={{ color: "#0046FF" }}
+          style={{ color: "#4300FF" }}
         >
           {text} •&nbsp;&nbsp;
         </span>
