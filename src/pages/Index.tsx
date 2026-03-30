@@ -1,8 +1,7 @@
-import { LanguageProvider } from "@/contexts/LanguageContext";
-import { ThemeProvider } from "@/contexts/ThemeContext";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeaturedProjects from "@/components/FeaturedProjects";
+import VibeCodingProducts from "@/components/VibeCodingProducts";
 import Experience from "@/components/Experience";
 import DetailedAbout from "@/components/DetailedAbout";
 import Contact from "@/components/Contact";
@@ -12,10 +11,21 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
-      <FeaturedProjects />
-      <Experience />
-      <DetailedAbout />
-      <Contact />
+      <div style={{ background: "#FFF8F0" }}>
+        <FeaturedProjects />
+      </div>
+      <div style={{ background: "#FFFBF1" }}>
+        <VibeCodingProducts />
+      </div>
+      <div style={{ background: "#FFF8F0" }}>
+        <Experience />
+      </div>
+      <div style={{ background: "#FFFBF1" }}>
+        <DetailedAbout />
+      </div>
+      <div style={{ background: "#FFF8F0" }}>
+        <Contact />
+      </div>
     </div>
   );
 };
