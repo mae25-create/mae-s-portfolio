@@ -9,8 +9,6 @@ const filmPhotos = [
   "/a91b7e83-5d7f-404e-9a0f-587711142c7d.png",
   "/b28dc0af-6c4a-4fd1-83bf-8f3bf8fdeaa1.png",
   "/1749c2b4-6fda-42ec-a7c5-ea335af09c28.jpg",
-  "/4880bb82-4e87-426a-ab79-bab6b4ea4504.jpg",
-  "/f6af3d19-4c0e-4b16-ad0f-1a887013517d.png",
 ];
 
 const FilmPerforation = () => (
@@ -152,7 +150,7 @@ const DetailedAbout = () => {
               </div>
 
               {/* Photo frames */}
-              <div className="flex flex-col gap-[8px] px-[16px] relative z-[5]">
+              <div className="flex flex-col gap-[6px] px-[16px] relative z-[5]">
                 {visiblePhotos.map((src, i) => (
                   <div
                     key={i}
@@ -169,7 +167,7 @@ const DetailedAbout = () => {
                     onMouseLeave={() => setActivePhoto(null)}
                     onClick={() => setActivePhoto(activePhoto === i ? null : i)}
                   >
-                    <div className="w-full aspect-[4/3] overflow-hidden">
+                    <div className="w-full aspect-[3/2] overflow-hidden">
                       <img
                         src={src}
                         alt={`Photo ${i + 1}`}
