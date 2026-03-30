@@ -31,7 +31,6 @@ const FilmBorder = () => (
 const DetailedAbout = () => {
   const { t } = useLanguage();
   const [activePhoto, setActivePhoto] = useState<number | null>(null);
-  const [startIndex, setStartIndex] = useState(0);
   const leftRef = useRef<HTMLDivElement>(null);
   const [leftHeight, setLeftHeight] = useState<number | null>(null);
 
@@ -46,25 +45,6 @@ const DetailedAbout = () => {
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
   }, []);
-
-  // Auto-rotate carousel every 4s
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setStartIndex((prev) => (prev + 1) % allPhotos.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const getVisiblePhotos = useCallback(() => {
-    const photos = [];
-    for (let i = 0; i < VISIBLE_COUNT; i++) {
-      const idx = (startIndex + i) % allPhotos.length;
-      photos.push({ src: allPhotos[idx], globalIndex: idx });
-    }
-    return photos;
-  }, [startIndex]);
-
-  const visiblePhotos = getVisiblePhotos();
 
   const funFacts = [
     t("🐕 Corgi parent to a 3-year-old troublemaker", "🐕 三岁柯基的铲屎官"),
