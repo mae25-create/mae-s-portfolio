@@ -39,6 +39,7 @@ const DetailedAbout = () => {
     t("☕ Coffee snob — currently rotating between Sightglass, Andytown, and home espresso", "☕ 咖啡控——目前轮换Sightglass、Andytown和家用意式"),
     t("🥾 Weekend warrior hiking Bay Area trails", "🥾 周末湾区徒步爱好者"),
     t("🍜 Food-first travel planner — museums second, local eats first", "🍜 美食优先的旅行者——博物馆其次，当地美食第一"),
+    t("🎨 I enjoy listening to heavy metal while painting and working with pottery", "🎨 喜欢一边听重金属音乐一边画画和做陶艺"),
   ];
 
   const visiblePhotos = filmPhotos;
