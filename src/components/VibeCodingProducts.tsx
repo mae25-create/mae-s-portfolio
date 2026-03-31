@@ -33,46 +33,6 @@ const vibeProducts = [
     image: nestedCover,
     to: "/projects/ai-products/nested",
   },
-  {
-    title: "Avanti",
-    titleZh: "Avanti",
-    description: "AI-powered content creation assistant that helps creators produce high-quality multilingual content at scale.",
-    descriptionZh: "AI驱动的内容创作助手，帮助创作者高效生产多语言优质内容。",
-    tags: ["REACT", "TYPESCRIPT", "CLAUDE API", "SUPABASE"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-  },
-  {
-    title: "Mae Studio",
-    titleZh: "Mae Studio",
-    description: "AI-powered personal portfolio platform built with modern web technologies. Dynamic content generation and bilingual support.",
-    descriptionZh: "AI驱动的个人作品集平台，支持动态内容生成和双语切换。",
-    tags: ["REACT", "FRAMER MOTION", "TAILWIND"],
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-  },
-  {
-    title: "Smart Resume Parser",
-    titleZh: "智能简历解析器",
-    description: "NLP-based tool that extracts structured data from resumes in multiple formats with 95%+ accuracy.",
-    descriptionZh: "基于NLP的工具，从多种格式简历中提取结构化数据，准确率95%+。",
-    tags: ["PYTHON", "GPT-4", "FASTAPI", "SPACY"],
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
-  },
-  {
-    title: "Market Pulse",
-    titleZh: "市场脉搏",
-    description: "Real-time market intelligence dashboard aggregating news, social sentiment, and financial data.",
-    descriptionZh: "实时市场情报看板，聚合新闻、社交舆情和财务数据。",
-    tags: ["PYTHON", "REACT", "OPENAI", "POSTGRESQL"],
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80",
-  },
-  {
-    title: "Cross-Cultural AI Chatbot",
-    titleZh: "跨文化AI聊天机器人",
-    description: "Bilingual conversational AI for cross-border business communication with cultural context awareness.",
-    descriptionZh: "面向跨境商务沟通的双语AI助手，具备文化语境感知和实时翻译功能。",
-    tags: ["CLAUDE API", "REACT", "WEBSOCKET"],
-    image: "https://images.unsplash.com/photo-1531746790095-e5888436e48f?w=800&q=80",
-  },
 ];
 
 const VibeCodingProducts = () => {
@@ -122,7 +82,8 @@ const VibeCodingProducts = () => {
                 <img
                   src={product.image}
                   alt={t(product.title, product.titleZh)}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                   loading="lazy"
+                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <h3 className="font-heading text-sm font-bold uppercase tracking-wide">

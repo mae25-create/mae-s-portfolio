@@ -136,6 +136,7 @@ const FeaturedProjects = () => {
                   <img
                     src={project.image}
                     alt={t(project.title, project.titleZh)}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
