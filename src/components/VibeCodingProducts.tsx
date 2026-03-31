@@ -82,7 +82,8 @@ const VibeCodingProducts = () => {
                 <img
                   src={product.image}
                   alt={t(product.title, product.titleZh)}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                   loading="lazy"
+                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <h3 className="font-heading text-sm font-bold uppercase tracking-wide">
