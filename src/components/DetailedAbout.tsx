@@ -57,11 +57,11 @@ const DetailedAbout = () => {
 
   const funFacts = [
     t("🐕 Corgi parent to a 3-year-old troublemaker", "🐕 三岁柯基的铲屎官"),
-    t("📲 Runs a Xiaohongshu channel teaching AI tools in Chinese", "📲 运营小红书频道，用中文教AI工具"),
-    t("🍜 Food-first travel planner — museums second, local eats first", "🍜 美食优先的旅行者——博物馆其次，当地美食第一"),
-    t("🥾 Weekend warrior hiking Bay Area trails", "🥾 周末湾区徒步爱好者"),
+    t("📲 Runs 3 video channels teaching AI tools in Chinese", "📲 运营3个视频频道，用中文教AI工具"),
+    t("🍜 Food-first travel planner — \n\nlocal eats first, museums second", "🍜 美食优先的旅行者——当地美食第一，博物馆其次"),
+    t("🏞️ Drives 10+ hours for a single hike — national park trails are worth it", "🏞️ 驱车10小时以上只为一次徒步——国家公园路线绝对值得"),
     t("☕ Coffee snob — currently rotating between Sightglass, Andytown, and home espresso", "☕ 咖啡控——目前轮换Sightglass、Andytown和家用意式"),
-    t("🎨 I enjoy listening to heavy metal while painting and working with pottery", "🎨 喜欢一边听重金属音乐一边画画和做陶艺"),
+    t("🎸 Can't paint or throw pottery without heavy metal — balance is key", "🎸 画画或做陶艺时离不开重金属音乐——平衡是关键"),
   ];
 
   return (

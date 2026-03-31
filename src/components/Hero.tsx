@@ -156,14 +156,14 @@ const Hero = () => {
             <div className="text-lg leading-[1.7] text-muted-foreground space-y-6">
               {t(
                 <>
-                  <p>I spent years in investment and strategy consulting, analyzing deals across markets and advising SMEs on global expansion. I learned to extract insights from complex data and translate them into growth strategies.</p>
-                  <p>In the AI era, I realized that the ability to go from data to decisions could go even further. I started teaching myself to code using AI tools, transitioning from an analyst to a builder: moving beyond strategy reports to shipping functional products.</p>
-                  <p>Now I do both: help clients analyze critical problems and build effective solutions. Bilingual (EN/CN), bridging data and product, East and West, strategy and execution.</p>
+                  <p>I spent years in investment and strategy consulting, analyzing deals across markets, advising SMEs on expansion, and extracting insights from data. In the AI era, I realized analysis alone wasn't enough. I taught myself to code using AI tools, moving from analyst to builder.</p>
+                  <p>Now I do both: find critical problems with data, then build effective solutions. Bilingual (EN/CN), bridging insights and products, East and West, strategy and execution.</p>
+                  <p></p>
                 </>,
                 <>
-                  <p>我在投资和战略咨询领域工作多年，分析跨市场交易，为中小企业提供全球扩张建议。我学会了如何从复杂数据中提取洞察，并将其转化为增长策略。</p>
-                  <p>在AI时代，我意识到这种"从数据到决策"的能力可以更进一步：于是我开始用AI工具自学编程。现在我不再只是写策略报告，而是能把洞察变成可运行的产品。</p>
-                  <p>我兼顾两者：帮助客户分析关键问题，构建有效方案。用双语（中英）连接数据与产品、东方与西方、战略思考与产品执行。</p>
+                  <p>我在投资和战略咨询领域工作多年，分析跨市场交易，为中小企业提供全球扩张建议，并从数据中提取洞察。在AI时代，我意识到仅有分析是不够的。我开始用AI工具自学编程，从一名分析师转型为构建者。</p>
+                  <p>现在我兼顾两者：通过数据发现关键问题，然后构建有效的解决方案。用双语（中英）连接洞察与产品、东方与西方、战略思考与产品执行。</p>
+                  <p></p>
                 </>
               )}
             </div>
