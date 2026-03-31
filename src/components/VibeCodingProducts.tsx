@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import nestedCover from "@/assets/nested-cover.jpg";
+import gtcCover from "@/assets/gtc-cover.jpg";
 
 const Marquee = ({ text }: { text: string }) => (
   <div className="overflow-hidden py-3 bg-foreground">
@@ -32,6 +33,15 @@ const vibeProducts = [
     tags: ["FLUTTERFLOW", "FIREBASE", "AI/ML"],
     image: nestedCover,
     to: "/projects/ai-products/nested",
+  },
+  {
+    title: "GTC Explorer — NVIDIA GTC 2026",
+    titleZh: "GTC Explorer — 英伟达 GTC 2026",
+    description: "Interactive exhibitor industry map visualizing 61 companies across 12 sectors in a dynamic network graph.",
+    descriptionZh: "参展商行业地图，以动态网络图展示12个行业的61家公司。",
+    tags: ["DATA VIZ", "NETWORK GRAPH", "VIBE CODING"],
+    image: gtcCover,
+    to: "/projects/ai-products",
   },
 ];
 
