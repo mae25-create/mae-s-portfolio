@@ -181,7 +181,7 @@ const DetailedAbout = () => {
                         key={i}
                         className="relative cursor-pointer"
                         style={{
-                          aspectRatio: "3/4",
+                          aspectRatio: "1/1",
                           border: "0.125rem solid #1A1A1A",
                           transform: activePhoto === i ? "scale(1.08)" : "scale(1)",
                           zIndex: activePhoto === i ? 10 : 1,
