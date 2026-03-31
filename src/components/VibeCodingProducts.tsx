@@ -34,6 +34,15 @@ const vibeProducts = [
     image: nestedCover,
     to: "/projects/ai-products/nested",
   },
+  {
+    title: "GTC Explorer — NVIDIA GTC 2026",
+    titleZh: "GTC Explorer — 英伟达 GTC 2026",
+    description: "Interactive exhibitor industry map visualizing 61 companies across 12 sectors in a dynamic network graph.",
+    descriptionZh: "参展商行业地图，以动态网络图展示12个行业的61家公司。",
+    tags: ["DATA VIZ", "NETWORK GRAPH", "VIBE CODING"],
+    image: gtcCover,
+    to: "/projects/ai-products",
+  },
 ];
 
 const VibeCodingProducts = () => {
