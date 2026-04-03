@@ -43,6 +43,15 @@ const vibeProducts = [
     image: gtcCover,
     to: "/projects/ai-products",
   },
+  {
+    title: "Auto Marketing Agent",
+    titleZh: "智能营销代理",
+    description: "AI-driven marketing automation agent that generates campaign strategies, content, and audience insights in real time.",
+    descriptionZh: "AI驱动的营销自动化代理，实时生成营销策略、内容和受众洞察。",
+    tags: ["AI AGENT", "MARKETING", "AUTOMATION"],
+    image: gtcCover,
+    to: "/projects/ai-products",
+  },
 ];
 
 const VibeCodingProducts = () => {
