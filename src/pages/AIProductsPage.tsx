@@ -166,7 +166,7 @@ const AIProductsPage = () => {
           media={
             <VideoPlayer
               src="/videos/auto-marketing-agent-demo.mp4"
-              poster={gtcCover}
+              poster={autoMarketingCover}
             />
           }
         />
