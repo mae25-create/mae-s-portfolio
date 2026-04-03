@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import nestedCover from "@/assets/nested-cover.jpg";
 import gtcCover from "@/assets/gtc-cover.jpg";
 import autoMarketingCover from "@/assets/auto-marketing-cover.jpg";
+import flavorAiCover from "@/assets/flavor-ai-cover.jpg";
 
 interface ProjectRowProps {
   title: string;
