@@ -53,6 +53,15 @@ const vibeProducts = [
     image: autoMarketingCover,
     to: "/projects/ai-products",
   },
+  {
+    title: "Flavor AI — Smart Taste Explorer",
+    titleZh: "Flavor AI — 智能风味探索",
+    description: "AI-powered flavor profiling app that analyzes taste preferences, recommends recipes, and visualizes ingredient relationships.",
+    descriptionZh: "AI驱动的风味分析应用，分析口味偏好、推荐食谱并可视化食材关系。",
+    tags: ["AI", "FOOD TECH", "DATA VIZ"],
+    image: flavorAiCover,
+    to: "/projects/ai-products",
+  },
 ];
 
 const VibeCodingProducts = () => {
