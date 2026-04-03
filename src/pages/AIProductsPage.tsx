@@ -154,6 +154,22 @@ const AIProductsPage = () => {
           }
         />
 
+        {/* Project 3 — Auto Marketing Agent */}
+        <ProjectRow
+          index={2}
+          title={t("Auto Marketing Agent", "智能营销代理")}
+          description={t(
+            "AI-powered marketing automation agent that streamlines campaign creation end-to-end. Generates tailored marketing strategies, audience segmentation, ad copy, and visual content — all through a conversational AI interface.\n\nFrom market research to content calendar planning, the agent automates repetitive marketing workflows and delivers actionable insights in real time.",
+            "AI驱动的营销自动化代理，端到端简化营销活动创建流程。通过对话式AI界面生成定制营销策略、受众细分、广告文案和视觉内容。\n\n从市场调研到内容日历规划，该代理自动化重复性营销工作流程，并实时提供可操作的洞察。"
+          )}
+          media={
+            <VideoPlayer
+              src="/videos/auto-marketing-agent-demo.mp4"
+              poster={gtcCover}
+            />
+          }
+        />
+
         <div className="border-t border-border" />
       </div>
     </div>
