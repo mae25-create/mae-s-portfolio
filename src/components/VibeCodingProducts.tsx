@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import nestedCover from "@/assets/nested-cover.jpg";
 import gtcCover from "@/assets/gtc-cover.jpg";
+import autoMarketingCover from "@/assets/auto-marketing-cover.jpg";
 
 const Marquee = ({ text }: { text: string }) => (
   <div className="overflow-hidden py-3 bg-foreground">
