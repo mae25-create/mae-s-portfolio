@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import nestedCover from "@/assets/nested-cover.jpg";
 import gtcCover from "@/assets/gtc-cover.jpg";
 import autoMarketingCover from "@/assets/auto-marketing-cover.jpg";
+import flavorAiCover from "@/assets/flavor-ai-cover.jpg";
 
 const Marquee = ({ text }: { text: string }) => (
   <div className="overflow-hidden py-3 bg-foreground">
@@ -51,6 +52,15 @@ const vibeProducts = [
     descriptionZh: "AI驱动的营销自动化代理，实时生成营销策略、内容和受众洞察。",
     tags: ["AI AGENT", "MARKETING", "AUTOMATION"],
     image: autoMarketingCover,
+    to: "/projects/ai-products",
+  },
+  {
+    title: "Flavor AI — Smart Taste Explorer",
+    titleZh: "Flavor AI — 智能风味探索",
+    description: "AI-powered flavor profiling app that analyzes taste preferences, recommends recipes, and visualizes ingredient relationships.",
+    descriptionZh: "AI驱动的风味分析应用，分析口味偏好、推荐食谱并可视化食材关系。",
+    tags: ["AI", "FOOD TECH", "DATA VIZ"],
+    image: flavorAiCover,
     to: "/projects/ai-products",
   },
 ];

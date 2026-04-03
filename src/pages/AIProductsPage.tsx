@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import nestedCover from "@/assets/nested-cover.jpg";
 import gtcCover from "@/assets/gtc-cover.jpg";
 import autoMarketingCover from "@/assets/auto-marketing-cover.jpg";
+import flavorAiCover from "@/assets/flavor-ai-cover.jpg";
 
 interface ProjectRowProps {
   title: string;
@@ -167,6 +168,22 @@ const AIProductsPage = () => {
             <VideoPlayer
               src="/videos/auto-marketing-agent-demo.mp4"
               poster={autoMarketingCover}
+            />
+          }
+        />
+
+        {/* Project 4 — Flavor AI */}
+        <ProjectRow
+          index={3}
+          title={t("Flavor AI — Smart Taste Explorer", "Flavor AI — 智能风味探索")}
+          description={t(
+            "AI-powered flavor profiling application that maps personal taste preferences and generates tailored recipe recommendations. Features interactive ingredient relationship graphs, nutritional breakdowns, and seasonal flavor trend analysis.\n\nCombines computer vision for food recognition with NLP-driven taste modeling to deliver a personalized culinary discovery experience.",
+            "AI驱动的风味分析应用，绘制个人口味偏好图谱并生成定制食谱推荐。具备交互式食材关系图、营养成分分析和季节性风味趋势洞察。\n\n结合计算机视觉食物识别与NLP驱动的口味建模，打造个性化美食探索体验。"
+          )}
+          media={
+            <VideoPlayer
+              src="/videos/flavor-ai-demo.mp4"
+              poster={flavorAiCover}
             />
           }
         />
