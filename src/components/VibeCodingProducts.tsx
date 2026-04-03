@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import nestedCover from "@/assets/nested-cover.jpg";
 import gtcCover from "@/assets/gtc-cover.jpg";
+import autoMarketingCover from "@/assets/auto-marketing-cover.jpg";
 
 const Marquee = ({ text }: { text: string }) => (
   <div className="overflow-hidden py-3 bg-foreground">
@@ -49,7 +50,7 @@ const vibeProducts = [
     description: "AI-driven marketing automation agent that generates campaign strategies, content, and audience insights in real time.",
     descriptionZh: "AI驱动的营销自动化代理，实时生成营销策略、内容和受众洞察。",
     tags: ["AI AGENT", "MARKETING", "AUTOMATION"],
-    image: gtcCover,
+    image: autoMarketingCover,
     to: "/projects/ai-products",
   },
 ];

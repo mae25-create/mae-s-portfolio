@@ -6,6 +6,7 @@ import { ArrowLeft, Play } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import nestedCover from "@/assets/nested-cover.jpg";
 import gtcCover from "@/assets/gtc-cover.jpg";
+import autoMarketingCover from "@/assets/auto-marketing-cover.jpg";
 
 interface ProjectRowProps {
   title: string;
@@ -165,7 +166,7 @@ const AIProductsPage = () => {
           media={
             <VideoPlayer
               src="/videos/auto-marketing-agent-demo.mp4"
-              poster={gtcCover}
+              poster={autoMarketingCover}
             />
           }
         />
