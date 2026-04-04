@@ -79,7 +79,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <a
-                href="#featured-projects"
+                href="#vibe-coding"
                 className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-heading font-semibold text-lg text-primary-foreground bg-primary transition-all duration-300 hover:scale-[1.03] hover:bg-primary/90 shadow-lg"
               >
                 {t("View My Projects", "查看我的作品")}
