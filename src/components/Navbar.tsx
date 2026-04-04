@@ -172,15 +172,15 @@ const Navbar = () => {
           >
             {t("AI Products", "AI 产品")}
           </Link>
-          <a href="#experience" onClick={() => setOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground">
+          <Link to="/#experience" onClick={() => setOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground">
             {t("Work Experience", "工作经历")}
-          </a>
-          <a href="#about" onClick={() => setOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground">
+          </Link>
+          <Link to="/#about" onClick={() => setOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground">
             {t("About", "关于我")}
-          </a>
-          <a href="#contact" onClick={() => setOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground">
+          </Link>
+          <Link to="/#contact" onClick={() => setOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground">
             {t("Contact", "联系我")}
-          </a>
+          </Link>
         </div>
       )}
     </nav>
