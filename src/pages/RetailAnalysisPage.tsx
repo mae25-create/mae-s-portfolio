@@ -93,6 +93,16 @@ const RetailAnalysisPage = () => {
           </div>
         </motion.section>
 
+        {/* Dashboard Overview */}
+        <motion.section {...fadeUp(0.12)} className="mb-16">
+          <h2 className="font-heading text-2xl font-semibold mb-6">
+            {t("Dashboard Overview", "仪表板概览")}
+          </h2>
+          <div className="bg-card border border-border rounded-xl overflow-hidden">
+            <img src={dashboardImg} alt="Retail Dashboard" className="w-full" />
+          </div>
+        </motion.section>
+
         {/* Insight 1: Bestseller Ratio vs Sales */}
         <motion.section {...fadeUp(0.15)} className="mb-16">
           <div className="flex items-center gap-3 mb-6">
@@ -302,15 +312,6 @@ const RetailAnalysisPage = () => {
           </div>
         </motion.section>
 
-        {/* Dashboard */}
-        <motion.section {...fadeUp(0.45)} className="mb-16">
-          <h2 className="font-heading text-2xl font-semibold mb-6">
-            {t("Dashboard Overview", "仪表板概览")}
-          </h2>
-          <div className="bg-card border border-border rounded-xl overflow-hidden">
-            <img src={dashboardImg} alt="Retail Dashboard" className="w-full" />
-          </div>
-        </motion.section>
 
         {/* Back */}
         <motion.div {...fadeUp(0.5)} className="text-center">
