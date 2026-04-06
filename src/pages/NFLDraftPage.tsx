@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Trophy, Brain, Target, Users, BarChart3, Shield } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
-import rookiePffImg from "@/assets/nfl-rookie-pff.png";
-import draftDistributionImg from "@/assets/nfl-draft-distribution.png";
-import successRankingImg from "@/assets/nfl-success-ranking.png";
-import successFormulaImg from "@/assets/nfl-success-formula.png";
 import cardinalsImg from "@/assets/cardinals-cover.png";
 
 const fadeUp = (delay = 0) => ({
@@ -188,7 +184,7 @@ const NFLDraftPage = () => {
                 {t("where Production = γ₁·wAV + γ₂·DrAV and Performance = δ₁·PFF_rookie + δ₂·PFF_career", "其中 Production = γ₁·wAV + γ₂·DrAV，Performance = δ₁·PFF_rookie + δ₂·PFF_career")}
               </div>
             </div>
-            <img src={successFormulaImg} alt="Success Formula" className="w-full rounded-lg" />
+            <img src="72995a52-e473-41b6-a532-33510693d14c.png" alt="Success Formula" className="w-full rounded-lg" />
           </div>
 
           <div className="bg-card border border-border rounded-xl p-6 md:p-8">
@@ -309,26 +305,26 @@ const NFLDraftPage = () => {
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               <div className="p-4 pb-0">
                 <h3 className="font-heading text-sm font-semibold">
-                  {t("Rookie PFF Grade — Cardinals vs Other Teams", "新秀PFF评分——红雀队 vs 其他球队")}
+                  {"\n"}
                 </h3>
               </div>
-              <img src={rookiePffImg} alt="Rookie PFF Grade Trend" className="w-full" />
+              <img src="4cfde9ad-0701-4b59-bedf-1fc04afa4d56.png" alt="Rookie PFF Grade Trend" className="w-full" />
             </div>
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               <div className="p-4 pb-0">
                 <h3 className="font-heading text-sm font-semibold">
-                  {t("Draft Round Distribution per Position", "各位置选秀轮次分布")}
+                  {"\n"}
                 </h3>
               </div>
-              <img src={draftDistributionImg} alt="Draft Distribution" className="w-full" />
+              <img src="01656ec6-c9ec-4cab-a4dc-5aeb5e3675af.png" alt="Draft Distribution" className="w-full" />
             </div>
             <div className="bg-card border border-border rounded-xl overflow-hidden md:col-span-2">
               <div className="p-4 pb-0">
                 <h3 className="font-heading text-sm font-semibold">
-                  {t("ML-Predicted Player Success Rankings (Top 42)", "机器学习预测球员成功排名（前42名）")}
+                  {"\n"}
                 </h3>
               </div>
-              <img src={successRankingImg} alt="Success Rankings" className="w-full" />
+              <img src="43b4b0b9-b105-4052-a618-6d222a4a8a1b.png" alt="Success Rankings" className="w-full" />
             </div>
           </div>
         </motion.section>
