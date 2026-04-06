@@ -188,7 +188,7 @@ const NFLDraftPage = () => {
                 {t("where Production = γ₁·wAV + γ₂·DrAV and Performance = δ₁·PFF_rookie + δ₂·PFF_career", "其中 Production = γ₁·wAV + γ₂·DrAV，Performance = δ₁·PFF_rookie + δ₂·PFF_career")}
               </div>
             </div>
-            <img src="72995a52-e473-41b6-a532-33510693d14c.png" alt="Success Formula" className="w-full rounded-lg" />
+            <img src="0b43e83f-ee48-4017-9c63-01595500e34f.png" alt="Success Formula" className="w-full rounded-lg" />
           </div>
 
           <div className="bg-card border border-border rounded-xl p-6 md:p-8">
