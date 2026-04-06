@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import gotCover from "@/assets/got-analysis-hero.png";
+import gotDashboardOverview from "@/assets/got-dashboard-overview.png";
 
 const GoTAnalysisPage = () => {
   const { t } = useLanguage();
@@ -318,6 +319,26 @@ const GoTAnalysisPage = () => {
                 )
               )}
             </div>
+          </div>
+        </motion.div>
+
+        {/* Dashboard Overview */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-16"
+        >
+          <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6">
+            {t("Dashboard Overview", "仪表板概览")}
+          </h2>
+          <div className="rounded-xl overflow-hidden border border-border">
+            <img
+              src={gotDashboardOverview}
+              alt="GoT vs HotD Dashboard Overview"
+              className="w-full h-auto object-cover"
+            />
           </div>
         </motion.div>
       </div>
