@@ -5,7 +5,7 @@ import { ArrowLeft, ShoppingCart, BarChart3, Star, TrendingUp, Target, Lightbulb
 import Navbar from "@/components/Navbar";
 
 import bestsellerRatioImg from "@/assets/retail-bestseller-ratio.png";
-import starsSalesImg from "@/assets/retail-stars-sales.png";
+import starsSalesImg from "@/assets/retail-stars-sales-v2.png";
 import revenuePerProductImg from "@/assets/retail-revenue-per-product.png";
 import reviewsPerSaleImg from "@/assets/retail-reviews-per-sale.png";
 import healthMarketImg from "@/assets/retail-health-market.png";
