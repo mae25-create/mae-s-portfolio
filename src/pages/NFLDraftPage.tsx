@@ -5,6 +5,7 @@ import { ArrowLeft, Trophy, Brain, Target, Users, BarChart3, Shield } from "luci
 import Navbar from "@/components/Navbar";
 
 import cardinalsImg from "@/assets/cardinals-cover.png";
+import successFormulaImg from "@/assets/nfl-success-formula.png";
 import nflPlayersDistribution from "@/assets/nfl-players-distribution.png";
 import nflPffGradeTrend from "@/assets/nfl-pff-grade-trend.png";
 import nflGlobalDraftTrend from "@/assets/nfl-global-draft-trend.png";
@@ -188,7 +189,7 @@ const NFLDraftPage = () => {
                 {t("where Production = γ₁·wAV + γ₂·DrAV and Performance = δ₁·PFF_rookie + δ₂·PFF_career", "其中 Production = γ₁·wAV + γ₂·DrAV，Performance = δ₁·PFF_rookie + δ₂·PFF_career")}
               </div>
             </div>
-            <img src="0b43e83f-ee48-4017-9c63-01595500e34f.png" alt="Success Formula" className="w-full rounded-lg" />
+            <img src={successFormulaImg} alt="Success Formula" className="w-full rounded-lg" />
           </div>
 
           <div className="bg-card border border-border rounded-xl p-6 md:p-8">
@@ -305,7 +306,7 @@ const NFLDraftPage = () => {
           <h2 className="font-heading text-2xl font-semibold mb-6">
             {t("Analytics & Trends", "分析与趋势")}
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-6">
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               <img src={nflPlayersDistribution} alt="Cardinals Players Distribution" className="w-full" />
             </div>
