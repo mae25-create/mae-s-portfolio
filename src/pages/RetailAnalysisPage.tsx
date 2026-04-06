@@ -11,7 +11,7 @@ import reviewsPerSaleImg from "@/assets/retail-reviews-per-sale.png";
 import healthMarketImg from "@/assets/retail-health-market.png";
 import premiumBestsellersImg from "@/assets/retail-premium-bestsellers.png";
 import starProductsImg from "@/assets/retail-star-products.png";
-import dashboardImg from "@/assets/retail-dashboard.png";
+import dashboardImg from "@/assets/retail-dashboard.jpg";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
