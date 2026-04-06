@@ -246,7 +246,26 @@ const GoTAnalysisPage = () => {
           </div>
         </motion.div>
 
-        {/* Key Insights */}
+        {/* Dashboard Overview */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-16"
+        >
+          <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6">
+            {t("Dashboard Overview", "仪表板概览")}
+          </h2>
+          <div className="rounded-xl overflow-hidden border border-border">
+            <img
+              src={gotDashboardOverview}
+              alt="GoT vs HotD Dashboard Overview"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -322,25 +341,6 @@ const GoTAnalysisPage = () => {
           </div>
         </motion.div>
 
-        {/* Dashboard Overview */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mt-16"
-        >
-          <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6">
-            {t("Dashboard Overview", "仪表板概览")}
-          </h2>
-          <div className="rounded-xl overflow-hidden border border-border">
-            <img
-              src={gotDashboardOverview}
-              alt="GoT vs HotD Dashboard Overview"
-              className="w-full h-auto object-cover"
-            />
-          </div>
-        </motion.div>
       </div>
     </div>
   );
