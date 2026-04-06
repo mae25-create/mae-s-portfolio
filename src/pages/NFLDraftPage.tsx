@@ -5,6 +5,10 @@ import { ArrowLeft, Trophy, Brain, Target, Users, BarChart3, Shield } from "luci
 import Navbar from "@/components/Navbar";
 
 import cardinalsImg from "@/assets/cardinals-cover.png";
+import nflPlayersDistribution from "@/assets/nfl-players-distribution.png";
+import nflPffGradeTrend from "@/assets/nfl-pff-grade-trend.png";
+import nflGlobalDraftTrend from "@/assets/nfl-global-draft-trend.png";
+import nflPlayersRanking from "@/assets/nfl-players-ranking.png";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -303,28 +307,16 @@ const NFLDraftPage = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-card border border-border rounded-xl overflow-hidden">
-              <div className="p-4 pb-0">
-                <h3 className="font-heading text-sm font-semibold">
-                  {"\n"}
-                </h3>
-              </div>
-              <img src="4cfde9ad-0701-4b59-bedf-1fc04afa4d56.png" alt="Rookie PFF Grade Trend" className="w-full" />
+              <img src={nflPlayersDistribution} alt="Cardinals Players Distribution" className="w-full" />
             </div>
             <div className="bg-card border border-border rounded-xl overflow-hidden">
-              <div className="p-4 pb-0">
-                <h3 className="font-heading text-sm font-semibold">
-                  {"\n"}
-                </h3>
-              </div>
-              <img src="01656ec6-c9ec-4cab-a4dc-5aeb5e3675af.png" alt="Draft Distribution" className="w-full" />
+              <img src={nflPffGradeTrend} alt="Rookie PFF Grade Trend" className="w-full" />
             </div>
-            <div className="bg-card border border-border rounded-xl overflow-hidden md:col-span-2">
-              <div className="p-4 pb-0">
-                <h3 className="font-heading text-sm font-semibold">
-                  {"\n"}
-                </h3>
-              </div>
-              <img src="43b4b0b9-b105-4052-a618-6d222a4a8a1b.png" alt="Success Rankings" className="w-full" />
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <img src={nflGlobalDraftTrend} alt="Global Draft Trend" className="w-full" />
+            </div>
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <img src={nflPlayersRanking} alt="Successful Players Ranking" className="w-full" />
             </div>
           </div>
         </motion.section>
