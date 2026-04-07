@@ -206,59 +206,8 @@ const FlightDelayPage = () => {
           </div>
         </motion.section>
 
-        {/* Passenger Forecasting */}
-        <motion.section {...fadeUp(0.25)} className="mb-16">
-          <div className="flex items-center gap-3 mb-6">
-            <TrendingUp size={22} className="text-primary" />
-            <h2 className="font-heading text-2xl font-semibold">
-              {t("Passenger Forecasting Model", "客流量预测模型")}
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="font-heading font-semibold mb-2">{t("Objective", "目标")}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {t(
-                  "Forecast monthly passenger volumes at LAS for June 2025 – May 2026.",
-                  "预测LAS机场2025年6月至2026年5月的月度客流量。"
-                )}
-              </p>
-            </div>
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="font-heading font-semibold mb-2">{t("Algorithm", "算法")}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {t(
-                  "Seasonal ARIMA (SARIMA(1,1,1)(0,1,1)[12]) with differencing, seasonal MA terms, and low-order ARIMA components.",
-                  "季节性ARIMA（SARIMA(1,1,1)(0,1,1)[12]），包含差分、季节性MA项和低阶ARIMA分量。"
-                )}
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-card border border-border rounded-xl p-6 md:p-8 mb-8">
-            <h3 className="font-heading font-semibold mb-2">{t("Performance", "性能")}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              {t(
-                "On a validation window, the 95% prediction intervals captured 93% of observed values, demonstrating reliable point forecasts and robust uncertainty quantification.",
-                "在验证窗口中，95%预测区间覆盖了93%的观测值，展示了可靠的点预测和稳健的不确定性量化。"
-              )}
-            </p>
-          </div>
-
-          {/* Forecast Chart */}
-          <div className="bg-card border border-border rounded-xl overflow-hidden">
-            <div className="p-6 pb-2">
-              <h3 className="font-heading font-semibold">
-                {t("LAS Airport Passenger Forecast (June 2025 – May 2026)", "LAS机场客流量预测（2025年6月 - 2026年5月）")}
-              </h3>
-            </div>
-            <img src={passengerForecastImg} alt="Passenger Forecast" className="w-full" />
-          </div>
-        </motion.section>
-
-        {/* Dashboard Section */}
-        <motion.section {...fadeUp(0.3)} className="mb-16">
+        {/* Flight Delay Overview */}
+        <motion.section {...fadeUp(0.22)} className="mb-16">
           <h2 className="font-heading text-2xl font-semibold mb-6">
             {t("Flight Delay Overview", "航班延误概览")}
           </h2>
@@ -311,6 +260,57 @@ const FlightDelayPage = () => {
               </div>
               <img src={decisionTreeImg} alt="Decision Tree" className="w-full" />
             </div>
+          </div>
+        </motion.section>
+
+        {/* Passenger Forecasting */}
+        <motion.section {...fadeUp(0.25)} className="mb-16">
+          <div className="flex items-center gap-3 mb-6">
+            <TrendingUp size={22} className="text-primary" />
+            <h2 className="font-heading text-2xl font-semibold">
+              {t("Passenger Forecasting Model", "客流量预测模型")}
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-card border border-border rounded-xl p-6">
+              <h3 className="font-heading font-semibold mb-2">{t("Objective", "目标")}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {t(
+                  "Forecast monthly passenger volumes at LAS for June 2025 – May 2026.",
+                  "预测LAS机场2025年6月至2026年5月的月度客流量。"
+                )}
+              </p>
+            </div>
+            <div className="bg-card border border-border rounded-xl p-6">
+              <h3 className="font-heading font-semibold mb-2">{t("Algorithm", "算法")}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {t(
+                  "Seasonal ARIMA (SARIMA(1,1,1)(0,1,1)[12]) with differencing, seasonal MA terms, and low-order ARIMA components.",
+                  "季节性ARIMA（SARIMA(1,1,1)(0,1,1)[12]），包含差分、季节性MA项和低阶ARIMA分量。"
+                )}
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-card border border-border rounded-xl p-6 md:p-8 mb-8">
+            <h3 className="font-heading font-semibold mb-2">{t("Performance", "性能")}</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              {t(
+                "On a validation window, the 95% prediction intervals captured 93% of observed values, demonstrating reliable point forecasts and robust uncertainty quantification.",
+                "在验证窗口中，95%预测区间覆盖了93%的观测值，展示了可靠的点预测和稳健的不确定性量化。"
+              )}
+            </p>
+          </div>
+
+          {/* Forecast Chart */}
+          <div className="bg-card border border-border rounded-xl overflow-hidden">
+            <div className="p-6 pb-2">
+              <h3 className="font-heading font-semibold">
+                {t("LAS Airport Passenger Forecast (June 2025 – May 2026)", "LAS机场客流量预测（2025年6月 - 2026年5月）")}
+              </h3>
+            </div>
+            <img src={passengerForecastImg} alt="Passenger Forecast" className="w-full" />
           </div>
         </motion.section>
 
