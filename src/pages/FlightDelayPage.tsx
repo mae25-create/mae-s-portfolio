@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Plane, BarChart3, Brain, TrendingUp, DollarSign, Shield, RefreshCw } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
-import marketShareImg from "@/assets/las-market-share.png";
-import flightsDelaysImg from "@/assets/las-flights-delays.png";
-import delayRateImg from "@/assets/las-delay-rate.png";
 import modelComparisonImg from "@/assets/las-model-comparison.png";
 import passengerForecastImg from "@/assets/las-passenger-forecast.png";
-import passengerTrafficImg from "@/assets/las-passenger-traffic.png";
-import destinationsImg from "@/assets/las-destinations.png";
+import avgDelayCarrierImg from "@/assets/las-avg-delay-carrier.png";
+import monthlyFlightsDelaysImg from "@/assets/las-monthly-flights-delays.png";
+import correlationMatrixImg from "@/assets/las-correlation-matrix.png";
+import weatherCorrelationImg from "@/assets/las-weather-correlation.png";
+import delayVsDistanceImg from "@/assets/las-delay-vs-distance.png";
+import decisionTreeImg from "@/assets/las-decision-tree.png";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -259,48 +260,56 @@ const FlightDelayPage = () => {
         {/* Dashboard Section */}
         <motion.section {...fadeUp(0.3)} className="mb-16">
           <h2 className="font-heading text-2xl font-semibold mb-6">
-            {t("2024 Dashboard", "2024年仪表板")}
+            {t("Flight Delay Overview", "航班延误概览")}
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               <div className="p-4 pb-0">
                 <h3 className="font-heading text-sm font-semibold">
-                  {t("Operating Carriers Market Share", "运营航空公司市场份额")}
+                  {t("Average Departure and Arrival Delay by Carrier", "各航空公司平均出发与到达延误")}
                 </h3>
               </div>
-              <img src={marketShareImg} alt="Market Share" className="w-full" />
+              <img src={avgDelayCarrierImg} alt="Average Delay by Carrier" className="w-full" />
             </div>
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               <div className="p-4 pb-0">
                 <h3 className="font-heading text-sm font-semibold">
-                  {t("Monthly Flights vs. Delayed Flights", "月度航班 vs 延误航班")}
+                  {t("Monthly Total Flights vs. Delayed Flights at LAS", "LAS月度总航班 vs 延误航班")}
                 </h3>
               </div>
-              <img src={flightsDelaysImg} alt="Flights vs Delays" className="w-full" />
+              <img src={monthlyFlightsDelaysImg} alt="Monthly Flights vs Delays" className="w-full" />
             </div>
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               <div className="p-4 pb-0">
                 <h3 className="font-heading text-sm font-semibold">
-                  {t("Delay Rate by Carrier", "各航空公司延误率")}
+                  {t("Correlation Matrix", "相关性矩阵")}
                 </h3>
               </div>
-              <img src={delayRateImg} alt="Delay Rate by Carrier" className="w-full" />
+              <img src={correlationMatrixImg} alt="Correlation Matrix" className="w-full" />
             </div>
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               <div className="p-4 pb-0">
                 <h3 className="font-heading text-sm font-semibold">
-                  {t("Top 10 Domestic Destinations", "前10大国内目的地")}
+                  {t("Weather Features and Weather Delay Correlation", "天气特征与天气延误相关性")}
                 </h3>
               </div>
-              <img src={destinationsImg} alt="Top Destinations" className="w-full" />
+              <img src={weatherCorrelationImg} alt="Weather Correlation" className="w-full" />
             </div>
             <div className="bg-card border border-border rounded-xl overflow-hidden md:col-span-2">
               <div className="p-4 pb-0">
                 <h3 className="font-heading text-sm font-semibold">
-                  {t("Monthly Passenger Traffic at LAS in 2024", "2024年LAS月度客流量")}
+                  {t("Delay vs. Distance", "延误与距离关系")}
                 </h3>
               </div>
-              <img src={passengerTrafficImg} alt="Monthly Passenger Traffic" className="w-full" />
+              <img src={delayVsDistanceImg} alt="Delay vs Distance" className="w-full" />
+            </div>
+            <div className="bg-card border border-border rounded-xl overflow-hidden md:col-span-2">
+              <div className="p-4 pb-0">
+                <h3 className="font-heading text-sm font-semibold">
+                  {t("Decision Tree Visualization", "决策树可视化")}
+                </h3>
+              </div>
+              <img src={decisionTreeImg} alt="Decision Tree" className="w-full" />
             </div>
           </div>
         </motion.section>
