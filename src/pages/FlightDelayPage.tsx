@@ -12,6 +12,12 @@ import correlationMatrixImg from "@/assets/las-correlation-matrix.png";
 import weatherCorrelationImg from "@/assets/las-weather-correlation.png";
 import delayVsDistanceImg from "@/assets/las-delay-vs-distance.png";
 import decisionTreeImg from "@/assets/las-decision-tree.png";
+import monthlyVolumeImg from "@/assets/las-monthly-volume.png";
+import monthlyVolumeYearlyImg from "@/assets/las-monthly-volume-yearly.png";
+import avgMonthlyPassengersImg from "@/assets/las-avg-monthly-passengers.png";
+import top10RoutesYearlyImg from "@/assets/las-top10-routes-yearly.png";
+import top10RoutesMonthlyImg from "@/assets/las-top10-routes-monthly.png";
+import residualsDiagnosticsImg from "@/assets/las-residuals-diagnostics.png";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -314,7 +320,63 @@ const FlightDelayPage = () => {
           </div>
         </motion.section>
 
-        {/* Value Proposition */}
+        {/* Passenger Volume Trends Overview */}
+        <motion.section {...fadeUp(0.3)} className="mb-16">
+          <h2 className="font-heading text-2xl font-semibold mb-6">
+            {t("Passenger Volume Trends Overview", "客流量趋势概览")}
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <div className="p-4 pb-0">
+                <h3 className="font-heading text-sm font-semibold">
+                  {t("Monthly Passengers Volume Over Time", "月度客流量变化趋势")}
+                </h3>
+              </div>
+              <img src={monthlyVolumeImg} alt="Monthly Passengers Volume Over Time" className="w-full" />
+            </div>
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <div className="p-4 pb-0">
+                <h3 className="font-heading text-sm font-semibold">
+                  {t("Monthly Passengers Volume per Year", "各年月度客流量对比")}
+                </h3>
+              </div>
+              <img src={monthlyVolumeYearlyImg} alt="Monthly Passengers Volume per Year" className="w-full" />
+            </div>
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <div className="p-4 pb-0">
+                <h3 className="font-heading text-sm font-semibold">
+                  {t("Average Monthly Passengers in LAS", "LAS月均客流量")}
+                </h3>
+              </div>
+              <img src={avgMonthlyPassengersImg} alt="Average Monthly Passengers" className="w-full" />
+            </div>
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <div className="p-4 pb-0">
+                <h3 className="font-heading text-sm font-semibold">
+                  {t("Passenger Trends for Top 10 Routes to LAS", "LAS前10大航线客流趋势")}
+                </h3>
+              </div>
+              <img src={top10RoutesYearlyImg} alt="Top 10 Routes Yearly Trends" className="w-full" />
+            </div>
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <div className="p-4 pb-0">
+                <h3 className="font-heading text-sm font-semibold">
+                  {t("Monthly Passenger Trends for Top 10 Routes (2022–2024)", "前10大航线月度客流趋势（2022-2024）")}
+                </h3>
+              </div>
+              <img src={top10RoutesMonthlyImg} alt="Top 10 Routes Monthly Trends" className="w-full" />
+            </div>
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <div className="p-4 pb-0">
+                <h3 className="font-heading text-sm font-semibold">
+                  {t("Residuals Diagnostics", "残差诊断")}
+                </h3>
+              </div>
+              <img src={residualsDiagnosticsImg} alt="Residuals Diagnostics" className="w-full" />
+            </div>
+          </div>
+        </motion.section>
+
         <motion.section {...fadeUp(0.35)} className="mb-16">
           <h2 className="font-heading text-2xl font-semibold mb-6">
             {t("Value Proposition", "价值主张")}
