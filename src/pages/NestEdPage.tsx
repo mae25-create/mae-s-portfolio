@@ -17,7 +17,7 @@ import {
   Users,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import nestedCover from "@/assets/nested-cover.jpg";
+import nestedCover from "@/assets/nested-cover-v2.png";
 import nestedAppScreens from "@/assets/nested-app-screens.jpg";
 import nestedDemoSignup from "@/assets/nested-demo-signup.jpg";
 import nestedDemoProfile from "@/assets/nested-demo-profile.jpg";
