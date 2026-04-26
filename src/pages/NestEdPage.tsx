@@ -19,6 +19,8 @@ import {
 import Navbar from "@/components/Navbar";
 import nestedCover from "@/assets/nested-cover-v2.png";
 import nestedAppScreens from "@/assets/nested-app-screens-v2.png";
+import nestedBusinessModelGtm from "@/assets/nested-business-model-gtm.png";
+import nestedImpactKpis from "@/assets/nested-impact-kpis.png";
 import nestedDemoSignup from "@/assets/nested-demo-signup.jpg";
 import nestedDemoProfile from "@/assets/nested-demo-profile.jpg";
 import nestedDemoAssessment from "@/assets/nested-demo-assessment.jpg";
@@ -369,6 +371,9 @@ const NestEdPage = () => {
               </div>
             ))}
           </div>
+          <div className="mt-6 rounded-lg overflow-hidden border border-border bg-card">
+            <img src={nestedBusinessModelGtm} alt="NestEd business model and GTM strategy slide" className="w-full h-auto object-cover" loading="lazy" />
+          </div>
         </motion.section>
 
         <motion.section {...fadeUp()} className="mb-20">
@@ -411,6 +416,9 @@ const NestEdPage = () => {
                 ))}
               </div>
             </div>
+          </div>
+          <div className="mt-6 rounded-lg overflow-hidden border border-border bg-card">
+            <img src={nestedImpactKpis} alt="NestEd impact economics and success KPIs slide" className="w-full h-auto object-cover" loading="lazy" />
           </div>
         </motion.section>
 
