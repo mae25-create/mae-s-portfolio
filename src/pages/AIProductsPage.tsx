@@ -4,8 +4,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Play } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import nestedCover from "@/assets/nested-cover.jpg";
-import gtcCover from "@/assets/gtc-cover.jpg";
+import nestedCover from "@/assets/nested-app-screens-v2.png";
+import gtcCover from "@/assets/gtc-explorer-network-cover.jpg";
 import autoMarketingCover from "@/assets/auto-marketing-cover.jpg";
 import flavorAiCover from "@/assets/flavor-ai-cover.jpg";
 
