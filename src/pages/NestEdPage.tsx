@@ -1,22 +1,169 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Users, BookOpen, Brain, Heart, TrendingUp, Smartphone } from "lucide-react";
+import {
+  ArrowLeft,
+  BadgeCheck,
+  BookOpen,
+  Brain,
+  Briefcase,
+  ChevronRight,
+  CircleDollarSign,
+  Heart,
+  LineChart,
+  Smartphone,
+  Sparkles,
+  Target,
+  Users,
+} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import nestedCover from "@/assets/nested-cover.jpg";
 import nestedAppScreens from "@/assets/nested-app-screens.jpg";
-import nestedSignup from "@/assets/nested-signup.jpg";
-import nestedAssessment from "@/assets/nested-assessment.jpg";
-import nestedMyPath from "@/assets/nested-my-path.jpg";
-import nestedDashboard from "@/assets/nested-dashboard.jpg";
+import nestedDemoSignup from "@/assets/nested-demo-signup.jpg";
+import nestedDemoProfile from "@/assets/nested-demo-profile.jpg";
+import nestedDemoAssessment from "@/assets/nested-demo-assessment.jpg";
+import nestedDemoPath from "@/assets/nested-demo-path.jpg";
+import nestedDemoDashboard from "@/assets/nested-demo-dashboard.jpg";
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5, delay },
+});
 
 const NestEdPage = () => {
   const { t } = useLanguage();
 
+  const valuePillars = [
+    {
+      icon: Brain,
+      title: t("AI-driven personalization", "AI驱动的个性化"),
+      desc: t(
+        "Self-assessment and recommendation algorithms adapt each parent’s learning path.",
+        "通过自我评估与推荐算法，为每位家长匹配学习路径。"
+      ),
+    },
+    {
+      icon: BookOpen,
+      title: t("Comprehensive curriculum", "综合课程体系"),
+      desc: t(
+        "Parenting skills, financial literacy, vocational training, and nutrition content in one journey.",
+        "将育儿技能、金融素养、职业培训和营养内容整合为一条学习旅程。"
+      ),
+    },
+    {
+      icon: Smartphone,
+      title: t("Accessible by design", "为可及性而设计"),
+      desc: t(
+        "A lightweight mobile app optimized for intermittent internet and low data consumption.",
+        "轻量移动端体验，针对不稳定网络和低流量消耗优化。"
+      ),
+    },
+    {
+      icon: Heart,
+      title: t("Transformative potential", "长期改变潜力"),
+      desc: t(
+        "From daily family dynamics to long-term economic stability for the next generation.",
+        "从日常家庭互动延伸到下一代长期经济稳定。"
+      ),
+    },
+  ];
+
+  const demoSteps = [
+    {
+      title: t("1. Sign Up", "1. 注册"),
+      desc: t(
+        "Parents enter through a simple mobile onboarding flow with email, Google, or Facebook options.",
+        "家长通过简单的移动端入口开始，可选择邮箱、Google 或 Facebook 注册。"
+      ),
+      image: nestedDemoSignup,
+    },
+    {
+      title: t("2. Create a Profile", "2. 创建个人资料"),
+      desc: t(
+        "The app captures age, children, zip code, education level, employment status, and income range to personalize support.",
+        "应用收集年龄、子女情况、邮编、教育程度、就业状态和收入区间，用于个性化支持。"
+      ),
+      image: nestedDemoProfile,
+    },
+    {
+      title: t("3. Self-Assessment", "3. 自我评估"),
+      desc: t(
+        "Emotional state, concerns, mindset, and support needs become inputs for the AI recommendation layer.",
+        "情绪、担忧、心态与支持需求会成为 AI 推荐层的输入。"
+      ),
+      image: nestedDemoAssessment,
+    },
+    {
+      title: t("4. My Path", "4. 我的路径"),
+      desc: t(
+        "Personalized modules guide parents through financial education, parenting skills, nutrition, and career skills.",
+        "个性化模块引导家长学习金融教育、育儿技能、营养知识和职业技能。"
+      ),
+      image: nestedDemoPath,
+    },
+    {
+      title: t("5. Dashboard", "5. 仪表板"),
+      desc: t(
+        "Progress, tasks, categories, XP, and achievements turn learning into a repeatable habit.",
+        "进度、任务、分类、经验值与成就系统将学习转化为持续习惯。"
+      ),
+      image: nestedDemoDashboard,
+    },
+  ];
+
+  const businessModels = [
+    {
+      title: t("Government & NGO contracts", "政府与 NGO 合同"),
+      desc: t(
+        "Integrate NestEd into public education and workforce programs; license AI-powered training modules.",
+        "将 NestEd 纳入公共教育与就业项目，并授权 AI 培训模块。"
+      ),
+    },
+    {
+      title: t("Corporate & fintech partnerships", "企业与金融科技合作"),
+      desc: t(
+        "Fund job-readiness courses, financial education, and microfinance tools through ESG and social funds.",
+        "通过 ESG 与社会基金资助就业准备课程、金融教育和小额金融工具。"
+      ),
+    },
+    {
+      title: t("Data insights & API licensing", "数据洞察与 API 授权"),
+      desc: t(
+        "Offer anonymized impact reports and AI-powered skills-matching APIs for underserved hiring markets.",
+        "提供匿名化影响力报告，以及面向欠服务招聘市场的 AI 技能匹配 API。"
+      ),
+    },
+  ];
+
+  const roadmap = [
+    {
+      version: "1.0",
+      date: "Feb 2025",
+      features: [t("Self-Assessment", "自我评估"), t("My Path", "我的路径"), t("My Progress", "我的进度")],
+    },
+    {
+      version: "2.0",
+      date: "Feb 2028",
+      features: [t("Full authentication", "完整用户认证"), t("Gamification", "游戏化机制")],
+    },
+    {
+      version: "3.0",
+      date: t("Post launch", "上线后"),
+      features: [t("Tutorial videos", "教程视频"), t("AI voice assistant", "AI 语音助手"), t("Follow-up surveys", "追踪问卷")],
+    },
+    {
+      version: "4.0",
+      date: t("Future", "未来"),
+      features: [t("Interactive activities", "互动活动"), t("Continuous data optimization", "基于数据持续优化")],
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      <div className="max-w-content mx-auto px-6 pt-28 pb-20">
+      <main className="max-w-content mx-auto px-6 pt-28 pb-20">
         <Link
           to="/projects/ai-products"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
@@ -25,435 +172,305 @@ const NestEdPage = () => {
           {t("Back to AI Products", "返回AI产品")}
         </Link>
 
-        {/* Hero */}
-        <motion.div
+        <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-16"
+          className="mb-20"
         >
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid lg:grid-cols-[1fr_0.92fr] gap-8 lg:gap-12 items-center">
             <div>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {["FLUTTERFLOW", "FIREBASE", "AI", "SOCIAL IMPACT"].map((tag) => (
-                  <span key={tag} className="px-3 py-1 bg-muted rounded-full text-xs font-mono font-medium">
+              <div className="flex flex-wrap gap-2 mb-5">
+                {["SOCIAL IMPACT", "AI", "BRAZIL", "MVP"].map((tag) => (
+                  <span key={tag} className="px-3 py-1 bg-muted rounded-md text-xs font-mono font-medium">
                     {tag}
                   </span>
                 ))}
               </div>
-              <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+              <p className="text-sm font-medium text-primary mb-3">
+                {t("What determines a child’s future?", "什么决定一个孩子的未来？")}
+              </p>
+              <h1 className="font-heading text-3xl md:text-5xl font-bold leading-tight mb-5">
                 {t(
-                  "NestEd — Breaking the Cycle of Poverty Through Education",
-                  "NestEd — 通过教育打破贫困循环"
+                  "NestEd — Breaking the poverty cycle through parent education",
+                  "NestEd — 通过家长教育打破贫困循环"
                 )}
               </h1>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mb-7">
                 {t(
-                  "An AI-powered mobile app empowering low-income parents in Brazil with parenting skills, financial literacy, nutrition guidance, and career development — built to break the intergenerational cycle of poverty.",
-                  "一款AI驱动的移动应用，为巴西低收入家庭父母提供育儿技能、金融素养、营养指导和职业发展支持——旨在打破代际贫困循环。"
+                  "NestEd empowers low-income parents in Brazil with AI-personalized learning, practical life skills, and a mobile-first support system for raising resilient learners.",
+                  "NestEd 为巴西低收入家庭家长提供 AI 个性化学习、实用生活技能与移动端支持系统，帮助他们培养更有韧性的下一代。"
                 )}
               </p>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1.5">
-                  <Users size={14} className="text-primary" />
-                  {t("150K target users", "目标用户15万")}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <TrendingUp size={14} className="text-primary" />
-                  {t("311% Social ROI", "社会回报率311%")}
-                </span>
+              <div className="grid grid-cols-3 gap-3 max-w-xl">
+                {[
+                  { value: "9", label: t("generations to break poverty", "代才可能打破贫困") },
+                  { value: "4M+", label: t("families lack access", "家庭缺乏资源") },
+                  { value: "150K", label: t("target MAU", "目标月活") },
+                ].map((stat) => (
+                  <div key={stat.value} className="border border-border rounded-lg p-4 bg-card">
+                    <div className="font-heading text-2xl font-bold text-primary">{stat.value}</div>
+                    <p className="text-xs text-muted-foreground mt-1 leading-snug">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="rounded-xl overflow-hidden border border-border">
-              <img src={nestedCover} alt="NestEd Cover" className="w-full h-auto object-cover" />
-            </div>
-          </div>
-        </motion.div>
-
-        {/* The Problem */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
-        >
-          <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6">
-            {t("The Problem", "问题背景")}
-          </h2>
-          <div className="bg-card border border-border rounded-xl p-6 md:p-8 mb-6">
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-4xl font-heading font-bold text-primary mb-2">9</div>
-                <p className="text-sm text-muted-foreground">
-                  {t(
-                    "Generations needed to break the cycle of poverty in Brazil",
-                    "在巴西打破贫困循环所需的代数"
-                  )}
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-heading font-bold text-primary mb-2">4M+</div>
-                <p className="text-sm text-muted-foreground">
-                  {t(
-                    "Low-income families lacking access to parenting & financial education",
-                    "缺乏育儿和金融教育资源的低收入家庭"
-                  )}
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-heading font-bold text-primary mb-2">47M</div>
-                <p className="text-sm text-muted-foreground">
-                  {t("Total Addressable Market (TAM)", "总可触达市场 (TAM)")}
-                </p>
-              </div>
+            <div className="rounded-lg overflow-hidden border border-border bg-card">
+              <img src={nestedCover} alt="NestEd pitch cover" className="w-full h-auto object-cover" />
             </div>
           </div>
-          <p className="text-muted-foreground leading-relaxed">
-            {t(
-              "Low-income mothers in Brazil face a vicious cycle: limited education leads to poor living conditions, which limits their children's development, perpetuating poverty across generations. Our belief is that family dynamics and education are the most powerful tools to overcome this cycle.",
-              "巴西低收入母亲面临恶性循环：有限的教育导致贫困的生活条件，进而限制子女发展，使贫困代代延续。我们相信，家庭互动和教育是打破这一循环最有力的工具。"
-            )}
-          </p>
-        </motion.div>
+        </motion.section>
 
-        {/* Solution — Value Proposition */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
-        >
-          <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6">
-            {t("Our Solution", "解决方案")}
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            {[
-              {
-                icon: Brain,
-                title: t("AI-Driven", "AI驱动"),
-                desc: t("Personalized learning paths powered by recommendation algorithms", "由推荐算法驱动的个性化学习路径"),
-              },
-              {
-                icon: BookOpen,
-                title: t("Comprehensive", "全面覆盖"),
-                desc: t("Parenting, financial literacy, nutrition, and career skills", "育儿、金融素养、营养和职业技能"),
-              },
-              {
-                icon: Smartphone,
-                title: t("Accessible", "易于使用"),
-                desc: t("Lightweight mobile app optimized for intermittent internet", "轻量级应用，为不稳定网络优化"),
-              },
-              {
-                icon: Heart,
-                title: t("Transformative", "变革性"),
-                desc: t("Empowering parents to break the cycle for the next generation", "赋能父母，为下一代打破贫困循环"),
-              },
-            ].map((item) => (
-              <div key={item.title} className="bg-card border border-border rounded-xl p-6">
-                <item.icon size={24} className="text-primary mb-3" />
+        <motion.section {...fadeUp()} className="mb-20">
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-start">
+            <div>
+              <p className="text-sm font-medium text-primary mb-3">{t("Problem", "问题")}</p>
+              <h2 className="font-heading text-2xl md:text-3xl font-bold mb-4">
+                {t("A family-level cycle that repeats across generations", "一个在家庭层面代际重复的循环")}
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                {t(
+                  "Low-income mothers in Brazil face interconnected barriers: limited quality education, low child development support, restricted job opportunities, and poor living conditions. The beneficiaries are their children, who gain a better starting point when family dynamics and education improve.",
+                  "巴西低收入母亲面临相互关联的障碍：优质教育不足、儿童发展支持有限、就业机会受限和生活条件较差。当家庭互动与教育能力得到提升，真正受益的是获得更好起点的孩子。"
+                )}
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                { icon: Users, title: t("Who", "目标人群"), text: t("Mothers from low-income families in Brazil.", "巴西低收入家庭中的母亲。") },
+                { icon: Heart, title: t("Beneficiaries", "受益者"), text: t("Children gaining advantages for their future.", "为未来获得优势的孩子。") },
+                { icon: Target, title: t("Core belief", "核心信念"), text: t("Family dynamics and education are the strongest levers.", "家庭互动和教育是最有力的杠杆。") },
+                { icon: LineChart, title: t("Market need", "市场需求"), text: t("47M TAM, 1.67M SAM, 154K initial SAM in Parelheiros-SP.", "47M TAM、1.67M SAM、Parelheiros-SP 首期 154K SAM。") },
+              ].map((item) => (
+                <div key={item.title} className="bg-card border border-border rounded-lg p-5">
+                  <item.icon size={22} className="text-primary mb-3" />
+                  <h3 className="font-heading font-semibold mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.section>
+
+        <motion.section {...fadeUp()} className="mb-20">
+          <div className="mb-8">
+            <p className="text-sm font-medium text-primary mb-3">{t("Value Proposition", "价值主张")}</p>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold mb-4">
+              {t("From personalized learning to measurable social mobility", "从个性化学习到可衡量的社会流动")}
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {valuePillars.map((item) => (
+              <div key={item.title} className="bg-card border border-border rounded-lg p-6">
+                <item.icon size={24} className="text-primary mb-4" />
                 <h3 className="font-heading text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
-        </motion.div>
+        </motion.section>
 
-        {/* Product — App Screenshots */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
-        >
-          <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6">
-            {t("The Product — MVP App", "产品 — MVP应用")}
-          </h2>
-          <div className="rounded-xl overflow-hidden border border-border mb-8">
-            <img src={nestedAppScreens} alt="NestEd App Screens" className="w-full h-auto object-cover" />
+        <motion.section {...fadeUp()} className="mb-20">
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center mb-8">
+            <div>
+              <p className="text-sm font-medium text-primary mb-3">{t("Underlying Magic", "底层机制")}</p>
+              <h2 className="font-heading text-2xl md:text-3xl font-bold mb-4">
+                {t("Assessment → Path → Recommendations → Gamification", "评估 → 路径 → 推荐 → 游戏化")}
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                {t(
+                  "The MVP turns personal context into actionable modules, then uses progress tracking and rewards to keep parents engaged long enough for behavior change.",
+                  "MVP 将个人背景转化为可执行学习模块，再通过进度追踪与奖励机制维持参与度，让行为改变有机会发生。"
+                )}
+              </p>
+            </div>
+            <div className="rounded-lg overflow-hidden border border-border bg-card">
+              <img src={nestedAppScreens} alt="NestEd app screen overview" className="w-full h-auto object-cover" loading="lazy" />
+            </div>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-4 gap-3">
             {[
-              {
-                title: t("1. Sign Up & Profile", "1. 注册与个人资料"),
-                desc: t(
-                  "Users create profiles with demographic info including education level, employment status, income range, and children's ages — enabling personalized content recommendations.",
-                  "用户创建包含教育水平、就业状态、收入范围和子女年龄等信息的个人资料——实现个性化内容推荐。"
-                ),
-                image: nestedSignup,
-              },
-              {
-                title: t("2. Self-Assessment", "2. 自我评估"),
-                desc: t(
-                  "Daily emotional and mindset check-ins help the AI understand each parent's current state and adapt learning recommendations accordingly.",
-                  "每日情绪和心态签到帮助AI了解每位家长的当前状态，并相应调整学习推荐。"
-                ),
-                image: nestedAssessment,
-              },
-              {
-                title: t("3. My Path — Learning Modules", "3. 我的路径 — 学习模块"),
-                desc: t(
-                  "Structured courses covering Financial Education, Parenting Skills, Nutrition Guide, and Career Skills — each with progress tracking and XP rewards.",
-                  "涵盖金融教育、育儿技能、营养指南和职业技能的结构化课程——每门课程都有进度跟踪和经验值奖励。"
-                ),
-                image: nestedMyPath,
-              },
-              {
-                title: t("4. Dashboard & Gamification", "4. 仪表板与游戏化"),
-                desc: t(
-                  "Task management, progress categories, achievement badges, streaks, and active challenges keep users engaged and motivated throughout their learning journey.",
-                  "任务管理、进度分类、成就徽章、连续签到和活跃挑战让用户在整个学习过程中保持参与和动力。"
-                ),
-                image: nestedDashboard,
-              },
-            ].map((step, i) => (
+              t("Self-Assessment", "自我评估"),
+              t("My Path", "我的路径"),
+              t("Recommendation Algorithms", "推荐算法"),
+              t("Gamification", "游戏化"),
+            ].map((item, index) => (
+              <div key={item} className="flex items-center justify-between bg-muted rounded-lg px-4 py-3 text-sm font-medium">
+                <span>{item}</span>
+                {index < 3 && <ChevronRight size={16} className="hidden md:block text-muted-foreground" />}
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        <motion.section {...fadeUp()} className="mb-20">
+          <div className="mb-8">
+            <p className="text-sm font-medium text-primary mb-3">{t("MVP Demo Flow", "MVP 使用流程")}</p>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold mb-4">
+              {t("A five-step parent journey from signup to daily progress", "从注册到日常进步的五步家长旅程")}
+            </h2>
+            <p className="text-muted-foreground leading-relaxed max-w-3xl">
+              {t(
+                "The demo flow is preserved from the product instructions and reframed as a clear onboarding-to-engagement sequence.",
+                "以下保留产品说明文档中的演示步骤，并将其整理为清晰的“入门—参与”流程。"
+              )}
+            </p>
+          </div>
+          <div className="space-y-6">
+            {demoSteps.map((step, index) => (
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
+                key={step.title}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="bg-card border border-border rounded-xl overflow-hidden"
+                transition={{ duration: 0.4, delay: index * 0.06 }}
+                className="grid md:grid-cols-[220px_1fr] lg:grid-cols-[260px_1fr] gap-5 md:gap-8 items-center bg-card border border-border rounded-lg p-4 md:p-6"
               >
-                <div className="h-64 overflow-hidden bg-muted flex items-center justify-center">
-                  <img src={step.image} alt={step.title} className="h-full w-auto object-contain" />
+                <div className="rounded-lg bg-muted overflow-hidden flex justify-center max-h-[420px]">
+                  <img src={step.image} alt={step.title} className="w-auto max-h-[420px] object-contain" loading="lazy" />
                 </div>
-                <div className="p-6">
-                  <h3 className="font-heading text-lg font-semibold mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+                <div>
+                  <div className="text-sm font-mono text-primary mb-2">
+                    {t("Step", "步骤")} {index + 1}
+                  </div>
+                  <h3 className="font-heading text-xl md:text-2xl font-bold mb-3">{step.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed max-w-2xl">{step.desc}</p>
                 </div>
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.section>
 
-        {/* Business Model */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
-        >
-          <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6">
-            {t("Business Model & GTM", "商业模式与市场进入")}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {[
-              {
-                title: t("Government & NGO Contracts", "政府与NGO合同"),
-                desc: t(
-                  "Integrate NestEd into public education and workforce programs; license AI-powered training modules to social institutions.",
-                  "将NestEd融入公共教育和就业项目；向社会机构授权AI培训模块。"
-                ),
-              },
-              {
-                title: t("Corporate & Fintech Partnerships", "企业与金融科技合作"),
-                desc: t(
-                  "Financial institutions invest through social funds; fintech partners fund job-readiness courses and microfinance tools.",
-                  "金融机构通过社会基金投资；金融科技合作伙伴资助就业课程和小额金融工具。"
-                ),
-              },
-              {
-                title: t("Data Insights & API Licensing", "数据洞察与API授权"),
-                desc: t(
-                  "AI-powered skills-matching API for companies hiring in underserved areas; aggregated anonymized impact reports.",
-                  "为在欠发达地区招聘的企业提供AI技能匹配API；汇总匿名影响力报告。"
-                ),
-              },
-            ].map((model) => (
-              <div key={model.title} className="bg-card border border-border rounded-xl p-6">
+        <motion.section {...fadeUp()} className="mb-20">
+          <div className="mb-8">
+            <p className="text-sm font-medium text-primary mb-3">{t("Business Model & GTM", "商业模式与市场进入")}</p>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold mb-4">
+              {t("Start with institutions, expand through community trust", "从机构合作切入，通过社区信任扩张")}
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4 mb-6">
+            {businessModels.map((model) => (
+              <div key={model.title} className="bg-card border border-border rounded-lg p-6">
                 <h3 className="font-heading text-lg font-semibold mb-2">{model.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{model.desc}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{model.desc}</p>
               </div>
             ))}
           </div>
-
-          {/* GTM quick stats */}
-          <div className="bg-card border border-border rounded-xl p-6 md:p-8">
-            <h3 className="font-heading text-xl font-semibold mb-4">
-              {t("Go-to-Market Strategy", "市场进入策略")}
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div>
-                <div className="text-2xl font-heading font-bold text-primary">Parelheiros, SP</div>
-                <p className="text-sm text-muted-foreground mt-1">
-                  {t("Initial launch community in São Paulo", "圣保罗首发社区")}
-                </p>
+          <div className="grid md:grid-cols-4 gap-4 bg-card border border-border rounded-lg p-6">
+            {[
+              { label: t("Initial launch", "首发区域"), value: "Parelheiros-SP" },
+              { label: t("SOM", "可获取市场"), value: "22K" },
+              { label: t("SAM", "可服务市场"), value: "154K / 1.67M" },
+              { label: t("Special edge", "差异化优势"), value: t("Offline + Brazilian Portuguese AI", "离线能力 + 巴葡 AI") },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="text-xs text-muted-foreground mb-1">{item.label}</p>
+                <div className="font-heading text-lg font-bold text-primary">{item.value}</div>
               </div>
-              <div>
-                <div className="text-2xl font-heading font-bold text-primary">22K → 154K</div>
-                <p className="text-sm text-muted-foreground mt-1">
-                  {t("SOM to SAM growth trajectory", "SOM到SAM增长轨迹")}
-                </p>
-              </div>
-              <div>
-                <div className="text-2xl font-heading font-bold text-primary">$905M</div>
-                <p className="text-sm text-muted-foreground mt-1">
-                  {t("Global Parenting App Market (2030)", "全球育儿应用市场 (2030)")}
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
-        </motion.div>
+        </motion.section>
 
-        {/* Financial Projections */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
-        >
-          <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6">
-            {t("Financial Projections", "财务预测")}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="font-heading text-lg font-semibold mb-4">
-                {t("Year 1 Cost Analysis", "第一年成本分析")}
-              </h3>
-              <div className="space-y-3 text-sm">
+        <motion.section {...fadeUp()} className="mb-20">
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-6">
+            <div className="bg-card border border-border rounded-lg p-6 md:p-8">
+              <p className="text-sm font-medium text-primary mb-3">{t("Impact Economics", "影响力经济模型")}</p>
+              <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6">
+                {t("USD 1.3M to change 150,000 lives", "用 130 万美元改变 15 万人的生活")}
+              </h2>
+              <div className="grid sm:grid-cols-3 gap-4">
                 {[
-                  { label: t("Initial Development", "初始开发"), value: "$610K" },
-                  { label: t("Labor Costs", "人力成本"), value: "$254K" },
-                  { label: t("Maintenance", "运维"), value: "$58K" },
-                  { label: t("API & Content", "API与内容"), value: "$17K" },
-                  { label: t("Support", "支持"), value: "$7K" },
+                  { value: "$946K", label: t("Year-1 operating cost", "第一年运营成本") },
+                  { value: "311%", label: t("social ROI", "社会投资回报") },
+                  { value: "3 yrs", label: t("payback period", "回收期") },
                 ].map((item) => (
-                  <div key={item.label} className="flex justify-between">
-                    <span className="text-muted-foreground">{item.label}</span>
-                    <span className="font-medium">{item.value}</span>
+                  <div key={item.value} className="bg-muted rounded-lg p-4">
+                    <div className="font-heading text-2xl font-bold">{item.value}</div>
+                    <p className="text-xs text-muted-foreground mt-1">{item.label}</p>
                   </div>
                 ))}
-                <div className="border-t border-border pt-3 flex justify-between font-semibold">
-                  <span>{t("Total", "合计")}</span>
-                  <span className="text-primary">$946K</span>
-                </div>
               </div>
             </div>
-
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="font-heading text-lg font-semibold mb-4">
-                {t("Social ROI", "社会投资回报")}
-              </h3>
+            <div className="bg-card border border-border rounded-lg p-6 md:p-8">
+              <h3 className="font-heading text-xl font-bold mb-5">{t("Success KPIs", "成功指标")}</h3>
               <div className="space-y-4">
-                <div>
-                  <div className="text-3xl font-heading font-bold text-primary">311%</div>
-                  <p className="text-sm text-muted-foreground">{t("Return on Investment", "投资回报率")}</p>
-                </div>
-                <div>
-                  <div className="text-lg font-semibold">$480K</div>
-                  <p className="text-sm text-muted-foreground">{t("Parent income uplift (Year 2)", "父母收入提升（第2年）")}</p>
-                </div>
-                <div>
-                  <div className="text-lg font-semibold">$1.4M–$4M</div>
-                  <p className="text-sm text-muted-foreground">{t("Children's lifetime income impact (20-25 yrs)", "子女终身收入影响（20-25年）")}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="font-heading text-lg font-semibold mb-4">
-                {t("Key KPIs", "核心指标")}
-              </h3>
-              <div className="space-y-4">
-                <div>
-                  <div className="text-2xl font-heading font-bold">150K</div>
-                  <p className="text-sm text-muted-foreground">{t("Target MAU", "目标月活跃用户")}</p>
-                </div>
-                <div>
-                  <div className="text-2xl font-heading font-bold">70%</div>
-                  <p className="text-sm text-muted-foreground">{t("Retention Rate Target", "目标留存率")}</p>
-                </div>
-                <div>
-                  <div className="text-2xl font-heading font-bold">10K+</div>
-                  <p className="text-sm text-muted-foreground">{t("Active users milestone", "活跃用户里程碑")}</p>
-                </div>
+                {[
+                  { icon: Users, value: "150K", label: t("target monthly active users", "目标月活用户") },
+                  { icon: Sparkles, value: "70%", label: t("retention target", "留存率目标") },
+                  { icon: CircleDollarSign, value: "$480K+", label: t("parent income uplift by year 2", "第 2 年父母收入提升") },
+                ].map((item) => (
+                  <div key={item.label} className="flex gap-4 items-start">
+                    <div className="bg-muted rounded-lg p-3">
+                      <item.icon size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-heading text-xl font-bold">{item.value}</div>
+                      <p className="text-sm text-muted-foreground">{item.label}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.section>
 
-        {/* Product Roadmap */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
-        >
-          <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6">
-            {t("Product Roadmap", "产品路线图")}
-          </h2>
+        <motion.section {...fadeUp()} className="mb-20">
+          <div className="mb-8">
+            <p className="text-sm font-medium text-primary mb-3">{t("Roadmap", "路线图")}</p>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold mb-4">
+              {t("A staged path from MVP to scalable impact platform", "从 MVP 到可扩展影响力平台的阶段路径")}
+            </h2>
+          </div>
           <div className="grid md:grid-cols-4 gap-4">
-            {[
-              {
-                version: "v1.0",
-                features: [t("Self-Assessment", "自我评估"), t("My Path", "我的路径")],
-                status: t("Completed", "已完成"),
-              },
-              {
-                version: "v2.0",
-                features: [t("User Auth", "用户认证"), t("My Progress & Gamification", "进度与游戏化")],
-                status: t("In Progress", "进行中"),
-              },
-              {
-                version: "v3.0",
-                features: [t("Video Tutorials", "视频教程"), t("Interactive Activities", "互动活动")],
-                status: t("Planned", "计划中"),
-              },
-              {
-                version: "v4.0",
-                features: [t("AI Voice Assistant", "AI语音助手"), t("Data-Driven Optimization", "数据驱动优化")],
-                status: t("Future", "未来"),
-              },
-            ].map((phase, i) => (
-              <div key={phase.version} className="bg-card border border-border rounded-xl p-6 relative">
-                <div className="text-xs font-mono text-primary mb-2">{phase.status}</div>
-                <h3 className="font-heading text-xl font-bold mb-3">NestEd {phase.version}</h3>
-                <ul className="space-y-1.5">
-                  {phase.features.map((f) => (
-                    <li key={f} className="text-sm text-muted-foreground flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      {f}
+            {roadmap.map((phase) => (
+              <div key={phase.version} className="bg-card border border-border rounded-lg p-6">
+                <p className="text-xs font-mono text-primary mb-2">{phase.date}</p>
+                <h3 className="font-heading text-xl font-bold mb-4">NestEd {phase.version}</h3>
+                <ul className="space-y-2">
+                  {phase.features.map((feature) => (
+                    <li key={feature} className="flex gap-2 text-sm text-muted-foreground leading-relaxed">
+                      <BadgeCheck size={16} className="text-primary shrink-0 mt-0.5" />
+                      {feature}
                     </li>
                   ))}
                 </ul>
-                {i < 3 && (
-                  <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 text-muted-foreground z-10">
-                    →
-                  </div>
-                )}
               </div>
             ))}
           </div>
-        </motion.div>
+        </motion.section>
 
-        {/* Tech Stack */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="bg-card border border-border rounded-xl p-6 md:p-8">
-            <h2 className="font-heading text-xl font-semibold mb-4">
-              {t("Tech Stack", "技术栈")}
-            </h2>
-            <div className="flex flex-wrap gap-3">
-              {["FlutterFlow", "Firebase", "Google Cloud", "AI/ML", "Android", "iOS"].map((tool) => (
-                <span key={tool} className="px-4 py-2 bg-muted rounded-full text-sm font-medium">
-                  {tool}
-                </span>
-              ))}
+        <motion.section {...fadeUp()}>
+          <div className="bg-card border border-border rounded-lg p-6 md:p-8">
+            <div className="grid md:grid-cols-[0.8fr_1.2fr] gap-8 items-start">
+              <div>
+                <p className="text-sm font-medium text-primary mb-3">{t("Team & Build", "团队与实现")}</p>
+                <h2 className="font-heading text-2xl font-bold mb-4">
+                  {t("Designed for inclusive adoption", "为包容性采用而设计")}
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {t(
+                    "NestEd combines product, AI, finance, impact partnerships, and local community outreach so parents feel supported rather than simply handed a digital tool.",
+                    "NestEd 结合产品、AI、财务、影响力合作和本地社区触达，让家长感受到被支持，而不是只被交付一个数字工具。"
+                  )}
+                </p>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {[
+                  { icon: Briefcase, label: t("Government programs", "政府项目") },
+                  { icon: Heart, label: t("NGOs and social programs", "NGO 与社会项目") },
+                  { icon: CircleDollarSign, label: t("Bank social institutes", "银行社会基金机构") },
+                  { icon: Users, label: t("Local educators and community leaders", "本地教育者与社区领袖") },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-3 bg-muted rounded-lg p-4">
+                    <item.icon size={20} className="text-primary shrink-0" />
+                    <span className="text-sm font-medium">{item.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </motion.div>
-      </div>
+        </motion.section>
+      </main>
     </div>
   );
 };
