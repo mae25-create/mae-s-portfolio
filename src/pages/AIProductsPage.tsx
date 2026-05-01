@@ -8,6 +8,7 @@ import nestedCover from "@/assets/nested-app-screens-v2.png";
 import gtcCover from "@/assets/gtc-explorer-network-cover.jpg";
 import autoMarketingCover from "@/assets/auto-marketing-cover.jpg";
 import flavorAiCover from "@/assets/flavor-ai-cover.jpg";
+import subtrackerCover from "@/assets/subtracker-cover.jpg";
 
 interface ProjectRowProps {
   title: string;
@@ -184,6 +185,22 @@ const AIProductsPage = () => {
             <VideoPlayer
               src="/videos/flavor-ai-demo.mp4"
               poster={flavorAiCover}
+            />
+          }
+        />
+
+        {/* Project 5 — SubTracker */}
+        <ProjectRow
+          index={4}
+          title={t("SubTracker — Manage All Your Subscriptions", "SubTracker — 订阅管理助手")}
+          description={t(
+            "All-in-one subscription management app that consolidates recurring payments — streaming, SaaS, memberships — into a single, clear dashboard. Tracks renewal dates, categorizes expenses, and surfaces unused subscriptions to help users cut hidden costs.\n\nFeatures smart renewal reminders, monthly and annual spend visualizations, and a calendar view of upcoming charges. Built to give users full visibility and control over their digital subscription footprint.",
+            "一站式订阅管理应用，将流媒体、SaaS、会员等所有周期性付款整合到清晰的仪表板中。追踪续订日期、分类支出，并识别未使用的订阅，帮助用户削减隐形开支。\n\n具备智能续订提醒、月度与年度支出可视化，以及即将扣费的日历视图。让用户全面掌控数字订阅足迹。"
+          )}
+          media={
+            <VideoPlayer
+              src="/videos/subtracker-demo.mp4"
+              poster={subtrackerCover}
             />
           }
         />

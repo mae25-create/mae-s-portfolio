@@ -5,6 +5,7 @@ import nestedCover from "@/assets/nested-app-screens-v2.png";
 import gtcCover from "@/assets/gtc-explorer-network-cover.jpg";
 import autoMarketingCover from "@/assets/auto-marketing-cover.jpg";
 import flavorAiCover from "@/assets/flavor-ai-cover.jpg";
+import subtrackerCover from "@/assets/subtracker-cover.jpg";
 
 const Marquee = ({ text }: { text: string }) => (
   <div className="overflow-hidden py-3 bg-foreground">
@@ -63,6 +64,15 @@ const vibeProducts = [
     image: flavorAiCover,
     to: "/projects/ai-products",
   },
+  {
+    title: "SubTracker — Manage All Your Subscriptions",
+    titleZh: "SubTracker — 订阅管理助手",
+    description: "All-in-one subscription tracker that monitors recurring payments, sends renewal reminders, and visualizes monthly spending.",
+    descriptionZh: "一站式订阅管理工具，追踪周期性付款、发送续订提醒并可视化每月支出。",
+    tags: ["FINTECH", "MOBILE APP", "VIBE CODING"],
+    image: subtrackerCover,
+    to: "/projects/ai-products",
+  },
 ];
 
 const VibeCodingProducts = () => {
@@ -98,7 +108,7 @@ const VibeCodingProducts = () => {
         </motion.div>
 
         {/* Grid of cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {vibeProducts.map((product, i) => (
             <motion.div
               key={i}
