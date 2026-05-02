@@ -6,6 +6,7 @@ import gtcCover from "@/assets/gtc-explorer-network-cover.jpg";
 import autoMarketingCover from "@/assets/auto-marketing-cover.jpg";
 import flavorAiCover from "@/assets/flavor-ai-cover.jpg";
 import subtrackerCover from "@/assets/subtracker-cover.jpg";
+import interviewflowCover from "@/assets/interviewflow-cover.jpg";
 
 const Marquee = ({ text }: { text: string }) => (
   <div className="overflow-hidden py-3 bg-foreground">
@@ -73,6 +74,15 @@ const vibeProducts = [
     image: subtrackerCover,
     to: "/projects/ai-products",
   },
+  {
+    title: "InterviewFlow — Customized Interview Assistant",
+    titleZh: "InterviewFlow — 定制化面试助手",
+    description: "AI-powered interview assistant that tailors mock interviews, real-time coaching, and feedback to each candidate's role and experience.",
+    descriptionZh: "AI驱动的面试助手，根据候选人的职位与经验定制模拟面试、实时辅导和反馈。",
+    tags: ["AI", "CAREER", "VIBE CODING"],
+    image: interviewflowCover,
+    to: "/projects/ai-products",
+  },
 ];
 
 const VibeCodingProducts = () => {
@@ -108,7 +118,7 @@ const VibeCodingProducts = () => {
         </motion.div>
 
         {/* Grid of cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
           {vibeProducts.map((product, i) => (
             <motion.div
               key={i}
