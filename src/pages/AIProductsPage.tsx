@@ -9,6 +9,7 @@ import gtcCover from "@/assets/gtc-explorer-network-cover.jpg";
 import autoMarketingCover from "@/assets/auto-marketing-cover.jpg";
 import flavorAiCover from "@/assets/flavor-ai-cover.jpg";
 import subtrackerCover from "@/assets/subtracker-cover.jpg";
+import interviewflowCover from "@/assets/interviewflow-cover.jpg";
 
 interface ProjectRowProps {
   title: string;
@@ -201,6 +202,22 @@ const AIProductsPage = () => {
             <VideoPlayer
               src="/videos/subtracker-demo.mp4"
               poster={subtrackerCover}
+            />
+          }
+        />
+
+        {/* Project 6 — InterviewFlow */}
+        <ProjectRow
+          index={5}
+          title={t("InterviewFlow — Customized Interview Assistant", "InterviewFlow — 定制化面试助手")}
+          description={t(
+            "AI-powered interview preparation assistant that personalizes mock interviews based on each candidate's target role, industry, and experience level. Generates tailored question sets, evaluates responses in real time, and delivers structured feedback on content, clarity, and delivery.\n\nFeatures resume-aware question generation, behavioral and technical interview modes, and progress tracking across sessions — helping candidates build confidence and refine their answers before the real interview.",
+            "AI驱动的面试准备助手，根据候选人的目标职位、行业和经验水平定制模拟面试。生成个性化问题集，实时评估回答，并对内容、清晰度和表达方式提供结构化反馈。\n\n具备简历感知的问题生成、行为面试与技术面试模式，以及多轮会话进度追踪——帮助候选人在真实面试前建立信心并打磨答案。"
+          )}
+          media={
+            <VideoPlayer
+              src="/videos/interviewflow-demo.mp4"
+              poster={interviewflowCover}
             />
           }
         />
