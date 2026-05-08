@@ -7,6 +7,7 @@ import autoMarketingCover from "@/assets/auto-marketing-cover.jpg";
 import flavorAiCover from "@/assets/flavor-ai-cover.jpg";
 import subtrackerCover from "@/assets/subtracker-cover.jpg";
 import interviewflowCover from "@/assets/interviewflow-cover.jpg";
+import corgiLifeCover from "@/assets/corgi-life-cover.jpg";
 
 const Marquee = ({ text }: { text: string }) => (
   <div className="overflow-hidden py-3 bg-foreground">
@@ -83,6 +84,15 @@ const vibeProducts = [
     image: interviewflowCover,
     to: "/projects/ai-products",
   },
+  {
+    title: "Embrace your Corgi",
+    titleZh: "拥抱你的柯基",
+    description: "A playful lifestyle app celebrating corgi companionship — daily care tips, photo journaling, and community moments.",
+    descriptionZh: "一款趣味十足的柯基生活方式应用——日常护理贴士、照片日记和社区分享。",
+    tags: ["LIFESTYLE", "MOBILE APP", "VIBE CODING"],
+    image: corgiLifeCover,
+    to: "/projects/ai-products",
+  },
 ];
 
 const VibeCodingProducts = () => {
@@ -118,7 +128,7 @@ const VibeCodingProducts = () => {
         </motion.div>
 
         {/* Grid of cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-4">
           {vibeProducts.map((product, i) => (
             <motion.div
               key={i}

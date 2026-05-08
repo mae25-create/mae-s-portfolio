@@ -10,6 +10,7 @@ import autoMarketingCover from "@/assets/auto-marketing-cover.jpg";
 import flavorAiCover from "@/assets/flavor-ai-cover.jpg";
 import subtrackerCover from "@/assets/subtracker-cover.jpg";
 import interviewflowCover from "@/assets/interviewflow-cover.jpg";
+import corgiLifeCover from "@/assets/corgi-life-cover.jpg";
 
 interface ProjectRowProps {
   title: string;
@@ -218,6 +219,22 @@ const AIProductsPage = () => {
             <VideoPlayer
               src="/videos/interviewflow-demo.mp4"
               poster={interviewflowCover}
+            />
+          }
+        />
+
+        {/* Project 7 — Embrace your Corgi */}
+        <ProjectRow
+          index={6}
+          title={t("Embrace your Corgi", "拥抱你的柯基")}
+          description={t(
+            "A playful lifestyle app for corgi lovers that blends daily care guidance, photo journaling, and community storytelling into one delightful experience. Tracks feeding, walks, grooming, and vet visits while curating personalized tips based on each corgi's age, weight, and activity level.\n\nFeatures a memory timeline for capturing milestones, an AI-assisted breed-specific health assistant, and a community feed for sharing corgi moments — designed to deepen the bond between owners and their furry companions.",
+            "一款专为柯基爱好者打造的趣味生活方式应用,将日常护理指导、照片日记和社区分享融为一体。记录喂食、遛弯、美容和兽医就诊,并根据每只柯基的年龄、体重和活动量提供个性化建议。\n\n具备里程碑记忆时间轴、AI驱动的犬种专属健康助手,以及柯基生活分享社区——旨在加深主人与毛茸茸伙伴之间的羁绊。"
+          )}
+          media={
+            <VideoPlayer
+              src="/videos/corgi-life-demo.mp4"
+              poster={corgiLifeCover}
             />
           }
         />
