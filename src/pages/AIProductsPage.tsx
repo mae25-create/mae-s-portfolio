@@ -55,18 +55,20 @@ const VideoPlayer = ({ src, poster }: { src: string; poster: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
+  const togglePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play();
+      setPlaying(true);
+    } else {
+      v.pause();
+      setPlaying(false);
+    }
+  };
+
   return (
-    <div
-      className="relative cursor-pointer group aspect-video"
-      onMouseEnter={() => {
-        videoRef.current?.play();
-        setPlaying(true);
-      }}
-      onMouseLeave={() => {
-        videoRef.current?.pause();
-        setPlaying(false);
-      }}
-    >
+    <div className="relative cursor-pointer group aspect-video" onClick={togglePlay}>
       <video
         ref={videoRef}
         src={src}
@@ -75,12 +77,14 @@ const VideoPlayer = ({ src, poster }: { src: string; poster: string }) => {
         loop
         playsInline
         preload="metadata"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
         className="w-full h-full object-cover rounded-lg"
       />
       {!playing && (
-        <div className="absolute inset-0 flex items-center justify-center bg-foreground/10 rounded-lg transition-opacity">
-          <div className="w-12 h-12 rounded-full bg-background/80 flex items-center justify-center">
-            <Play size={20} className="text-foreground ml-0.5" />
+        <div className="absolute inset-0 flex items-center justify-center bg-foreground/10 rounded-lg transition-opacity group-hover:bg-foreground/20">
+          <div className="w-14 h-14 rounded-full bg-background/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+            <Play size={22} className="text-foreground ml-1" />
           </div>
         </div>
       )}
