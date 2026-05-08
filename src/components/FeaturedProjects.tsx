@@ -142,7 +142,7 @@ const FeaturedProjects = () => {
                 </div>
 
                 {/* Content */}
-                <div className={`p-8 md:p-10 flex flex-col justify-center ${i === 1 ? "md:order-first" : ""}`}>
+                <div className={`p-8 md:p-10 flex flex-col justify-center ${i === 1 || i === 4 ? "md:order-first" : ""}`}>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
                       <span
