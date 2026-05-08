@@ -132,7 +132,7 @@ const FeaturedProjects = () => {
                 className="group grid md:grid-cols-2 gap-0 rounded-xl overflow-hidden border border-border bg-card hover:border-primary/30 hover:shadow-lg transition-all duration-300"
               >
                 {/* Image */}
-                <div className={`h-[240px] md:h-[320px] overflow-hidden bg-muted ${i === 1 ? "md:order-last" : ""}`}>
+                <div className={`h-[240px] md:h-[320px] overflow-hidden bg-muted ${i === 1 || i === 4 ? "md:order-last" : ""}`}>
                   <img
                     src={project.image}
                     alt={t(project.title, project.titleZh)}
