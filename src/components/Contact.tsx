@@ -27,7 +27,7 @@ const Contact = () => {
     { icon: Github, href: "https://github.com/mae25-create", label: "GitHub" },
     { icon: XIcon, href: "https://x.com/Mae9120", label: "X" },
     { icon: InstagramIcon, href: "https://www.instagram.com/mae_meiii/", label: "Instagram" },
-    { icon: XiaohongshuIcon, href: "https://www.xiaohongshu.com/user/profile/4278646647", label: "小红书" },
+    { icon: XiaohongshuIcon, href: "#", label: "小红书", xhsId: "4278646647" },
     { icon: WechatIcon, href: "#", label: "WeChat", wechatId: "18221150255" },
   ];
 
