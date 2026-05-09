@@ -27,7 +27,7 @@ const Contact = () => {
     { icon: Github, href: "https://github.com/mae25-create", label: "GitHub" },
     { icon: XIcon, href: "https://x.com/Mae9120", label: "X" },
     { icon: InstagramIcon, href: "https://www.instagram.com/mae_meiii/", label: "Instagram" },
-    { icon: XiaohongshuIcon, href: "https://www.xiaohongshu.com/user/profile/4278646647", label: "小红书" },
+    { icon: XiaohongshuIcon, href: "#", label: "小红书", xhsId: "4278646647" },
     { icon: WechatIcon, href: "#", label: "WeChat", wechatId: "18221150255" },
   ];
 
@@ -83,17 +83,19 @@ const Contact = () => {
         >
           {socialLinks.map(({ icon: Icon, href, label, ...rest }) => {
             const wechatId = (rest as any).wechatId;
-            if (wechatId) {
+            const xhsId = (rest as any).xhsId;
+            if (wechatId || xhsId) {
+              const id = wechatId || xhsId;
               return (
                 <div
                   key={label}
                   className="relative group flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-card border-2 border-border/40 text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer"
-                  title={`WeChat: ${wechatId}`}
-                  onClick={() => navigator.clipboard.writeText(wechatId)}
+                  title={`${label}: ${id}`}
+                  onClick={() => navigator.clipboard.writeText(id)}
                 >
                   <Icon size={28} />
                   <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs bg-foreground text-background px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                    {wechatId}
+                    {id}
                   </span>
                 </div>
               );
