@@ -83,17 +83,19 @@ const Contact = () => {
         >
           {socialLinks.map(({ icon: Icon, href, label, ...rest }) => {
             const wechatId = (rest as any).wechatId;
-            if (wechatId) {
+            const xhsId = (rest as any).xhsId;
+            if (wechatId || xhsId) {
+              const id = wechatId || xhsId;
               return (
                 <div
                   key={label}
                   className="relative group flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-card border-2 border-border/40 text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer"
-                  title={`WeChat: ${wechatId}`}
-                  onClick={() => navigator.clipboard.writeText(wechatId)}
+                  title={`${label}: ${id}`}
+                  onClick={() => navigator.clipboard.writeText(id)}
                 >
                   <Icon size={28} />
                   <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs bg-foreground text-background px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                    {wechatId}
+                    {id}
                   </span>
                 </div>
               );
