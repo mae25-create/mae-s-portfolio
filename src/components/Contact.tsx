@@ -90,9 +90,18 @@ const Contact = () => {
               return (
                 <div
                   key={label}
-                  className="relative group flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-card border-2 border-border/40 text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Copy ${label}`}
+                  className="relative group flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-card border-2 border-border/40 text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   title={`${label}: ${id}`}
                   onClick={() => navigator.clipboard.writeText(id)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      navigator.clipboard.writeText(id);
+                    }
+                  }}
                 >
                   <Icon size={28} />
                   <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs bg-foreground text-background px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
