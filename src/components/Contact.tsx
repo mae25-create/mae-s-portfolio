@@ -84,8 +84,9 @@ const Contact = () => {
           {socialLinks.map(({ icon: Icon, href, label, ...rest }) => {
             const wechatId = (rest as any).wechatId;
             const xhsId = (rest as any).xhsId;
-            if (wechatId || xhsId) {
-              const id = wechatId || xhsId;
+            const copyUrl = (rest as any).copyUrl;
+            if (wechatId || xhsId || copyUrl) {
+              const id = wechatId || xhsId || copyUrl;
               return (
                 <div
                   key={label}
