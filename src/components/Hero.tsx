@@ -131,18 +131,33 @@ const Hero = () => {
 
             {/* Social links */}
             <div className="flex items-center gap-3 mt-8 relative z-20">
-              {socialLinks.map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-card shadow-md transition-all duration-200 hover:scale-110 text-secondary hover:text-primary"
-                >
-                  <Icon size={20} />
-                </a>
-              ))}
+              {socialLinks.map(({ icon: Icon, href, label, ...rest }) => {
+                const copyUrl = (rest as any).copyUrl;
+                if (copyUrl) {
+                  return (
+                    <div
+                      key={label}
+                      onClick={() => navigator.clipboard.writeText(copyUrl)}
+                      title={`Copy ${label} URL`}
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-card shadow-md transition-all duration-200 hover:scale-110 text-secondary hover:text-primary cursor-pointer"
+                    >
+                      <Icon size={20} />
+                    </div>
+                  );
+                }
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-card shadow-md transition-all duration-200 hover:scale-110 text-secondary hover:text-primary"
+                  >
+                    <Icon size={20} />
+                  </a>
+                );
+              })}
             </div>
           </motion.div>
 
