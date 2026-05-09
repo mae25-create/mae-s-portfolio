@@ -23,10 +23,10 @@ const Contact = () => {
   const { t } = useLanguage();
 
   const socialLinks = [
-    { icon: Linkedin, href: "https://www.linkedin.com/in/mae-jiahao/", label: "LinkedIn" },
+    { icon: Linkedin, href: "#", label: "LinkedIn", copyUrl: "https://www.linkedin.com/in/mae-jiahao/" },
     { icon: Github, href: "https://github.com/mae25-create", label: "GitHub" },
     { icon: XIcon, href: "https://x.com/Mae9120", label: "X" },
-    { icon: InstagramIcon, href: "https://www.instagram.com/mae_meiii/", label: "Instagram" },
+    { icon: InstagramIcon, href: "#", label: "Instagram", copyUrl: "https://www.instagram.com/mae_meiii/" },
     { icon: XiaohongshuIcon, href: "#", label: "小红书", xhsId: "4278646647" },
     { icon: WechatIcon, href: "#", label: "WeChat", wechatId: "18221150255" },
   ];
@@ -84,8 +84,9 @@ const Contact = () => {
           {socialLinks.map(({ icon: Icon, href, label, ...rest }) => {
             const wechatId = (rest as any).wechatId;
             const xhsId = (rest as any).xhsId;
-            if (wechatId || xhsId) {
-              const id = wechatId || xhsId;
+            const copyUrl = (rest as any).copyUrl;
+            if (wechatId || xhsId || copyUrl) {
+              const id = wechatId || xhsId || copyUrl;
               return (
                 <div
                   key={label}
