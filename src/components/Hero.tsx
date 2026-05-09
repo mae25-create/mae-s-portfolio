@@ -37,7 +37,7 @@ const Hero = () => {
   const { t } = useLanguage();
 
   const socialLinks = [
-    { icon: Linkedin, href: "https://www.linkedin.com/in/mae-jiahao/", label: "LinkedIn" },
+    { icon: Linkedin, href: "#", label: "LinkedIn", copyUrl: "https://www.linkedin.com/in/mae-jiahao/" },
     { icon: Github, href: "https://github.com/mae25-create", label: "GitHub" },
     { icon: Mail, href: "mailto:meijiahao219@gmail.com", label: "Email" },
   ];
