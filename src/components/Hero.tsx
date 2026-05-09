@@ -137,9 +137,18 @@ const Hero = () => {
                   return (
                     <div
                       key={label}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Copy ${label} URL`}
                       onClick={() => navigator.clipboard.writeText(copyUrl)}
                       title={`Copy ${label} URL`}
-                      className="flex items-center justify-center w-10 h-10 rounded-full bg-card shadow-md transition-all duration-200 hover:scale-110 text-secondary hover:text-primary cursor-pointer"
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-card shadow-md transition-all duration-200 hover:scale-110 text-secondary hover:text-primary cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          navigator.clipboard.writeText(copyUrl);
+                        }
+                      }}
                     >
                       <Icon size={20} />
                     </div>
