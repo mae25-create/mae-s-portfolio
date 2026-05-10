@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ShoppingCart, BarChart3, Star, TrendingUp, Target, Lightbulb } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
+import retailCoverImg from "@/assets/retail-analysis.png";
 import bestsellerRatioImg from "@/assets/retail-bestseller-ratio.png";
 import starsSalesImg from "@/assets/retail-stars-sales-v2.png";
 import revenuePerProductImg from "@/assets/retail-revenue-per-product.png";
@@ -35,33 +36,42 @@ const RetailAnalysisPage = () => {
         </Link>
 
         {/* Hero */}
-        <motion.div {...fadeUp()} className="mb-16">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-              <ShoppingCart size={20} className="text-primary" />
-            </div>
-            <span className="text-sm font-medium text-muted-foreground">
-              {t("Market Research · 2025", "市场研究 · 2025")}
-            </span>
-          </div>
-          <h1 className="font-heading text-3xl md:text-4xl font-semibold mb-4">
-            {t(
-              "Retail Product Market Report",
-              "零售产品市场报告"
-            )}
-          </h1>
-          <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            {t(
-              "Data-driven insights for strategic decision-making. Comprehensive evaluation of 1.39M+ retail products across categories, analyzing sales performance, product quality, customer engagement, and market segmentation using BigQuery SQL and Python.",
-              "数据驱动的战略决策洞察。对139万+零售产品进行全面评估，使用BigQuery SQL和Python分析销售表现、产品质量、客户参与度和市场细分。"
-            )}
-          </p>
-          <div className="flex flex-wrap gap-2 mt-6">
-            {["BigQuery SQL", "Python", "Google Colab", "Vanna.AI", "Matplotlib"].map((tech) => (
-              <span key={tech} className="px-3 py-1.5 bg-muted rounded-full text-xs font-medium">
-                {tech}
+        <motion.div {...fadeUp()} className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <ShoppingCart size={20} className="text-primary" />
+              </div>
+              <span className="text-sm font-medium text-muted-foreground">
+                {t("Market Research · 2025", "市场研究 · 2025")}
               </span>
-            ))}
+            </div>
+            <h1 className="font-heading text-3xl md:text-4xl font-semibold mb-4">
+              {t(
+                "Retail Product Market Report",
+                "零售产品市场报告"
+              )}
+            </h1>
+            <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
+              {t(
+                "Data-driven insights for strategic decision-making. Comprehensive evaluation of 1.39M+ retail products across categories, analyzing sales performance, product quality, customer engagement, and market segmentation using BigQuery SQL and Python.",
+                "数据驱动的战略决策洞察。对139万+零售产品进行全面评估，使用BigQuery SQL和Python分析销售表现、产品质量、客户参与度和市场细分。"
+              )}
+            </p>
+            <div className="flex flex-wrap gap-2 mt-6">
+              {["BigQuery SQL", "Python", "Google Colab", "Vanna.AI", "Matplotlib"].map((tech) => (
+                <span key={tech} className="px-3 py-1.5 bg-muted rounded-full text-xs font-medium">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-xl overflow-hidden border border-border">
+            <img
+              src={retailCoverImg}
+              alt="Retail Product Market Report"
+              className="w-full h-full object-cover"
+            />
           </div>
         </motion.div>
 

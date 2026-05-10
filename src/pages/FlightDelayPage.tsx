@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Plane, BarChart3, Brain, TrendingUp, DollarSign, Shield, RefreshCw } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
+import lasCoverImg from "@/assets/las-vegas-airport.jpeg";
 import modelComparisonImg from "@/assets/las-model-comparison.png";
 import passengerForecastImg from "@/assets/las-passenger-forecast.png";
 import avgDelayCarrierImg from "@/assets/las-avg-delay-carrier.png";
@@ -41,33 +42,42 @@ const FlightDelayPage = () => {
         </Link>
 
         {/* Hero */}
-        <motion.div {...fadeUp()} className="mb-16">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-              <Plane size={20} className="text-primary" />
-            </div>
-            <span className="text-sm font-medium text-muted-foreground">
-              {t("Business Report · 2025", "商业报告 · 2025")}
-            </span>
-          </div>
-          <h1 className="font-heading text-3xl md:text-4xl font-semibold mb-4">
-            {t(
-              "LAS Flight Delay Prediction & Passenger Forecasting",
-              "拉斯维加斯机场航班延误预测与客流量预测"
-            )}
-          </h1>
-          <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            {t(
-              "Leveraging predictive analytics to enhance operational efficiency and revenue at Harry Reid International Airport (LAS). Two advanced ML models projecting $12–18M in incremental annual revenue.",
-              "利用预测分析提升哈里·里德国际机场（LAS）的运营效率和收入。两个高级机器学习模型预计每年可创造1200万至1800万美元的增量收入。"
-            )}
-          </p>
-          <div className="flex flex-wrap gap-2 mt-6">
-            {["Python", "XGBoost", "SARIMA", "SQL", "Pandas", "Matplotlib"].map((tech) => (
-              <span key={tech} className="px-3 py-1.5 bg-muted rounded-full text-xs font-medium">
-                {tech}
+        <motion.div {...fadeUp()} className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Plane size={20} className="text-primary" />
+              </div>
+              <span className="text-sm font-medium text-muted-foreground">
+                {t("Business Report · 2025", "商业报告 · 2025")}
               </span>
-            ))}
+            </div>
+            <h1 className="font-heading text-3xl md:text-4xl font-semibold mb-4">
+              {t(
+                "LAS Flight Delay Prediction & Passenger Forecasting",
+                "拉斯维加斯机场航班延误预测与客流量预测"
+              )}
+            </h1>
+            <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
+              {t(
+                "Leveraging predictive analytics to enhance operational efficiency and revenue at Harry Reid International Airport (LAS). Two advanced ML models projecting $12–18M in incremental annual revenue.",
+                "利用预测分析提升哈里·里德国际机场（LAS）的运营效率和收入。两个高级机器学习模型预计每年可创造1200万至1800万美元的增量收入。"
+              )}
+            </p>
+            <div className="flex flex-wrap gap-2 mt-6">
+              {["Python", "XGBoost", "SARIMA", "SQL", "Pandas", "Matplotlib"].map((tech) => (
+                <span key={tech} className="px-3 py-1.5 bg-muted rounded-full text-xs font-medium">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-xl overflow-hidden border border-border">
+            <img
+              src={lasCoverImg}
+              alt="Harry Reid International Airport"
+              className="w-full h-full object-cover"
+            />
           </div>
         </motion.div>
 
