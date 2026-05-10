@@ -127,38 +127,45 @@ const VibeCodingProducts = () => {
           </p>
         </motion.div>
 
-        {/* Grid of cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-4">
-          {vibeProducts.map((product, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group cursor-pointer"
-            >
-              <div className="aspect-square rounded-xl overflow-hidden mb-3 border border-border hover:border-primary/30 transition-all duration-300">
-                <img
-                  src={product.image}
-                  alt={t(product.title, product.titleZh)}
-                   loading="lazy"
-                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <h3 className="font-heading text-sm font-bold uppercase tracking-wide">
-                {t(product.title, product.titleZh)}
-              </h3>
-              <p className="text-muted-foreground text-xs mt-1 line-clamp-2">
-                {t(product.description, product.descriptionZh)}
-              </p>
-              {product.to && (
-                <Link to={product.to} className="text-xs font-medium text-primary hover:underline mt-2 inline-block">
-                  {t("View Details →", "查看详情 →")}
-                </Link>
-              )}
-            </motion.div>
-          ))}
+        {/* Grid of cards — 4 per row, large eye-catching covers */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+          {vibeProducts.map((product, i) => {
+            const CardInner = (
+              <>
+                <div className="relative aspect-square overflow-hidden mb-4 bg-muted">
+                  <img
+                    src={product.image}
+                    alt={t(product.title, product.titleZh)}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-300" />
+                </div>
+                <h3 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight leading-tight">
+                  {t(product.title, product.titleZh)}
+                </h3>
+                <p className="text-muted-foreground text-sm mt-2 line-clamp-2">
+                  {t(product.description, product.descriptionZh)}
+                </p>
+              </>
+            );
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="group cursor-pointer"
+              >
+                {product.to ? (
+                  <Link to={product.to} className="block">{CardInner}</Link>
+                ) : (
+                  CardInner
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
