@@ -124,29 +124,89 @@ const AIProductsPage = () => {
           </p>
         </motion.div>
 
-        {/* Project 1 — NestEd */}
+        {/* Project 1 — Auto Marketing Agent */}
         <ProjectRow
           index={0}
-          title={t("NestEd — Breaking the Cycle", "NestEd — 打破贫困循环")}
+          title={t("Auto Marketing Agent", "智能营销代理")}
           description={t(
-            "AI-powered mobile app empowering low-income parents in Brazil with parenting skills, financial literacy, nutrition, and career development.\n\nBuilt with FlutterFlow and Firebase. Designed for social impact at scale.",
-            "AI驱动的移动应用，为巴西低收入家庭父母提供育儿技能、金融素养、营养和职业发展支持。\n\n使用 FlutterFlow 和 Firebase 构建，专注于规模化社会影响。"
+            "AI-powered marketing automation agent that streamlines campaign creation end-to-end. Generates tailored marketing strategies, audience segmentation, ad copy, and visual content — all through a conversational AI interface.\n\nFrom market research to content calendar planning, the agent automates repetitive marketing workflows and delivers actionable insights in real time.",
+            "AI驱动的营销自动化代理，端到端简化营销活动创建流程。通过对话式AI界面生成定制营销策略、受众细分、广告文案和视觉内容。\n\n从市场调研到内容日历规划，该代理自动化重复性营销工作流程，并实时提供可操作的洞察。"
           )}
-          link="/projects/ai-products/nested"
-          linkLabel={t("View Details →", "查看详情 →")}
           media={
-            <img
-              src={nestedCover}
-              alt="NestEd App"
-              className="w-full h-full object-cover rounded-lg aspect-video"
-              loading="lazy"
+            <VideoPlayer
+              src="/videos/auto-marketing-agent-demo.mp4"
+              poster={autoMarketingCover}
             />
           }
         />
 
-        {/* Project 2 — GTC Explorer */}
+        {/* Project 2 — Flavor AI */}
         <ProjectRow
           index={1}
+          title={t("Flavor AI — Smart Taste Explorer", "Flavor AI — 智能风味探索")}
+          description={t(
+            "AI-powered flavor profiling application that maps personal taste preferences and generates tailored recipe recommendations. Features interactive ingredient relationship graphs, nutritional breakdowns, and seasonal flavor trend analysis.\n\nCombines computer vision for food recognition with NLP-driven taste modeling to deliver a personalized culinary discovery experience.",
+            "AI驱动的风味分析应用，绘制个人口味偏好图谱并生成定制食谱推荐。具备交互式食材关系图、营养成分分析和季节性风味趋势洞察。\n\n结合计算机视觉食物识别与NLP驱动的口味建模，打造个性化美食探索体验。"
+          )}
+          media={
+            <VideoPlayer
+              src="/videos/flavor-ai-demo.mp4"
+              poster={flavorAiCover}
+            />
+          }
+        />
+
+        {/* Project 3 — SubTracker */}
+        <ProjectRow
+          index={2}
+          title={t("SubTracker — Manage All Your Subscriptions", "SubTracker — 订阅管理助手")}
+          description={t(
+            "All-in-one subscription management app that consolidates recurring payments — streaming, SaaS, memberships — into a single, clear dashboard. Tracks renewal dates, categorizes expenses, and surfaces unused subscriptions to help users cut hidden costs.\n\nFeatures smart renewal reminders, monthly and annual spend visualizations, and a calendar view of upcoming charges. Built to give users full visibility and control over their digital subscription footprint.",
+            "一站式订阅管理应用，将流媒体、SaaS、会员等所有周期性付款整合到清晰的仪表板中。追踪续订日期、分类支出，并识别未使用的订阅，帮助用户削减隐形开支。\n\n具备智能续订提醒、月度与年度支出可视化，以及即将扣费的日历视图。让用户全面掌控数字订阅足迹。"
+          )}
+          media={
+            <VideoPlayer
+              src="/videos/subtracker-demo.mp4"
+              poster={subtrackerCover}
+            />
+          }
+        />
+
+        {/* Project 4 — InterviewFlow */}
+        <ProjectRow
+          index={3}
+          title={t("InterviewFlow — Customized Interview Assistant", "InterviewFlow — 定制化面试助手")}
+          description={t(
+            "AI-powered interview preparation assistant that personalizes mock interviews based on each candidate's target role, industry, and experience level. Generates tailored question sets, evaluates responses in real time, and delivers structured feedback on content, clarity, and delivery.\n\nFeatures resume-aware question generation, behavioral and technical interview modes, and progress tracking across sessions — helping candidates build confidence and refine their answers before the real interview.",
+            "AI驱动的面试准备助手，根据候选人的目标职位、行业和经验水平定制模拟面试。生成个性化问题集，实时评估回答，并对内容、清晰度和表达方式提供结构化反馈。\n\n具备简历感知的问题生成、行为面试与技术面试模式，以及多轮会话进度追踪——帮助候选人在真实面试前建立信心并打磨答案。"
+          )}
+          media={
+            <VideoPlayer
+              src="/videos/interviewflow-demo.mp4"
+              poster={interviewflowCover}
+            />
+          }
+        />
+
+        {/* Project 5 — Embrace your Corgi */}
+        <ProjectRow
+          index={4}
+          title={t("Embrace your Corgi", "拥抱你的柯基")}
+          description={t(
+            "A playful lifestyle app for corgi lovers that blends daily care guidance, photo journaling, and community storytelling into one delightful experience. Tracks feeding, walks, grooming, and vet visits while curating personalized tips based on each corgi's age, weight, and activity level.\n\nFeatures a memory timeline for capturing milestones, an AI-assisted breed-specific health assistant, and a community feed for sharing corgi moments — designed to deepen the bond between owners and their furry companions.",
+            "一款专为柯基爱好者打造的趣味生活方式应用,将日常护理指导、照片日记和社区分享融为一体。记录喂食、遛弯、美容和兽医就诊,并根据每只柯基的年龄、体重和活动量提供个性化建议。\n\n具备里程碑记忆时间轴、AI驱动的犬种专属健康助手,以及柯基生活分享社区——旨在加深主人与毛茸茸伙伴之间的羁绊。"
+          )}
+          media={
+            <VideoPlayer
+              src="/videos/corgi-life-demo.mp4"
+              poster={corgiLifeCover}
+            />
+          }
+        />
+
+        {/* Project 6 — GTC Explorer */}
+        <ProjectRow
+          index={5}
           title={t(
             "GTC Explorer — NVIDIA GTC 2026",
             "GTC Explorer — 英伟达 GTC 2026"
@@ -163,82 +223,22 @@ const AIProductsPage = () => {
           }
         />
 
-        {/* Project 3 — Auto Marketing Agent */}
-        <ProjectRow
-          index={2}
-          title={t("Auto Marketing Agent", "智能营销代理")}
-          description={t(
-            "AI-powered marketing automation agent that streamlines campaign creation end-to-end. Generates tailored marketing strategies, audience segmentation, ad copy, and visual content — all through a conversational AI interface.\n\nFrom market research to content calendar planning, the agent automates repetitive marketing workflows and delivers actionable insights in real time.",
-            "AI驱动的营销自动化代理，端到端简化营销活动创建流程。通过对话式AI界面生成定制营销策略、受众细分、广告文案和视觉内容。\n\n从市场调研到内容日历规划，该代理自动化重复性营销工作流程，并实时提供可操作的洞察。"
-          )}
-          media={
-            <VideoPlayer
-              src="/videos/auto-marketing-agent-demo.mp4"
-              poster={autoMarketingCover}
-            />
-          }
-        />
-
-        {/* Project 4 — Flavor AI */}
-        <ProjectRow
-          index={3}
-          title={t("Flavor AI — Smart Taste Explorer", "Flavor AI — 智能风味探索")}
-          description={t(
-            "AI-powered flavor profiling application that maps personal taste preferences and generates tailored recipe recommendations. Features interactive ingredient relationship graphs, nutritional breakdowns, and seasonal flavor trend analysis.\n\nCombines computer vision for food recognition with NLP-driven taste modeling to deliver a personalized culinary discovery experience.",
-            "AI驱动的风味分析应用，绘制个人口味偏好图谱并生成定制食谱推荐。具备交互式食材关系图、营养成分分析和季节性风味趋势洞察。\n\n结合计算机视觉食物识别与NLP驱动的口味建模，打造个性化美食探索体验。"
-          )}
-          media={
-            <VideoPlayer
-              src="/videos/flavor-ai-demo.mp4"
-              poster={flavorAiCover}
-            />
-          }
-        />
-
-        {/* Project 5 — SubTracker */}
-        <ProjectRow
-          index={4}
-          title={t("SubTracker — Manage All Your Subscriptions", "SubTracker — 订阅管理助手")}
-          description={t(
-            "All-in-one subscription management app that consolidates recurring payments — streaming, SaaS, memberships — into a single, clear dashboard. Tracks renewal dates, categorizes expenses, and surfaces unused subscriptions to help users cut hidden costs.\n\nFeatures smart renewal reminders, monthly and annual spend visualizations, and a calendar view of upcoming charges. Built to give users full visibility and control over their digital subscription footprint.",
-            "一站式订阅管理应用，将流媒体、SaaS、会员等所有周期性付款整合到清晰的仪表板中。追踪续订日期、分类支出，并识别未使用的订阅，帮助用户削减隐形开支。\n\n具备智能续订提醒、月度与年度支出可视化，以及即将扣费的日历视图。让用户全面掌控数字订阅足迹。"
-          )}
-          media={
-            <VideoPlayer
-              src="/videos/subtracker-demo.mp4"
-              poster={subtrackerCover}
-            />
-          }
-        />
-
-        {/* Project 6 — InterviewFlow */}
-        <ProjectRow
-          index={5}
-          title={t("InterviewFlow — Customized Interview Assistant", "InterviewFlow — 定制化面试助手")}
-          description={t(
-            "AI-powered interview preparation assistant that personalizes mock interviews based on each candidate's target role, industry, and experience level. Generates tailored question sets, evaluates responses in real time, and delivers structured feedback on content, clarity, and delivery.\n\nFeatures resume-aware question generation, behavioral and technical interview modes, and progress tracking across sessions — helping candidates build confidence and refine their answers before the real interview.",
-            "AI驱动的面试准备助手，根据候选人的目标职位、行业和经验水平定制模拟面试。生成个性化问题集，实时评估回答，并对内容、清晰度和表达方式提供结构化反馈。\n\n具备简历感知的问题生成、行为面试与技术面试模式，以及多轮会话进度追踪——帮助候选人在真实面试前建立信心并打磨答案。"
-          )}
-          media={
-            <VideoPlayer
-              src="/videos/interviewflow-demo.mp4"
-              poster={interviewflowCover}
-            />
-          }
-        />
-
-        {/* Project 7 — Embrace your Corgi */}
+        {/* Project 7 — NestEd */}
         <ProjectRow
           index={6}
-          title={t("Embrace your Corgi", "拥抱你的柯基")}
+          title={t("NestEd — Breaking the Cycle", "NestEd — 打破贫困循环")}
           description={t(
-            "A playful lifestyle app for corgi lovers that blends daily care guidance, photo journaling, and community storytelling into one delightful experience. Tracks feeding, walks, grooming, and vet visits while curating personalized tips based on each corgi's age, weight, and activity level.\n\nFeatures a memory timeline for capturing milestones, an AI-assisted breed-specific health assistant, and a community feed for sharing corgi moments — designed to deepen the bond between owners and their furry companions.",
-            "一款专为柯基爱好者打造的趣味生活方式应用,将日常护理指导、照片日记和社区分享融为一体。记录喂食、遛弯、美容和兽医就诊,并根据每只柯基的年龄、体重和活动量提供个性化建议。\n\n具备里程碑记忆时间轴、AI驱动的犬种专属健康助手,以及柯基生活分享社区——旨在加深主人与毛茸茸伙伴之间的羁绊。"
+            "AI-powered mobile app empowering low-income parents in Brazil with parenting skills, financial literacy, nutrition, and career development.\n\nBuilt with FlutterFlow and Firebase. Designed for social impact at scale.",
+            "AI驱动的移动应用，为巴西低收入家庭父母提供育儿技能、金融素养、营养和职业发展支持。\n\n使用 FlutterFlow 和 Firebase 构建，专注于规模化社会影响。"
           )}
+          link="/projects/ai-products/nested"
+          linkLabel={t("View Details →", "查看详情 →")}
           media={
-            <VideoPlayer
-              src="/videos/corgi-life-demo.mp4"
-              poster={corgiLifeCover}
+            <img
+              src={nestedCover}
+              alt="NestEd App"
+              className="w-full h-full object-cover rounded-lg aspect-video"
+              loading="lazy"
             />
           }
         />

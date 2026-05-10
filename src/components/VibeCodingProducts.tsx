@@ -31,24 +31,6 @@ const Marquee = ({ text }: { text: string }) => (
 
 const vibeProducts = [
   {
-    title: "NestEd — Breaking the Cycle",
-    titleZh: "NestEd — 打破贫困循环",
-    description: "AI-powered mobile app empowering low-income parents in Brazil with parenting, financial literacy, and career skills.",
-    descriptionZh: "AI驱动的移动应用，为巴西低收入家庭父母提供育儿、金融素养和职业技能支持。",
-    tags: ["FLUTTERFLOW", "FIREBASE", "AI/ML"],
-    image: nestedCover,
-    to: "/projects/ai-products/nested",
-  },
-  {
-    title: "GTC Explorer — NVIDIA GTC 2026",
-    titleZh: "GTC Explorer — 英伟达 GTC 2026",
-    description: "Interactive exhibitor industry map visualizing 61 companies across 12 sectors in a dynamic network graph.",
-    descriptionZh: "参展商行业地图，以动态网络图展示12个行业的61家公司。",
-    tags: ["DATA VIZ", "NETWORK GRAPH", "VIBE CODING"],
-    image: gtcCover,
-    to: "/projects/ai-products",
-  },
-  {
     title: "Auto Marketing Agent",
     titleZh: "智能营销代理",
     description: "AI-driven marketing automation agent that generates campaign strategies, content, and audience insights in real time.",
@@ -92,6 +74,24 @@ const vibeProducts = [
     tags: ["LIFESTYLE", "MOBILE APP", "VIBE CODING"],
     image: corgiLifeCover,
     to: "/projects/ai-products",
+  },
+  {
+    title: "GTC Explorer — NVIDIA GTC 2026",
+    titleZh: "GTC Explorer — 英伟达 GTC 2026",
+    description: "Interactive exhibitor industry map visualizing 61 companies across 12 sectors in a dynamic network graph.",
+    descriptionZh: "参展商行业地图，以动态网络图展示12个行业的61家公司。",
+    tags: ["DATA VIZ", "NETWORK GRAPH", "VIBE CODING"],
+    image: gtcCover,
+    to: "/projects/ai-products",
+  },
+  {
+    title: "NestEd — Breaking the Cycle",
+    titleZh: "NestEd — 打破贫困循环",
+    description: "AI-powered mobile app empowering low-income parents in Brazil with parenting, financial literacy, and career skills.",
+    descriptionZh: "AI驱动的移动应用，为巴西低收入家庭父母提供育儿、金融素养和职业技能支持。",
+    tags: ["FLUTTERFLOW", "FIREBASE", "AI/ML"],
+    image: nestedCover,
+    to: "/projects/ai-products/nested",
   },
 ];
 
